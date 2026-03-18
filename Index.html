@@ -23,6 +23,8 @@
             --header-bg: var(--blanco);
             --eliminar: #ff4444;
             --eliminar-hover: #cc0000;
+            --rojo: #dc3545;
+            --rojo-hover: #c82333;
         }
 
         body.dark-mode {
@@ -136,17 +138,37 @@
             background-color: var(--gris-fondo-secundario);
             color: var(--text-color);
             border: 1px solid var(--gris-borde);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 0.3rem;
+            transition: all 0.2s;
         }
         .btn-accion:hover {
             background-color: var(--gris-hover-secundario);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+
+        .btn-rojo {
+            background-color: var(--rojo) !important;
+            color: white !important;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .btn-rojo:hover {
+            background-color: var(--rojo-hover) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
         .btn-eliminar {
             background-color: var(--eliminar);
             color: white;
@@ -160,9 +182,11 @@
             cursor: pointer;
             font-size: 1rem;
             margin-left: 0.5rem;
+            transition: background-color 0.2s, transform 0.2s;
         }
         .btn-eliminar:hover {
             background-color: var(--eliminar-hover);
+            transform: scale(1.1);
         }
 
         .titulo-locales {
@@ -183,6 +207,11 @@
             font-size: 0.9rem;
             margin-bottom: 1rem;
             display: inline-block;
+            transition: all 0.2s;
+        }
+        #volver-locales:hover {
+            background-color: var(--gris-hover-secundario);
+            transform: translateY(-2px);
         }
 
         .buscador-container {
@@ -199,6 +228,7 @@
             color: var(--text-color);
             font-size: 1rem;
             outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
         .buscador-input:focus {
             border-color: var(--whatsapp);
@@ -217,17 +247,25 @@
             background-color: var(--gris-fondo-secundario);
             border: 1px solid var(--gris-borde);
             border-radius: 30px;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             font-size: 0.9rem;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             color: var(--text-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .btn-categoria:hover {
+            background-color: var(--gris-hover-secundario);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .btn-categoria.activo {
             background-color: var(--whatsapp);
             color: white;
             border-color: var(--whatsapp);
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
         }
 
         #select-categoria-movil {
@@ -267,7 +305,6 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* Estilo para locales sin menú */
         .card-local.sin-menu {
             filter: grayscale(0.8);
             opacity: 0.6;
@@ -299,7 +336,6 @@
             font-size: 1.1rem;
         }
 
-        /* Estado abierto/cerrado */
         .estado-local {
             display: inline-block;
             padding: 0.2rem 0.8rem;
@@ -332,9 +368,14 @@
             border-radius: 8px;
             border: 1px solid var(--gris-borde);
             padding: 0.8rem;
-            transition: box-shadow 0.2s;
+            transition: box-shadow 0.2s, transform 0.2s;
             display: flex;
             flex-direction: column;
+            word-break: break-word;
+        }
+        .card-producto:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
         }
 
         .imagen-producto {
@@ -376,16 +417,25 @@
             background-color: var(--whatsapp);
             color: white;
             border: none;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
+            padding: 0.6rem 1rem;
+            border-radius: 30px;
             cursor: pointer;
-            font-size: 0.9rem;
-            transition: background-color 0.3s;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             margin-top: auto;
         }
 
         .btn-agregar:hover {
             background-color: var(--whatsapp-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-agregar:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .siguiente-bar {
@@ -395,10 +445,10 @@
             transform: translateX(-50%);
             background-color: var(--whatsapp);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.8rem 2rem;
             border-radius: 50px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            font-size: 1.1rem;
             font-weight: bold;
             border: none;
             cursor: pointer;
@@ -406,6 +456,7 @@
             display: none;
             align-items: center;
             gap: 0.5rem;
+            transition: all 0.3s;
         }
 
         .siguiente-bar.visible {
@@ -414,6 +465,8 @@
 
         .siguiente-bar:hover {
             background-color: var(--whatsapp-hover);
+            transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
         }
 
         #soporte-btn {
@@ -434,10 +487,13 @@
             font-size: 1.8rem;
             border: none;
             text-decoration: none;
+            transition: all 0.3s;
         }
 
         #soporte-btn:hover {
             background-color: var(--whatsapp-hover);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
         }
 
         #vaciar-carrito-flotante {
@@ -452,16 +508,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             cursor: pointer;
             z-index: 1000;
             font-size: 1.8rem;
             border: none;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
             visibility: hidden;
             opacity: 0;
             transform: scale(0.8);
-            transition: visibility 0.2s, opacity 0.2s, transform 0.2s;
         }
 
         #vaciar-carrito-flotante.visible {
@@ -472,6 +527,8 @@
 
         #vaciar-carrito-flotante:hover {
             background-color: var(--eliminar-hover);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
         }
 
         .badge-carrito {
@@ -511,6 +568,12 @@
             background-color: var(--card-bg);
             color: var(--text-color);
             font-family: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: var(--whatsapp);
+            box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
+            outline: none;
         }
 
         .resumen-pedido {
@@ -550,7 +613,6 @@
             text-align: center;
         }
 
-        /* Distancia y estado */
         .distancia-info {
             background-color: var(--fondo-detalle);
             padding: 0.8rem;
@@ -561,7 +623,6 @@
             border: 1px solid var(--whatsapp);
         }
 
-        /* Modal de confirmación */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -608,6 +669,7 @@
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.9rem;
+            transition: all 0.2s;
         }
         .modal-acciones .btn-primary {
             background-color: var(--whatsapp);
@@ -615,6 +677,7 @@
         }
         .modal-acciones .btn-primary:hover {
             background-color: var(--whatsapp-hover);
+            transform: translateY(-2px);
         }
         .modal-acciones .btn-secundario {
             background-color: var(--gris-fondo-secundario);
@@ -622,6 +685,7 @@
         }
         .modal-acciones .btn-secundario:hover {
             background-color: var(--gris-hover-secundario);
+            transform: translateY(-2px);
         }
         .cerrar-modal {
             position: absolute;
@@ -630,6 +694,10 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--text-color);
+            transition: color 0.2s;
+        }
+        .cerrar-modal:hover {
+            color: var(--eliminar);
         }
         .modal-resumen {
             background-color: var(--fondo-detalle);
@@ -647,6 +715,16 @@
             color: var(--text-color);
         }
 
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5); }
+            100% { transform: scale(1); box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
+        }
+        .btn-pulse {
+            animation: pulse 1.5s infinite;
+        }
+
+        /* ===== MEJORAS PARA MÓVIL ===== */
         @media (max-width: 600px) {
             .btn-categoria {
                 display: none;
@@ -686,6 +764,54 @@
                 height: 20px;
                 font-size: 0.7rem;
             }
+
+            /* Ajustes para tarjetas de producto en móvil */
+            .card-producto {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+            .card-producto h4 {
+                font-size: 0.95rem;
+                white-space: normal;
+                word-break: break-word;
+            }
+            .card-producto p {
+                font-size: 0.75rem;
+                line-height: 1.2;
+            }
+            .precio-base, .precio-final {
+                font-size: 0.9rem;
+            }
+            .opciones-producto select,
+            .opciones-producto input {
+                padding: 0.2rem;
+                font-size: 0.8rem;
+            }
+            /* Contenedor de ingredientes con scroll */
+            .ingredientes-container {
+                max-height: 140px;
+                overflow-y: auto;
+                border: 1px solid var(--gris-borde);
+                border-radius: 4px;
+                padding: 0.3rem;
+                margin: 0.3rem 0;
+                background-color: var(--fondo-tarjetas);
+            }
+            .ingredientes-container label {
+                display: block;
+                font-size: 0.75rem;
+                padding: 0.2rem 0;
+                border-bottom: 1px dashed var(--gris-borde);
+                word-break: break-word;
+            }
+            .ingredientes-container label:last-child {
+                border-bottom: none;
+            }
+            .btn-agregar {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.85rem;
+                margin-top: 0.3rem;
+            }
         }
     </style>
 </head>
@@ -696,6 +822,14 @@
         <div class="slogan">Donde Quieras, Cuando Quieras.</div>
         <button id="dark-mode-toggle" type="button">🌙</button>
     </header>
+
+    <!-- Elementos de audio (sin control visible) -->
+    <audio id="musica-fondo" loop preload="auto" volume="50">
+        <source src="Goxpress.mpeg" type="audio/mpeg">
+    </audio>
+    <audio id="sonido-confirmar" preload="auto" volume="0.5">
+        <source src="confirmacion.mp3" type="audio/mpeg">
+    </audio>
 
     <div id="vista-inicio" class="container vista activa">
         <div class="titulo-locales">🌟 Nuestros Locales Aliados — ¡Pide con toda confianza! 🌟</div>
@@ -711,6 +845,7 @@
             <button class="btn-categoria" data-categoria="farmacia" type="button">Farmacias</button>
             <button class="btn-categoria" data-categoria="licores" type="button">Licorerías</button>
             <button class="btn-categoria" data-categoria="floristeria" type="button">Floristerías</button>
+            <button class="btn-categoria" data-categoria="Ropa" type="button">Ropa</button>
             <button class="btn-categoria" data-categoria="otros" type="button">Otros</button>
         </div>
 
@@ -721,13 +856,13 @@
             <option value="farmacia">Farmacias</option>
             <option value="licores">Licorerías</option>
             <option value="floristeria">Floristerías</option>
+            <option value="Ropa">Ropa</option>
             <option value="otros">Otros</option>
         </select>
 
         <div id="locales-container" class="locales-grid"></div>
         <div id="local-seleccionado" style="display: none;">
             <button id="volver-locales" type="button">← Ver todos los locales</button>
-            <!-- Aquí mostramos la información de distancia -->
             <div id="distancia-info" class="distancia-info">📍 Obteniendo tu ubicación para calcular el envío...</div>
             <div id="productos-local"></div>
         </div>
@@ -777,8 +912,8 @@
             </div>
 
             <div id="resumen-checkout" class="resumen-pedido"></div>
-            <button type="submit" class="btn-agregar" style="width: 100%; padding: 0.8rem;">Confirmar pedido</button>
-            <button type="button" id="volver-inicio-checkout" class="btn-agregar" style="background-color: var(--gris-fondo-secundario); color: var(--text-color); margin-top: 0.5rem;">Volver</button>
+            <button type="submit" class="btn-agregar" style="width: 100%; padding: 0.8rem;">Asignar pedido</button>
+            <button type="button" id="volver-inicio-checkout" class="btn-rojo" style="width: 100%; margin-top: 0.5rem;">Volver</button>
         </form>
     </div>
 
@@ -797,16 +932,28 @@
         <div class="modal-contenido">
             <span class="cerrar-modal" id="cerrar-modal">&times;</span>
             <h3>📦 Confirmar envío al local</h3>
-            <div id="modal-resumen" class="modal-resumen">
-                <!-- Se llena dinámicamente -->
-            </div>
+            <div id="modal-resumen" class="modal-resumen"></div>
             <div class="form-group">
                 <label for="costo-envio-modal">Costo de envío ($):</label>
                 <input type="number" id="costo-envio-modal" step="0.01" min="0" placeholder="Ej: 2.50" required>
             </div>
             <div class="modal-acciones">
                 <button class="btn-secundario" id="cancelar-envio">Cancelar</button>
-                <button class="btn-primary" id="confirmar-envio-local">Enviar pedido al local</button>
+                <button class="btn-primary" id="confirmar-envio-local">Confirmar pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para local cerrado -->
+    <div id="modal-local-cerrado" class="modal-overlay">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" id="cerrar-modal-cerrado">&times;</span>
+            <h3>🔴 Local Cerrado</h3>
+            <div class="modal-resumen">
+                El local está cerrado en este momento. Por favor, intenta cuando esté abierto.
+            </div>
+            <div class="modal-acciones">
+                <button class="btn-primary" id="cerrar-modal-cerrado-btn">Aceptar</button>
             </div>
         </div>
     </div>
@@ -829,39 +976,38 @@
         const WHATSAPP_ADMIN = '593994710370'; // Número del administrador
 
         // Factor de corrección para aproximar distancia lineal a distancia real por calle
-        // Ajusta este valor según tus pruebas (ej. 1.75 si 1.2 km lineales = 2.1 km reales)
         const FACTOR_CORRECCION = 1.75;
 
-        // ===== LOCALES CON COORDENADAS (se deben agregar lat/lng a cada uno) =====
+        // ===== LOCALES CON COORDENADAS =====
         const datosGOXPRESS = {
-            locales: [
+             locales: [
                 // ==================== COMIDA ====================
-                { id: 1, nombre: "ALAS 8 Ambato", categoria: "comida", horario: "Lun-Dom 16:30-22:30", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuECE4c470GkAKb1Ko8MjLqaCDw6eAAxHu-FKBi0qARb3fskxo0_8AJPXOxccibotRdbGmbHik99v8r7ZiKISEPwsvstj-9FCN9ABj9lXHve0-eHdRpOgkk3RkvUOMHf8vm3PqQYL3p3oACQDelapA4N6rK5JtjEe66CDg5Aez_VuaDRf1QcEgFmc0ccA/s320/Alas%208%20Ambato.jpg", whatsapp: "593987788964", lat: -1.25568, lng: -78.63162 }, // coordenadas
-                { id: 2, nombre: "Apapear&Sweet", categoria: "comida", horario: "Lun-Dom 18:00-00:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBQTNNic_39942T7xMqvVlRvtOqBqPypc0WmTszk-7PZ66OhCyNTDpnvCXyxbSAi9ae19e3gVgQ9-pBH8RbuFmoVVhxjVe8ViUGpiaefaw1qCDzkuV1eiq_cj04eYKDxL4HQf8GvqCKKUO5KNbhZD5XStN2aly_IaIheoJFsouL08EK8M5B5cCZ0a5uoQ/s320/Apapear&Sweet.jpg", whatsapp: "593962872182", lat: -1.24495, lng: -78.63075 },
-                { id: 3, nombre: "BerdiGrill", categoria: "comida", horario: "Lun-Dom 18:00-00:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiU59ru8ll7imu_8jXJb-UJBJAP_8sBJQfKHSeLua5Qpaaf4H4_7EjLha9Bl8Jv3v8gaPW4sUbHb-1sIUii2572wDrHKtu_e0CzHII1_xdPxt_Rlzkbn4yiYyPvdOssfx1HBTs-woijJ4zv3G7oAQaZZpZWCHCLYplXSlONltlp8WkYCLd4_rnUwtNCyGI/s320/Berdi%20Grill.jpeg", whatsapp: "593981779177", lat: -1.24558, lng: -78.63064 },
-                { id: 4, nombre: "Bolonche", categoria: "comida", horario: "Lun-Dom 18:00-00:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3Bmo_-OOh1fZWuAIPJtZ3sKxT6FjQSJZGZx_BGLSj6cj4T0NR818zn4MQCZIbv_jNpMOXODlcIhrSoGDPJzq8dDqDXTEM_eEnRSJcI1xLRMqUTNANiaD8lvz8tvvbVM4EV680dzq9OaMxHVpPPdXpDYT9BQqqoSLOjGN_Cu0ufCYKsBVJpZ-QLGckglM/s1600/Bolonche.jpg", whatsapp: "593991495550", lat: -1.25366, lng: -78.63690 },
+                { id: 1, nombre: "ALAS 8 Ambato", categoria: "comida", horario: "Lun-Dom cerrado", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuECE4c470GkAKb1Ko8MjLqaCDw6eAAxHu-FKBi0qARb3fskxo0_8AJPXOxccibotRdbGmbHik99v8r7ZiKISEPwsvstj-9FCN9ABj9lXHve0-eHdRpOgkk3RkvUOMHf8vm3PqQYL3p3oACQDelapA4N6rK5JtjEe66CDg5Aez_VuaDRf1QcEgFmc0ccA/s320/Alas%208%20Ambato.jpg", whatsapp: "593987788964", lat: -1.25568, lng: -78.63162 }, // coordenadas
+                { id: 2, nombre: "Apapear&Sweet", categoria: "comida", horario: "Lun-Dom 09:00-21:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBQTNNic_39942T7xMqvVlRvtOqBqPypc0WmTszk-7PZ66OhCyNTDpnvCXyxbSAi9ae19e3gVgQ9-pBH8RbuFmoVVhxjVe8ViUGpiaefaw1qCDzkuV1eiq_cj04eYKDxL4HQf8GvqCKKUO5KNbhZD5XStN2aly_IaIheoJFsouL08EK8M5B5cCZ0a5uoQ/s320/Apapear&Sweet.jpg", whatsapp: "593962872182", lat: -1.24495, lng: -78.63075 },
+                { id: 3, nombre: "BerdiGrill", categoria: "comida", horario: "Lun Cerrado ; Mar-Dom 18:00-22:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiU59ru8ll7imu_8jXJb-UJBJAP_8sBJQfKHSeLua5Qpaaf4H4_7EjLha9Bl8Jv3v8gaPW4sUbHb-1sIUii2572wDrHKtu_e0CzHII1_xdPxt_Rlzkbn4yiYyPvdOssfx1HBTs-woijJ4zv3G7oAQaZZpZWCHCLYplXSlONltlp8WkYCLd4_rnUwtNCyGI/s320/Berdi%20Grill.jpeg", whatsapp: "593981779177", lat: -1.24558, lng: -78.63064 },
+                { id: 4, nombre: "Bolonche", categoria: "comida", horario: "Lun-Dom 08:00-21:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3Bmo_-OOh1fZWuAIPJtZ3sKxT6FjQSJZGZx_BGLSj6cj4T0NR818zn4MQCZIbv_jNpMOXODlcIhrSoGDPJzq8dDqDXTEM_eEnRSJcI1xLRMqUTNANiaD8lvz8tvvbVM4EV680dzq9OaMxHVpPPdXpDYT9BQqqoSLOjGN_Cu0ufCYKsBVJpZ-QLGckglM/s1600/Bolonche.jpg", whatsapp: "593991495550", lat: -1.25366, lng: -78.63690 },
                 { id: 5, nombre: "Brissa Marisquería Los Shyris", categoria: "comida", horario: "Lun-Dom 8:00-16:30", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpE2H6bwEn5GsZiro4wtOIL5q4TLPBniyZ-kgDczDkUhXGDCs-lqtKZAxg30C2uynpA4XdIDi0PGZIWAf9MrljbRaCYhA97k3yW1UFmv33DsZIOJ4yPygFnjk2wcPdpu2i3pc_9SZh8OjZBvHTr0VHAZwAFJUq1wIFMlJ4Ldmy9PP5inkPWSH-WM9E3ts/s320/Brissas.jpg", whatsapp: "593997081252", lat: -1.2585, lng: -78.63070 },
                 { id: 6, nombre: "Brissa Marisquería Izamba", categoria: "comida", horario: "Lun-Dom 8:00-16:30", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpE2H6bwEn5GsZiro4wtOIL5q4TLPBniyZ-kgDczDkUhXGDCs-lqtKZAxg30C2uynpA4XdIDi0PGZIWAf9MrljbRaCYhA97k3yW1UFmv33DsZIOJ4yPygFnjk2wcPdpu2i3pc_9SZh8OjZBvHTr0VHAZwAFJUq1wIFMlJ4Ldmy9PP5inkPWSH-WM9E3ts/s320/Brissas.jpg", whatsapp: "593963839302", lat: -1.22717, lng: -78.59154 },
                 { id: 7, nombre: "Brissa Marisqueria Huachi", categoria: "comida", horario: "Lun-Dom 8:00-16:30", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpE2H6bwEn5GsZiro4wtOIL5q4TLPBniyZ-kgDczDkUhXGDCs-lqtKZAxg30C2uynpA4XdIDi0PGZIWAf9MrljbRaCYhA97k3yW1UFmv33DsZIOJ4yPygFnjk2wcPdpu2i3pc_9SZh8OjZBvHTr0VHAZwAFJUq1wIFMlJ4Ldmy9PP5inkPWSH-WM9E3ts/s320/Brissas.jpg", whatsapp: "593989070245", lat: -1.27611, lng: -78.63121 },
                 { id: 8, nombre: "Brissa y Marisqueria La Primavera", categoria: "comida", horario: "Lun-Dom 8:00-16:30", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpE2H6bwEn5GsZiro4wtOIL5q4TLPBniyZ-kgDczDkUhXGDCs-lqtKZAxg30C2uynpA4XdIDi0PGZIWAf9MrljbRaCYhA97k3yW1UFmv33DsZIOJ4yPygFnjk2wcPdpu2i3pc_9SZh8OjZBvHTr0VHAZwAFJUq1wIFMlJ4Ldmy9PP5inkPWSH-WM9E3ts/s320/Brissas.jpg", whatsapp: "593985372085", lat: -1.28252, lng: -78.62145 },
                 { id: 9, nombre: "Brisa & Marea", categoria: "comida", horario: "Lun-Dom 8:00-16:00", imagen: "https://ideogram.ai/assets/image/balanced/response/m6DQ3DYGRSW4I_POK7Selg@2k", whatsapp: "593000000001", lat: -1.26538, lng: -78.63033 },
                 { id: 10, nombre: "Broos Burguer Las Chancro", categoria: "comida", horario: "Lun-Dom 18:00-00:00", imagen: "https://scontent.fuio11-2.fna.fbcdn.net/v/t39.30808-1/473259287_624976316711774_3226442731634568411_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=107&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeFmlzrMP9JOkRM4MKayL3bDygctMw34phfKBy0zDfimF6xiOe6OMqNyxXoRGioRWiv3mK04aKekg_08Pk1WE77n&_nc_ohc=6JNLmOpQkwwQ7kNvwHH2Ena&_nc_oc=Adkz2ufN0l7QFYNeHAebgiyMUkQqSkyXCMw2Jw4Vf_bGP0dZPCrL54BE-HCOMmMIsj8&_nc_zt=24&_nc_ht=scontent.fuio11-2.fna&_nc_gid=jGeSd1CdySUWgbxVEdP-hg&_nc_ss=8&oh=00_Afzjf77EW5jzAoy51WOCE4k_0l75zEORo1-LHIM5WKpCJg&oe=69B576BC", whatsapp: "593995393794", lat: null, lng: null },
-                { id: 11, nombre: "Broster Casero", categoria: "comida", horario: "Lun-Dom 13:00-22:00", imagen: "https://scontent.fuio11-1.fna.fbcdn.net/v/t39.30808-6/463415695_1072927928168350_429729094889415116_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeF4OvoftKO_ha8Ghf1iGmwoz4B5C1rrdFnPgHkLWut0WV97RFy8X8LvN1JTLDzCvelwgHQgiIXGFjGjctGPhYfy&_nc_ohc=OOLAH5dBdZwQ7kNvwF7DiIH&_nc_oc=AdnyTCpwH65N-38UUPRvNh7AxIALaheuvT0XJ_682g_qh7CLTDLFRx9GdV-ljPxnWiY&_nc_zt=23&_nc_ht=scontent.fuio11-1.fna&_nc_gid=wOEZefdF7npM9nNMiZWCWw&_nc_ss=8&oh=00_AfyY9YBole6IKw_1z5tqiwL1Jhqz7Ne67A6baCkLGatngQ&oe=69B57C9F", whatsapp: "593960058909", lat: null, lng: null },
+                { id: 11, nombre: "Broster Casero", categoria: "comida", horario: "Lun-Dom 13:00-22:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiv9Rz0cIuBhwKu9AYIDzfXbDUjiSBB2flRZueX-rbnnGNRKUUjJI5csvCfCSghKOYqTRUqB-_9W_9Hrnpc5R4dFrAlzdK8u-snSzNImls2khJFXvvtRp80cVOMd-jdsXOrwZJ94e3f8tghAFW0CdBUtSve4RGlQolkcOI_HZKtWDjTFg3_LcyhW_jRozQ/s320/Broster%20Casero.jpg", whatsapp: "593960058909", lat: -1.27916, lng: -78.61348 },
                 { id: 12, nombre: "Camaron Reventado", categoria: "comida", horario: "Lun-Dom 19:00-21:00", imagen: "https://scontent.fuio11-1.fna.fbcdn.net/v/t39.30808-6/447429079_986902356770522_1496177889529826339_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeFtftRicDlGBcdB-Nu-kuBFnJNCDWRcDCqck0INZFwMKszBR2d78e729ULD4qNJ9wT1qSO7X9zdyLwfStIjT-9o&_nc_ohc=ky1Pee-lVHAQ7kNvwEqE_ei&_nc_oc=AdkbmRYt6XAQ42jBLJtys5ggL-aLuxVYubterPyMTuhpeGj3UHD2Pw_vzS6bZslupUk&_nc_zt=23&_nc_ht=scontent.fuio11-1.fna&_nc_gid=Hyu1Y9uuB1FPNPAhKOfUPg&_nc_ss=8&oh=00_Afy8pX8_9kMOchvTFa_3Njqob3CwLn2UpG0oRZNwxkgr7A&oe=69B5A0E6", whatsapp: "593987333113", lat: null, lng: null },
-                { id: 13, nombre: "Chifa Global", categoria: "comida", horario: "Lun-Dom 10:00-22:00", imagen: "https://scontent.fuio11-2.fna.fbcdn.net/v/t39.30808-6/324235238_649603013608491_8203603425919112615_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGmYL_IrRQESq0CUoD-HbJNZCeb-BwIg6tkJ5v4HAiDqyuFsteblTZXM96E9g4Sxo5KLctrF4-GVigyGaIkxN-5&_nc_ohc=vPIbz2uM-nsQ7kNvwFCcGiy&_nc_oc=AdkB9yQ6uhFi8Puy6oQcx4cldm8UH2dH50MKCKUvpf60hlvz9obRoS7Gn0kua5u0s40&_nc_zt=23&_nc_ht=scontent.fuio11-2.fna&_nc_gid=ErYS8wRZK5kl8COinUwh6Q&_nc_ss=8&oh=00_AfxGRMfyV6p5EXALJP6t5Q-qIiXVC1ugFCN_dO9vIq1spg&oe=69B582DE", whatsapp: "593968412781", lat: null, lng: null },
+                { id: 13, nombre: "Chifa Global", categoria: "comida", horario: "Lun-Dom 10:00-22:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEOsL48CmZlKi6L0IDTuGYHjmLpN18hInzSIxBYxALDn0k7-Y8FmbMj_0alEvkzzf3M9DDG-Uqy_ig9fuGDb8y1Fj4reJJ-4dnDowc1cr7gTP8mRkAMAfWxRqfu427zWpXy9hp3RWJe-3p-PpVF7_C-elo7DZfQwuZ_yR9lDtrybgY-GhsnShaEohS2Nw/s320/Chifa%20Global.jpg", whatsapp: "593968412781", lat: -1.22654, lng: -78.59861 },
                 { id: 14, nombre: "Chifa China 2", categoria: "comida", horario: "Lun-Dom 8:00-22:00", imagen: "https://scontent.fuio11-1.fna.fbcdn.net/v/t39.30808-6/306008730_503978325067386_5882592404201301342_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeFL9IM0S7ze9lBQr4MoiUIhEZtXSHKnwewRm1dIcqfB7MPmeiwC6WQ8iFMjjz4T8LSrhO1ww-dszOq5G0ehcNhK&_nc_ohc=xt1W9gt9ceMQ7kNvwGKTVCo&_nc_oc=AdluFPWHgFlCmotpmLfBhP2a6ZG-Ersam5lRSLU9EJMBw4x2nzqOxo6QN9fy676QQmo&_nc_zt=23&_nc_ht=scontent.fuio11-1.fna&_nc_gid=9o2ax7yT4zwFld88mXjsDA&_nc_ss=8&oh=00_Afywevg_CNKy2cpaxN3cFLP2NA3iX1gv6-C8iIgcotCEAQ&oe=69B58981", whatsapp: "593993768037", lat: null, lng: null },
-                { id: 15, nombre: "Chifa Yin Yang Yahuira", categoria: "comida", horario: "Lun-Dom 11:30-21:30", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9oacdi4QOL-q_Ewa31gd3gceFaJmlvQKiQA57weJrxL9BdIJA0WLHLPSoM8qdcrR0QCStI2OmqVJ9JQ5rYx4IFpRnjHfFy6wX0FFt13frDdNqYshtJK7OhtSSERCeJYyLcLCAsDARX0l89rK5YjU9kXdjVrBFFKWbTP5syot56vM0-nGr058vFRHoaYk/s1600/Chifa%20Yin%20Yang.jpg", whatsapp: "593969443679", lat: null, lng: null },
-                { id: 16, nombre: "Chifa Yin Yang Izamba", categoria: "comida", horario: "Lun-Dom 11:30-21:30", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9oacdi4QOL-q_Ewa31gd3gceFaJmlvQKiQA57weJrxL9BdIJA0WLHLPSoM8qdcrR0QCStI2OmqVJ9JQ5rYx4IFpRnjHfFy6wX0FFt13frDdNqYshtJK7OhtSSERCeJYyLcLCAsDARX0l89rK5YjU9kXdjVrBFFKWbTP5syot56vM0-nGr058vFRHoaYk/s1600/Chifa%20Yin%20Yang.jpg", whatsapp: "593958937282", lat: null, lng: null },
+                { id: 15, nombre: "Chifa Yin Yang Yahuira", categoria: "comida", horario: "Lun-Dom 11:30-21:30", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9oacdi4QOL-q_Ewa31gd3gceFaJmlvQKiQA57weJrxL9BdIJA0WLHLPSoM8qdcrR0QCStI2OmqVJ9JQ5rYx4IFpRnjHfFy6wX0FFt13frDdNqYshtJK7OhtSSERCeJYyLcLCAsDARX0l89rK5YjU9kXdjVrBFFKWbTP5syot56vM0-nGr058vFRHoaYk/s1600/Chifa%20Yin%20Yang.jpg", whatsapp: "593969443679", lat: -1.24548, lng: -78.63089 },
+                { id: 16, nombre: "Chifa Yin Yang Izamba", categoria: "comida", horario: "Lun-Dom 11:30-21:30", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9oacdi4QOL-q_Ewa31gd3gceFaJmlvQKiQA57weJrxL9BdIJA0WLHLPSoM8qdcrR0QCStI2OmqVJ9JQ5rYx4IFpRnjHfFy6wX0FFt13frDdNqYshtJK7OhtSSERCeJYyLcLCAsDARX0l89rK5YjU9kXdjVrBFFKWbTP5syot56vM0-nGr058vFRHoaYk/s1600/Chifa%20Yin%20Yang.jpg", whatsapp: "593958937282", lat: -1.22561, lng: -78.59740 },
                 { id: 17, nombre: "Combo Loco", categoria: "comida", horario: "Lun-Dom 18:00-00:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/502948997_122154477530546031_877418617723055673_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeG7WMpkQt2EKdeOOLwOngspP-w-OFr0zu8_7D44WvTO71OBCrNXieIpktA1DLOUzZbGT5yUjPMqKgy7Ju-xfWvi&_nc_ohc=1KDaQG0J_JwQ7kNvwE1ZFjN&_nc_oc=AdmicJE9DCTEg1DDzOrCOWwB5imaHQ36iD6-GnDZmN6ejWQZTqX7HXxvBQ6mSqBN2PM&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=7JbCnXGn49hbvLalMFUegQ&_nc_ss=8&oh=00_AfzVxXV7rWifoa7COJAenRKN8_fxASJrCrJKTrGS4GwS1Q&oe=69B59DC8", whatsapp: "593979065635", lat: null, lng: null },
-                { id: 18, nombre: "Cosmopolita Coffee", categoria: "comida", horario: "Lun-Dom 08:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/277518129_508116557691966_7695132929388714249_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeEidwhsblqnG06QgZh0C8S5seQN8PIVDzWx5A3w8hUPNZ6JEA9d74e8LiP55sWPZlWb4FrxFqYReOV5YWallaO8&_nc_ohc=20c3-gRg0vAQ7kNvwHCdKQp&_nc_oc=AdnGDEDO84Mk3PprgiFmWHX1rCWADcyVCNrAdZL-A6pTCKh0VwhC3RHJjZAFgsCVlQA&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=1VckSaFBXcyaBcQwDgWryw&_nc_ss=8&oh=00_AfwWZsu9vShWLTm4gL3Tl4FKiXMOeqwT3kX-DnqaZrMLLg&oe=69B57A89", whatsapp: "593995212341", lat: null, lng: null },
+                { id: 18, nombre: "Chifa Nuevo HongKong", categoria: "comida", horario: "Lun-Dom 08:00-22:00", imagen: "https://ideogram.ai/assets/image/balanced/response/_71926jRQ526NZskONykvw@2k", whatsapp: "593", lat: -1.24048, lng: -78.62840 },
                 { id: 19, nombre: "Donald's Pizzeria", categoria: "comida", horario: "Lun-Dom 11:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/277220526_1455821658205295_2390483768106643751_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeEWKXn3dLvMnETBCsPQpa8s88WaNYddFZzzxZo1h10VnLo9dK14g9QIjYiFagRl5vD1TzWaGzdKjfQUYB19IDuC&_nc_ohc=bVKt7Q87mtkQ7kNvwEf7CGI&_nc_oc=Adnwj_frwgYikouGSltkXe9PZLtxFV19PKgI50coD13cvPbddW9FDilt0vmvjoffmsM&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=_qf57AjLK4l6rE1f8KwWdA&_nc_ss=8&oh=00_AfyiYIlK3JjHbrC3YfGw9D4QK1wj5JeLhWKuc4Tt1g70Iw&oe=69B5888B", whatsapp: "59987132620", lat: null, lng: null },
                 { id: 20, nombre: "Mini Donas Gema", categoria: "comida", horario: "Lun-Dom 8:00-20:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8_lhujW0Hrij9XYSuo_r4RWVOBUDrVBecnWzJ8QOtiRlL8jVskgBK19omYGxwWwpCaZPUBmiblBvPKyzrQOdRSX5AoalirlBGCoK_vE9wJl3jVqEeE6dh_L4et_AW73rO0iE7R7114Nhp7eCe_Rnj-gF2t8dyvHIJuAA_FQMAK1SHKGo2Rn3P9lDsFhk/s1600/Mini%20Donas%20Gema.jpg", whatsapp: "593985437890", lat: -1.24152, lng: -78.62511 },
                 { id: 21, nombre: "El Lince Restaurante Ficoa", categoria: "comida", horario: "Lun-Dom 05:30-23:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/312797864_527399716062653_760125280153907724_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeFwexBfEMw4SoEb1Npgd6s_TYegaEIWc0dNh6BoQhZzRxDeM0fERVh8IwPGOFDb3X4HFMHVoWNNKExes6Yuwj4K&_nc_ohc=zVxle6KeurAQ7kNvwFVBg1y&_nc_oc=AdkHQypKU1VOpKyjTw31_97RXG3Vqan5v_eBkVFi_cB5PML8sJKHYA9sUwlK9jebXsE&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=1IIilUXFqiZtsRjsR7L4KQ&_nc_ss=8&oh=00_Afwc5aCptQ6NP8fE6uUv6cBuc6DsxUVeZMJqAB8rAd9Jhg&oe=69B5A7FA", whatsapp: "593999838222", lat: null, lng: null },
-                { id: 22, nombre: "El Paisa", categoria: "comida", horario: "Lun-Dom 09:00-21:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-1/481192799_1165630425264408_8618983295905014575_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=106&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeEM-RopsjUvJ74QNrxpQhbOuihMLArIX866KEwsCshfzme2-retoNwlWw2wo53-TbwFazQ8G3jUlPQHR-divZMB&_nc_ohc=D4wSO1xjgI8Q7kNvwG4JPWw&_nc_oc=AdkHxtEs19_xfT1zknQ9QmV7f0BBvZmyrBosG7AOPKahqR4bnXaFdp5cCmaVYmhH-j0&_nc_zt=24&_nc_ht=scontent.fuio19-1.fna&_nc_gid=jxx-cBnAMaAjcy71gZv8xg&_nc_ss=8&oh=00_AfwG9vTg7AnBagMN7bJESR6-zaj1iToKHAX-XbMt3dYlbA&oe=69B5A347", whatsapp: "593969296962", lat: null, lng: null },
+                { id: 22, nombre: "El Paisa", categoria: "comida", horario: "Lun-Dom 09:00-21:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgC5zXcj76o7-YlqwjpGdPL0BNbZrpcIwYXR2VnMySPt_AX2gzK3dXARm2B6k-Pijs-j6FbApFZUBMChE0-2aXNajV0C1NIHc6gv58aQBKdy6hAPR1Mc6JZx6ipnFzyZAF03uh_oEF7_vjkaNchtp67IT56Hc9VR9ol7exJhT4tFi6A3l0u8lxzBoLNLWc/s320/El%20Paisa.jpg", whatsapp: "593969296962", lat: -1.23656, lng: -78.62001 },
                 { id: 23, nombre: "El Parrillero B.B.Q - Grill", categoria: "comida", horario: "Lun-Dom 12:30-23:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/275788264_1006029057013104_7858098551674536120_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGPCji0He-SFHNR4SDJcVuMkLGU4VdG26WQsZThV0bbpQK2fCWEtYXHu1y2x5e-ZifDGD4D4NYF4a3Aa00OQvrC&_nc_ohc=2LRmy0IfoJoQ7kNvwFC1Gp6&_nc_oc=Adm4MxU_qg3UggIARwn4yGAakDpsdMHoA9ArMNJVfQQF9AYEjX1qN6qZ2Wt1rF7qxuo&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=NDhZOV8bsSgq7NTKxFaRUg&_nc_ss=8&oh=00_AfzfmxiGGoZPpECS7KyrDjH5zVoSpG9iixhssHm2o9CeDg&oe=69B63395", whatsapp: "593998831980", lat: null, lng: null },
-                { id: 24, nombre: "El Rincón de las Alitas", categoria: "comida", horario: "Lun-Dom 12:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/299028849_481630583969040_1465233177648730246_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeELVzGqJGt7CGyYPDRHxxslU4wJ6Y-aTZZTjAnpj5pNlquuUYrVNFyjzlPRh_I_MGjeBxqNkUMQ_yLGGl0pysK0&_nc_ohc=_SMFwZSdMOkQ7kNvwEvYg68&_nc_oc=AdnZA32Gb9qNHhmWah0nBWu_EbNFOuT7Yci1KCG6ipuB7j5hyyV8V5a0gMnaGdyoN4Q&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=ULngEY0zTJyXDzAmc7Z8qA&_nc_ss=8&oh=00_Afym27-rZi69DcUTcuNIv2F2LAqG-Ga4FBbOJ9VsJAO_2g&oe=69B65632", whatsapp: "593939570497", lat: null, lng: null },
+                { id: 24, nombre: "El Rincón de las Alitas", categoria: "comida", horario: "Lun-Dom 13:00-22:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0hnj2W0_bmAu7wMl-dLh1ABB5KkoykltZjqHGrFPwOZZiC2dtOk9ytu36UY7F4t-kvbAwx3Rl6kCTKceavnZDadJJxqW1Avjpga0g8fZ89ooAb6fF7qrbpYSGdCLwLnoDy_bdW30ZOBAs4jEA-xXophNuqli3Zv-IoLXAwtg2jX310bZzD7nAfjPN8pg/s1600/El%20Rincon%20de%20las%20Alitas.jpg", whatsapp: "593939570497", lat: -1.25660, lng: -78.63988 },
                 { id: 25, nombre: "El Rincón Venezolano", categoria: "comida", horario: "Lun-Dom 08:00-21:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/419747416_1147184239961204_3971524108542861410_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeH4UuH5-XZTi7YoyfI8kxfA29r1niRxxwrb2vWeJHHHCvbKP4B049mwwxlb2x9wHw0MuYU2BLuYQSkDxaLOujIp&_nc_ohc=w9QqiWPfI4gQ7kNvwGhBL4N&_nc_oc=Admr6hGQlQ9dQ32jcYbHuKpPeGUqrJ14oWVBmivcDF6HqNxgy5Ea4UICetA4mXyohUs&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=4Wl6FnWOxf8mc1712ym8GQ&_nc_ss=8&oh=00_AfxtYnKd6lcFFO7XaIGh23mB0f4mvSLBrBXfIYos5jNv2w&oe=69B63176", whatsapp: "593999743143", lat: null, lng: null },
-                { id: 26, nombre: "El Sambito", categoria: "comida", horario: "Lun-Dom 08:00-17:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/489461118_1341712894108661_5190953202013349686_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeHHpkdg_5iTOwWlI9-gYPZIhPQuRK-nguyE9C5Er6eC7BSOWrUHgdce9-esaTkapl7RgjFm7zLwviIJtYYRvHZv&_nc_ohc=VfjwlkxcZgUQ7kNvwH-zxLB&_nc_oc=AdkN9tr2pEgltErfwXi_9Ew0ppOt3ti3qGmKbl4dKb0cJnnO__SzN_bG-mDb-O21I6Q&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=hQ0avVAADq5MwwykGRgHgA&_nc_ss=8&oh=00_AfwyMNEgVJ2TNZE95fLqK8cbBOCwSZmg2ykX5wdiPhtqOQ&oe=69B635D4", whatsapp: "593986176511", lat: null, lng: null },
+                { id: 26, nombre: "El Sambito", categoria: "comida", horario: "Lun-Dom 08:00-17:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWCZkHEysQalkO8hfKUBWvs5h6QHzuFdBn6uNtgwPPu9lOb1RariihAcEAzMS2f5Ugjjee3BtY3pmedmjNlRTzVvmToe0uwWx5CX68cFJk6VlZVZzReiKgKXgb_pFFmI0u4sKUVlhQs_VhjqfpLbUM-fqpsuY5OCpXdd9dPNUVI2m1ild57dgauK_s0Co/s320/El%20Sambito.jpg", whatsapp: "593986176511", lat: -1.24777, lng: -78.62006 },
                 { id: 27, nombre: "El Ta-kamex", categoria: "comida", horario: "Lun-Dom 12:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/241202347_1389951938107971_551250029100800338_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeFBQwQYNArZDpD3QDEbmJq5KnI6HDMb3e8qcjocMxvd78Gac-BsAbh93BzlgANtKTKqhp-6rQIdHwV--DQaLwRj&_nc_ohc=WbAEQHof0mYQ7kNvwGvm80Q&_nc_oc=AdnXaXWMh-LRm3Pc3ZqD_jpa8cTnWfZ-96HWNgUPpis5zihEEA-VHyR0_w1aYgxb4ss&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=_GajwyvNyxGpaXc829FmpQ&_nc_ss=8&oh=00_AfwhqyUwb2dxi_ZFoMYA1B25XROgMkcEJmq2SHYHy5Dk6Q&oe=69B62F4B", whatsapp: "593979019576", lat: null, lng: null },
                 { id: 28, nombre: "El Toque Guayaco 2", categoria: "comida", horario: "Lun-Dom 08:00-21:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/487487774_122097865850828413_5927905605107483944_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGduFkfxYcxDN34WsUea8Ws8S-LfnzrXibxL4t-fOteJvHsG0pXbvpPIpYzgeY0qk_DACgIt_UXcEioH26mlL_a&_nc_ohc=WLnJqUsIseMQ7kNvwHaw60p&_nc_oc=AdkpR7eC9Q9FYkEfkiRRv6ff9wV0d8fQrUiueEwypJlBTD9KRHltykFwKzKRfyfF1Os&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=y-1kacnW3cDwJgJjn6E1oQ&_nc_ss=8&oh=00_AfwhKli3iPO_H3f2tOTLLSgRGkLrts2sG4-0LyKZ_y0N-Q&oe=69B656D1", whatsapp: "593984135801", lat: null, lng: null },
                 { id: 29, nombre: "Fast Broaster Huachi", categoria: "comida", horario: "Lun-Dom 09:00-10:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/346289427_216745434435328_9163308069513517892_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeFUs1e766a0BYRDKIVuulMY_H4kWmuhVAX8fiRaa6FUBT4FPcILqpFzyTRXG2KwbX9r9nxUKrgpIw3fOYB5iEyn&_nc_ohc=09XqPBGmPjoQ7kNvwHYziwG&_nc_oc=Admsjv2BK3C2b99eGQvdnelNX5bc6g_QaSMtR2a-8TkgF3UApSDRenJuVPksAiXF82E&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=-41fJk2IrMKmFf_psg3rJg&_nc_ss=8&oh=00_AfyXARnJbKG3tsp9r1m3m3EG5luooKkIQmgWXZpMKJMmSw&oe=69B69431", whatsapp: "593990531538", lat: null, lng: null },
@@ -882,14 +1028,14 @@
                 { id: 44, nombre: "MM Wings", categoria: "comida", horario: "Lun-Dom 12:00-22:30", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/509421335_723513883371017_3946129834075251463_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeEH2XnxkkgI0edoqJZhRKfYF3TaQwRxYvoXdNpDBHFi-uP3p8loEeoxRIVKrZciatzsSgn1lKEDhW_ZmVhy_Ht2&_nc_ohc=NXEoiRr6QFoQ7kNvwFfxI5G&_nc_oc=AdlUFRdwjaLaogFMfxuzHcoXDeakOWbsiINsaTVTfHmyGxGQefSUSynZpxYx65RH1Do&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=qtqgjgMIin3NE45KgEp9xA&_nc_ss=8&oh=00_AfzxbGBTck4w7t_dg8Lsz0EF2NIm7Nu9kBAyaEx8QVlo4Q&oe=69B6A84A", whatsapp: "593992758284", lat: null, lng: null },
                 { id: 45, nombre: "Mr Parrilla", categoria: "comida", horario: "Lun-Dom 12:30-23:30", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/571811429_122097957867098779_4320252774682312722_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGlqFfiOaHLKP6Xsy0Y1AOXjap_MeJtvamNqn8x4m29qWFfAoKxvx20gAHtebGdDBWpyqKnTo6I0EIywAC6Lt_E&_nc_ohc=ujsQOc8M-boQ7kNvwHi1VAe&_nc_oc=AdnWTLawvspgLEg1pG8sw0xeatP_pqn-y_RNuYcxwT-aJCmQnFKUE6bp5J6obVIaTjc&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=iSCtTLytOSgup0YiRLT4gw&_nc_ss=8&oh=00_Afwg3VMPVIYQYzuvPO3xep_7xCPouOXYmQvb9rtJxnS0bg&oe=69B68C20", whatsapp: "593992770619", lat: null, lng: null },
                 { id: 46, nombre: "Panda Sushi Rolls", categoria: "comida", horario: "Lun-Dom 13:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/471822173_1697660434123553_4600069966388966580_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeE_s4lRVHL_cHnTMfTLWvEu4Hk1zulajcHgeTXO6VqNwfRb2AAmA213FiM8dKw9Vq9YcMF9lOb70ingVWmmJb5v&_nc_ohc=pUPxz988vNAQ7kNvwG1mond&_nc_oc=Adn0ioZSwKJ_cEKUPfkFVbvHBgfUCbNB7s7PME6MIl2i1KYH9usWRaJA1z2nhwaIxjg&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=q-rGd5lCeU3coxuEXT4hoA&_nc_ss=8&oh=00_AfzGdjtzZb2SGZBKy8LVWbnPufJYpvr8Ke1tLSQKxM1OIw&oe=69B67FF5", whatsapp: "593996913797", lat: null, lng: null },
-                { id: 47, nombre: "Pizza House", categoria: "comida", horario: "Lun-Dom 13:00-23:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/613107534_1502370345230494_3582767466053910831_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeExE-pVdJH08NV2i3D7e-qkQwDKh8Pd0ClDAMqHw93QKT4TUoDcybJ07Xhio6PAnZV-wISnJm2hSIrmlr0Ta_Dz&_nc_ohc=KgGDZoi_PkIQ7kNvwHxaFPV&_nc_oc=AdkvMSF57FLjqr65T9wgdxbJTCZ8fRZBCaUPnTxroxDOPQPCYDTPWs8Q-Y1jvQBcZAI&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=ms8GV8NLv3JdOC2YjeWf6g&_nc_ss=8&oh=00_AfyG_qGp2p_OU_p0D14zjv1tPOptBcH86PgOnNUsMXgABg&oe=69B67AA1", whatsapp: "593963032249", lat: null, lng: null },
-                { id: 48, nombre: "Pizzeria Giorginos", categoria: "comida", horario: "Lun-Dom 15:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t1.6435-9/201091210_4077515742363081_5597865697688300592_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=53a332&_nc_eui2=AeHrDR2izwpwHdGI8sOjRhV9AYssAK8PqMgBiywArw-oyIPpnX8P9ZYLm_Z2GHDGWVJkgrhzR4WI6ectEoAAx2zt&_nc_ohc=vvVX1NB7LKYQ7kNvwHIe1td&_nc_oc=AdltzhzDd29O7yb51xr8Lc_h0h0wito5j497kUPTWqnfaqLzoJ1CZD4TG10M1ZkR0_c&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=E8fN4XQJ3pEXWDdo8KD-EA&_nc_ss=8&oh=00_AfyrZTnQYdxU0m-KMr9fTRnT95ErCRx7VOwxuxoUOpJZKw&oe=69D83942", whatsapp: "593998978231", lat: null, lng: null },
+                { id: 47, nombre: "Pizza House la Joya", categoria: "comida", horario: "Lun-Dom 13:00-23:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqviBg5RY9ZRhIQmtKtNJZ2ezEdGiHyYivHiXJ5AdviXrLMZzTIMId1PrgAH9lS9QbG3AifkZiT7tOjV0TmBDSnzVuvBE_SPFr0H4fiNYHovrMZM1snTV0YJOozCMuzoKA7VEWqognwG00znSSClf6oKav02FWs1IQwsUnWHSEMIJPoYC-g4HWUA1BLUw/s320/Pizza%20House.jpg", whatsapp: "593963032249", lat: -1.27859, lng: -78.61397 },
+                { id: 48, nombre: "Pizzeria Giorginos", categoria: "comida", horario: "Lun-Dom 13:00-22:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwxOmrBaaNgyCCDGgzNTlA7xSFqtdnSyv2kmcEqABH1XC0j_q0MuNIW0cgNvWu8rq3VPdJ0pfVL8JmhZMhphdteHRbkPz-p73dUt4VU0riDk3gtnBtbLvCu_ICJCaqv7YkLU5hZy01HITGcBcBh282mK3sIH2SJJy4gLmigiPTwOksnOTbw6W8wkywZ-o/s320/Pizzeria%20Giorginios.jpg", whatsapp: "593998978231", lat: -1.24931, lng: -78.63222 },
                 { id: 49, nombre: "Play Wings", categoria: "comida", horario: "Lun-Dom 16:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/624531070_122094940761244215_4327728427822569769_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeG26PoN9JGccsI0z73RWOm451jErANraLLnWMSsA2tospBdTf14IbdDw9lODqMumUWQT59YtZGtDasFJavQF-e2&_nc_ohc=5CN7v5i1YCQQ7kNvwFO4HHP&_nc_oc=Adm-riXAlZqCwmjiHyRtqEUUHzlvwa2Yt_6Bc6MjJiFNDirFMXca78wqyQltCtfcxQY&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=i9LyRog3SFFy87TSNpE1OA&_nc_ss=8&oh=00_Afxi0j3e7r3ALMnT0HWnfrGmpHOXcKLD8uFRnWd2iyp0KQ&oe=69B6C5B4", whatsapp: "593987166040", lat: null, lng: null },
-                { id: 50, nombre: "Pollo Alcalá", categoria: "comida", horario: "Lun-Dom 11:00-20:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/401600529_7555098721169333_5879996275937099232_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeF1cu2J3ewl-zjqS4qxmNyV6bOXpFBzRVPps5ekUHNFU1WHTTcGzW2j-_X-liQvkFfI4RYKv6PokUNedCCikr4T&_nc_ohc=7o6IecM9f7EQ7kNvwHQFd_Z&_nc_oc=AdmOtBgWp5RnTfFbzeaaRDSerFRKhjhmpXFbbSf41tN14dn7VxJRV7xbuFc9w1eJjDY&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=B2OBUuvN-AjFIdm2X7-57w&_nc_ss=8&oh=00_AfyY3fmirB13Sa7azRNi6avUAPFSZagW2wPZU3DAp6SpPA&oe=69B6B43D", whatsapp: "593992044617", lat: null, lng: null },
+                { id: 50, nombre: "Pollo Alcalá", categoria: "comida", horario: "Lun-Dom 11:00-20:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7MTr4Rd398jrpYepfvoRWQGxBHkMlanmRRVKvHBjRBQzXrgLYAWicrH2xDjvbdG9UmElf81UlPHGOxjqp8OhMB0L0GRq5LQKUsSw8cPf-v1arqmLCEbQDdQ2Z9QBn1XEKIXNDJkVXGtcjDnIIkDJaiZeclA55B775FKhBgbeZckLeFbppGG46evJdaHM/s320/Pollo%20Alcal%C3%A1.jpg", whatsapp: "593992044617", lat: -1.24181, lng: -78.63087 },
                 { id: 51, nombre: "Pollo Campero", categoria: "comida", horario: "Lun-Dom 08:00-20:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-1/438129117_456512996749133_9218201782816859188_n.jpg?stp=dst-jpg_s160x160_tt6&_nc_cat=1&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeErv256n9_P9k7AAI-IUpgcIT1ySbTh-UAhPXJJtOH5QA2kNq6SBpizOwnoTv1DdryjP4A87o-iayM-gh4KgJ0P&_nc_ohc=Y46MfH_TuxoQ7kNvwFnsNqW&_nc_oc=Adl5AbkjyE63BL3wAXKT__mdgVDeY3Km9ZyREtA8Aqqrl9Nlawav_Za2GBHQgmmE45E&_nc_zt=24&_nc_ht=scontent.fuio19-1.fna&_nc_gid=0oY6NNUDA4qGtlV6rGBmKQ&_nc_ss=8&oh=00_Afyqtbt7_Sm12uZCsdxrSAX75Uxa64LblmyrLeR2zVBR2g&oe=69B6C245", whatsapp: "593", lat: null, lng: null },
                 { id: 52, nombre: "Pollo Fenix", categoria: "comida", horario: "Lun-Dom 11:00-20:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-1/335582304_274098598277184_6200930550957858682_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeF5jPBgdFKl6bItAi3HyJapyDwiutAHqzPIPCK60AerM7nF0iC1oDql8R12wcXK3wA3l0528FhdH8GJKaPlec9i&_nc_ohc=4ZNVtQTGgfQQ7kNvwEmpC0S&_nc_oc=AdnXXJCMiLT37TmmtmjkKnIDLK6B7QopMfj2xqybbQwyhxCS5RYCqMhQxByek5Js9HE&_nc_zt=24&_nc_ht=scontent.fuio19-1.fna&_nc_gid=oFL6WBKDS5kFtN_lwz2_uA&_nc_ss=8&oh=00_Afz6qJVbzD5Wi62aVnfWbTPpMI5xgM-4zVxBrx7CZahgCg&oe=69B6C2D2", whatsapp: "593997696774", lat: null, lng: null },
                 { id: 53, nombre: "Los Pescados de la Joya", categoria: "comida", horario: "Lun-Dom 17:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/589432185_1427150886079309_5350716386222423459_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGkZTPUds-DGBJ-qDYebHxAFOljt6dXkuoU6WO3p1eS6ofi_VMQr8mDel1tKnrHfyjLKc72wv3P9Lc21XnBE9TT&_nc_ohc=2GppFtz0gmgQ7kNvwFj8vsZ&_nc_oc=AdmarnAK4f7U9VcSKWw9xm-0p9Cv6Kb7yL_9SCuDC5ePTQ2oaG3ecW0-jtvSD37wsLA&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=VSUAcSJmOh5MzljQQAS4fw&_nc_ss=8&oh=00_Afxgd3PIrS-t7BdEV4mYNTQYgpSLm8g2QyEjbN3K0fp-kQ&oe=69B6C886", whatsapp: "593998056666", lat: null, lng: null },
-                { id: 54, nombre: "Potato Tornado", categoria: "comida", horario: "Lun-Dom 15:00-22:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRQVXGH8JS_J4A3OQCg-hgHlwKXU3-_NmU2I4hoaFF5jf5NFVOHBk-b85m16UTGqWOyKiQPYppcwJ50ATwMPas4C8bpxWC781nPmc137H3_YJ3fBuFURCIf8q7ajUwHpjMlZRUh6Va9HoaSL4wylgmcBDDvhHjWi5UId5Aua2oGnCz7JOPaIG7AGXKv6M/s320/Potato%20Tornado.jpg", whatsapp: "593997652839", lat: -1.240403, lng: -78.630426 }, 
+                { id: 54, nombre: "Potato Tornado", categoria: "comida", horario: "Lun-Dom 15:00-22:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilASAuoNxH0B_3SzpqCE54mGX5ts79RGSnthXKVZb940tS9Oo6LKWdm8NfSe1AQi6qT3rHSt0a2tmDv44HX6pn_NuGx3ZX3CB6hg1Fa1Ty4FxoW0Qo5qOpzepajpolAqhUMIKMZ2BIjmg_yDc0hIlNk3lytH3gmAjvY-Iwyc7eCM2gvKoVsxin0wRpWAU/s320/Potato%20Tornado.jpg", whatsapp: "593997652839", lat: -1.240403, lng: -78.630426 }, 
                 { id: 55, nombre: "Que Monada Bolones", categoria: "comida", horario: "Lun-Dom 08:00-21:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-1/527676707_1292928652840368_3570600717454836506_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeFpXI-rNOfwvAwOritCcT0yiv8-pKaiApKK_z6kpqICkqYbaGR2FrTjzaJVhUbt3KONerDk6UgBiltrqPF4sT2A&_nc_ohc=AbJ4SBb_olMQ7kNvwHRITX8&_nc_oc=Admfye215WnXr_4ZlcZZvKCr29uBpCKt50vFtbSF1r9Q5PRJQZ26frdfeHc1kdKZkx4&_nc_zt=24&_nc_ht=scontent.fuio19-1.fna&_nc_gid=x75GY-V1SFux3ZMYDHeMPQ&_nc_ss=8&oh=00_Afx3xh8Q6-1ER7iCveiyS5Tm6oNaAUNvu7xgLfjhhuRbWg&oe=69B6BD7B", whatsapp: "593963772912", lat: null, lng: null },
                 { id: 56, nombre: "Roll and Bowl", categoria: "comida", horario: "Lun-Dom 13:00-22:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfnZXPMv24de0LS9h3ZwgMxmK2dbXS4xov-9BBBkSRP9cTjeH3b9pEQCGT3nVpc4ZlSN_psBkx5IwRdwK9QCKLQtU0CY9n1eCu4-Nnx_7KE9iilCUC2PIqfcjr4m3vP7YZMdKBiKzQrviBMm12vqwckhu8hkvSO_cbHsXyQbrgLCB0VhkqYGOD8qmsK8U/s960/Roll%20and%20Bowl.jpg", whatsapp: "593995192441", lat: -1.25448, lng: -78.62481 },
                 { id: 57, nombre: "Saiyajin Sushi Rolls", categoria: "comida", horario: "Lun-Dom 12:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/417796962_122150945402033141_3936430164943397854_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGsKwxUGmh-fHM_NWUigk7ZsIH_p_5wROWwgf-n_nBE5bjFlleWfTXnyKb81DmO89IndFoN2PJMJyNoX42YupLk&_nc_ohc=0mgQH_OaG88Q7kNvwHR1m-z&_nc_oc=Adm8-UW1I3vjgnpnXHGpSIawH0ILby0to3KWSa4RTnxTSVYt2Gr-31jFhZ5_OAJURVw&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=MM5gqGUvTktQHsEslbjv3g&_nc_ss=8&oh=00_Afz0a53X_ESbRaFVt5jwlkXSuGzXIwPr7RFaPNWIgXRcVw&oe=69B6C74C", whatsapp: "593984579590", lat: null, lng: null },
@@ -897,59 +1043,59 @@
                 { id: 59, nombre: "Takumi EC", categoria: "comida", horario: "Lun-Dom 12:00-21:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-1/558985553_122106302187036667_3170661281404566456_n.jpg?stp=c0.178.1080.1080a_dst-jpg_s200x200_tt6&_nc_cat=110&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeGhQjd9E4VSbV-0iVMpOrfH9nRJYI81SB72dElgjzVIHqJdz90BRubiaCbRTltGghE6EWa5_F1hx25YBIx2CMUo&_nc_ohc=W2zcDRZyuBwQ7kNvwFogqYf&_nc_oc=AdlufSg0NZm3z31CH0G0JL8WtcyVbeAXRHaSfCFeUVlmRfgUfk-q4LpzkBBnLSw_y6s&_nc_zt=24&_nc_ht=scontent.fuio19-1.fna&_nc_gid=kQ7hK157DUh9gEi7i-IijA&_nc_ss=8&oh=00_Afyug8kNM85ps6wTJoVrFWKRN3ORaImGPUucdsiw78wNWw&oe=69B6B7B1", whatsapp: "593984113454", lat: null, lng: null },
                 { id: 60, nombre: "Tokio Fast", categoria: "comida", horario: "Lun-Dom 11:00-21:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/638742168_122094618549280545_5553277198973546008_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeEHoCSRYsbfL3TnQHGJ1utdxqgxG1cv1IzGqDEbVy_UjOVvaklZnPuwukO-Y_3rKsVij-T1WM80JbO_BFdz09ms&_nc_ohc=IPa9gUmDsGYQ7kNvwEblPOS&_nc_oc=Adn-MqVB9GrVb6W6UXoELb-ZetKBQ6cvI5-lKdJ0r3OKuzt55arWAb_rFGyUt-F-iWg&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=qxuTpW2lrfJeFSIT7n1-0w&_nc_ss=8&oh=00_AfyjltdMe8g9Tm6DiD8wmPn-B1493DiK4_8NNxkEK1kVTQ&oe=69B6D0D6", whatsapp: "59358622905", lat: null, lng: null },
                 { id: 61, nombre: "Mundo Cake", categoria: "comida", horario: "Lun-Dom 08:00-20:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/599733361_4390342651230235_3669482046102545266_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeH0Wkrv616CNqxZ-Q7ArTgaSoaMmJb5IL5KhoyYlvkgvkOYp-vOWVA7Q2pjCXUWxhnxXfGQcOaPLodItdKC1Xuj&_nc_ohc=puNTgZgc_Q0Q7kNvwFquMkS&_nc_oc=AdmzLm2mrraJzTjr2RHIxbYVX4erTxRQBzgsW5s_R2l08NsMR_bcAYYb3jaxrK-fa3g&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=U_jepstyCQ9jqkGN_fHbTQ&_nc_ss=8&oh=00_AfzZ-u1TrPK78OSAuAT3L6M5Q2JC5lrs-lMtKOzFp0JqqA&oe=69B6AA74", whatsapp: "593998199966", lat: null, lng: null },
-                { id: 62, nombre: "TUS Alitas Ambato", categoria: "comida", horario: "Lun-Dom 17:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/447976036_858635926286650_5089736033507553085_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeFGCz9NeWrOZeNr4jh-XjkkfDxBJOvAFXl8PEEk68AVeWmdEi0Ur4LCdFH-ks734rAlppL1OyQkYRD9m_4Istt0&_nc_ohc=6JFr08PYGJ4Q7kNvwF8_L1U&_nc_oc=Adm7-IPxrgf4MYpLk-6X4xYevnc31kdL4DR-ouQNRcM9ySNYhR8LNf4VAIpxztaVsJI&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=R2C2B5qgFC_pm32x7wCkBA&_nc_ss=8&oh=00_AfzPLr5f-RXqT04JJ5PmII1jGX53xWNwd5MyCdvV7J-X-g&oe=69B6AAFB", whatsapp: "593981191017", lat: null, lng: null },
+                { id: 62, nombre: "TUS Alitas Ambato", categoria: "comida", horario: "Lun-Dom 18:00-22:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjli_XaTbFpP8a3EjygHed9khAF2tNr5FCw1C8xflr1IoXRElJ3HOTWexAQbpNRCpmuFXNdIAkL6Hf20gwlvnbQ6qa3W_df2Te6LWdq7Fqnmb0L_orLZdXMnWjvpCj_WKly2dp50RHo-G61FiEtHl9FZzI29i-cDdRaDaGd1k4MbnUQ2NPmNmNyrpWtMYY/s320/Tus%20Alitas.jpg", whatsapp: "593981191017", lat: -1.24809, lng: -78.63198 },
                 { id: 63, nombre: "Wings Garden", categoria: "comida", horario: "Lun-Dom 15:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/606071490_852249674238547_3832507362549033867_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeHxMsY1YsVUKmoh6HOfbuQpO7KAPOs_ERg7soA86z8RGPbBVZkmypB_oFz673n-Mo81WQ04NW6SewQTQfj_i4hM&_nc_ohc=M911JxzUqpMQ7kNvwHtXN9s&_nc_oc=Adlpf6z_5F06jP-dhrNk_sMQrFFKCu8ohIToEtIoThO5hcdKFAwIowDbj9Bk3aII3XI&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=lJ8VylEHJe0ZFiRjcTMOXA&_nc_ss=8&oh=00_Afx1bCBzgKe1xI_QMPBTvvtuHvK8HAaVrK1mV6l_Rm3Gyg&oe=69B6ADA7", whatsapp: "593998098912", lat: null, lng: null },
                 { id: 64, nombre: "Your Burger Fast Food", categoria: "comida", horario: "Lun-Dom 17:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-1/641021357_122148482054979538_5341626030134583967_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=102&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeELs9RvCxXUep6WW1tP_iJcCho-nsJqcVMKGj6ewmpxU3BzgZOPOGGFGttftlJ8BQ3bmD6X49QRuiEqgQEMD9Uq&_nc_ohc=TQO7Be4jl_0Q7kNvwFgG0CZ&_nc_oc=AdmHdaW2Tji77pb39zVnEFsSuv_uuLlImgo2HODytHMGtIBiyDJI10eXWOm2JeVk1MQ&_nc_zt=24&_nc_ht=scontent.fuio19-1.fna&_nc_gid=TwouVLoxWEQpeGO8O-insw&_nc_ss=8&oh=00_AfxOYMIoTfcu0s_Mtalt_NOtjJdm_dk7TX7q_Jp-zMMCNw&oe=69B6A101", whatsapp: "593998048666", lat: null, lng: null },
                 { id: 65, nombre: "El Chiflido", categoria: "comida", horario: "Lun-Dom 15:00-20:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-1/341269133_778505203630183_7609429654628130241_n.png?stp=c79.0.1364.1364a_dst-png_s160x160&_nc_cat=100&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeEnP679mZCj_XlY8UuCEO07WSfyESqSrY5ZJ_IRKpKtjtxRmpnJkR1l8OdHRXwqo-scUANC_pjO67EyM5zeF-wM&_nc_ohc=9ys_S1-jiN8Q7kNvwGVAd1l&_nc_oc=AdnlwAPeW21xhVm3qHGm-CuMt9KpnWp5qBGJfmPRAkkJOXHkfxqtYj31Ed2yvNOWTN0&_nc_zt=24&_nc_ht=scontent.fuio19-1.fna&_nc_gid=QhdNouCPio17r_AwZP_zcA&_nc_ss=8&oh=00_Afwv7zYPmW_SncZP7Jkwv8YD5onmORqhbg3Eo4G4tp7V_Q&oe=69B6AB43", whatsapp: "593979342895", lat: null, lng: null },
-                
+                { id: 66, nombre: "Chifa Hong Kong", categoria: "comida", horario: "Lun-Dom 10:00-20:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFaEs1fyp-eAeekDkC4oM06ibgNNG2qX6xLCd3iJ73ByHEB-XDaOJNX75mnvb-Dsqg7eyvQ8gWMTGbIUnTGb_OoWyH0uZ26ek4d7abF8L7_Uc38H8gJtvRitfxPU-XEPM8zz4GTBzIIKURD17XU40ldYKP9lppIp7cn9Tq7bjJZVidawa6nHNppe48pxk/s320/Chifa%20Hong%20Kong.png", whatsapp: "593987461796", lat: -1.27583, lng: -78.62906 },
+                { id: 67, nombre: "Poseidón C&M", categoria: "comida", horario: "Lun-Dom 10:00-16:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZKu1qFurducazQ4QcE7Y_reFqK-r1e1rx-KSSR6IOn6NhUCq-uBFZiv_l79yuJIZsMU8EI9YzJEJF_8DXRlhQKTBO85TKffsquDBh-KyAmO98kbYiUm98m7WcQMkuvGpT4a9Q0Tamo1sVz_dDrVuba920t1o6hRSVyK7a037N1OS_g5AIYCUCrF2rSAk/s320/Poseidon%20Cevicheria%20y%20Marisqueria.jpg", whatsapp: "593961660120", lat: -1.25010, lng: -78.64578 },
+
                 // ==================== SUPERMERCADOS ====================
-                { id: 301, nombre: "Mi Comisariato", categoria: "supermercado", horario: "Lun-Dom 9:00-21:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgl_7_L0rWcAATPfxK2k4Dkadh62b4PnFLuidsO7zjG2Fkvf_YxJKXTymtJgbcynhsP1jBBXJ4w5-2revq1UTdng8DIX2ccfxyRiUjj9qRNZRjCxWzlrJ55VCEFUy91ZIQtAYujPzW1o_dDvu99l4JrZQqxNJBCENdr5PlPluY5noGa0prX_-VON7rwX0c/s320/Mi%20Comisariato.jpg", whatsapp: "593985562172", lat: null, lng: null },
-                { id: 302, nombre: "Supermaxi", categoria: "supermercado", horario: "Lun-Dom 9:00-21:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrAajYoanZAjSc-1TLmchAoQz3bEBF2s50TaRHi8ufuSH8yNWBR25czDhjW4g9GCUFG32RUR7h9KyQR3NqSzVCXZcrUyxKD3Rm3dIEefQQqfL9yK5Mnwm43c4fBXYnVo8tpcVYz_YDF8Y7hTl16xgL9kqdzm06FPKp3jQ5iSMPfXkGTZgTRgTydl1czoA/s320/Supermaxi.jpg", whatsapp: "593985562172", lat: null, lng: null },
-                { id: 304, nombre: "Gran Akí", categoria: "supermercado", horario: "Lun-Dom 9:00-21:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUweLYJLVqvGYiFKfqXT2V81Sq16nxYsEVvmW-l1GC1fZuuO9wNSdQe3TqkiLDZSJHrm56YjOuFbRxdacXnpdD59KoPqkKyM8SDcWruXFgsmCCVd8TxlBx5MaSbPGXwGKICn5xaFoLz3P3GIPTnal_mzdvhlAfUHDAbsH2sljDSz04SyEZObzoHx2c3_s/s1600/AKI.jpg", whatsapp: "593985562172", lat: null, lng: null },
-                { id: 305, nombre: "Tía", categoria: "supermercado", horario: "Lun-Dom 9:00-21:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqHw0DS-hIVfH7KKjk2Inj5J6Y18938Cl2sR-JKBrwhxOXnCLIu0JK9ySECw15SdRQzYSj2nVMSqwjCl_oFQDaEC4wL_CLSJkr-V8D18pfquYXThlwkecKYQSiZLvkpQ1LIZuVagO0Fqe1NQJxB5mxzVagZ0P5HnpigFGHONTLoiHZpH3GGUwisiOiG_s/s320/TIA.jpg", whatsapp: "593985562172", lat: null, lng: null },
-                { id: 306, nombre: "Tuti", categoria: "supermercado", horario: "Lun-Dom 9:00-21:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgT6VBrDZ6lcYAIFWYwaVJtnAOQT7sZvKlhO6ubidkikdi6WWbv1IdlJcUN4F4mlRB7XwKoR1vU8hbyqErr1l12gyoSLFJ8bBCwaOeHYIvPTmZrHym-NzFnBCyVNdbcfFcyU7gR0eZs-dj1xtJZ0IQXe4VoXboQJXeO8LWtohychAzvdqGsqtZQtoaxUXg/s320/TUTI.jpg", whatsapp: "593985562172", lat: null, lng: null },
+                { id: 301, nombre: "Mi Comisariato", categoria: "supermercado", horario: "Lun-Dom Cerrado", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgl_7_L0rWcAATPfxK2k4Dkadh62b4PnFLuidsO7zjG2Fkvf_YxJKXTymtJgbcynhsP1jBBXJ4w5-2revq1UTdng8DIX2ccfxyRiUjj9qRNZRjCxWzlrJ55VCEFUy91ZIQtAYujPzW1o_dDvu99l4JrZQqxNJBCENdr5PlPluY5noGa0prX_-VON7rwX0c/s320/Mi%20Comisariato.jpg", whatsapp: "593985562172", lat: null, lng: null },
+                { id: 302, nombre: "Supermaxi", categoria: "supermercado", horario: "Lun-Dom Cerrado", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrAajYoanZAjSc-1TLmchAoQz3bEBF2s50TaRHi8ufuSH8yNWBR25czDhjW4g9GCUFG32RUR7h9KyQR3NqSzVCXZcrUyxKD3Rm3dIEefQQqfL9yK5Mnwm43c4fBXYnVo8tpcVYz_YDF8Y7hTl16xgL9kqdzm06FPKp3jQ5iSMPfXkGTZgTRgTydl1czoA/s320/Supermaxi.jpg", whatsapp: "593985562172", lat: null, lng: null },
+                { id: 304, nombre: "Gran Akí", categoria: "supermercado", horario: "Lun-Dom Cerrado", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUweLYJLVqvGYiFKfqXT2V81Sq16nxYsEVvmW-l1GC1fZuuO9wNSdQe3TqkiLDZSJHrm56YjOuFbRxdacXnpdD59KoPqkKyM8SDcWruXFgsmCCVd8TxlBx5MaSbPGXwGKICn5xaFoLz3P3GIPTnal_mzdvhlAfUHDAbsH2sljDSz04SyEZObzoHx2c3_s/s1600/AKI.jpg", whatsapp: "593985562172", lat: null, lng: null },
+                { id: 305, nombre: "Tía", categoria: "supermercado", horario: "Lun-Dom Cerrado", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqHw0DS-hIVfH7KKjk2Inj5J6Y18938Cl2sR-JKBrwhxOXnCLIu0JK9ySECw15SdRQzYSj2nVMSqwjCl_oFQDaEC4wL_CLSJkr-V8D18pfquYXThlwkecKYQSiZLvkpQ1LIZuVagO0Fqe1NQJxB5mxzVagZ0P5HnpigFGHONTLoiHZpH3GGUwisiOiG_s/s320/TIA.jpg", whatsapp: "593985562172", lat: null, lng: null },
+                { id: 306, nombre: "Tuti", categoria: "supermercado", horario: "Lun-Dom Cerrado", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgT6VBrDZ6lcYAIFWYwaVJtnAOQT7sZvKlhO6ubidkikdi6WWbv1IdlJcUN4F4mlRB7XwKoR1vU8hbyqErr1l12gyoSLFJ8bBCwaOeHYIvPTmZrHym-NzFnBCyVNdbcfFcyU7gR0eZs-dj1xtJZ0IQXe4VoXboQJXeO8LWtohychAzvdqGsqtZQtoaxUXg/s320/TUTI.jpg", whatsapp: "593985562172", lat: null, lng: null },
 
                 // ==================== FARMACIAS ====================
-                { id: 350, nombre: "Farmacias Santa Martha", categoria: "farmacia", horario: "24 horas", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzcaUnqxug0Lti71l8BE4UimSIxegzq-vBGqK86D_B3HfHJacQRXo32JB8JRVY-tvJctAQ-LkboybdCAW1s8TUzl7Ci7lquKmXFpGkv1z5XOarIaaVLjWJKQ2rLRWR0u1f7RXqtKtLcltn2N2tkDsuW-cPpQzCtDBcR2zy366YksB3CS1hyNCn8wQib1E/s320/Farmacias%20Santa%20Martha.jpg", whatsapp: "593", lat: null, lng: null },
-                { id: 351, nombre: "Farmacias Napoles", categoria: "farmacia", horario: "24 horas", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpy5pzWVo1wRazxpOxRm0bCaAVlFMrLLg7YmqxC6wbdMtOwiQNjw6KFnBKF8u_3pvRK81N96rGySdG8G4O-rCpJuTYfPvAiClhmdkHoudOlJ-_byX_s7AO_dKzObkYs_xVjLNP3IvQpMiBWqa3q3RAenohyWxnzIDzDIZ-2MLHY-WbWoF82JavJZxpceM/s1600/Farmacias%20Napoles.jpg", whatsapp: "593964201454", lat: null, lng: null },        
+                { id: 350, nombre: "Farmacias Santa Martha", categoria: "farmacia", horario: "Lun-Dom Cerrado", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzcaUnqxug0Lti71l8BE4UimSIxegzq-vBGqK86D_B3HfHJacQRXo32JB8JRVY-tvJctAQ-LkboybdCAW1s8TUzl7Ci7lquKmXFpGkv1z5XOarIaaVLjWJKQ2rLRWR0u1f7RXqtKtLcltn2N2tkDsuW-cPpQzCtDBcR2zy366YksB3CS1hyNCn8wQib1E/s320/Farmacias%20Santa%20Martha.jpg", whatsapp: "593", lat: null, lng: null },
+                { id: 351, nombre: "Farmacias Napoles", categoria: "farmacia", horario: "Lun-Dom Cerrado", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpy5pzWVo1wRazxpOxRm0bCaAVlFMrLLg7YmqxC6wbdMtOwiQNjw6KFnBKF8u_3pvRK81N96rGySdG8G4O-rCpJuTYfPvAiClhmdkHoudOlJ-_byX_s7AO_dKzObkYs_xVjLNP3IvQpMiBWqa3q3RAenohyWxnzIDzDIZ-2MLHY-WbWoF82JavJZxpceM/s1600/Farmacias%20Napoles.jpg", whatsapp: "593964201454", lat: null, lng: null },        
 
                 // ==================== LICORERÍAS ====================
-                { id: 400, nombre: "Licores POKER Ambato", categoria: "licores", horario: "Lun-Dom 10:00-22:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/299111944_531323745460534_3987409334723597304_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeHXxxCZ32p09JSIuSPE78rn2ukBSiyA2DHa6QFKLIDYMcKCp_kw8s70u2UOqjLSmtSg9qLyZQXgKq5m_JXzJnib&_nc_ohc=DXzyrrXs1bAQ7kNvwHi7Anz&_nc_oc=Adm41xmfZWg9q9n4dY2PuhN11B9Tr9hp7XUoSWkudQlG9KODxROxL3-VwYuAQf3oWW4&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=lnVLzOXt2mppZIqtKHGjpg&_nc_ss=8&oh=00_AfxAfDarl-O0hsDsW1GuPK9f3E_yyYbRcE19WS3-aHs4kQ&oe=69B68677", whatsapp: "593987504266", lat: null, lng: null },
-                { id: 401, nombre: "Licores del Ecuador S.A.S", categoria: "licores", horario: "Lun-Dom 9:00-20:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/415050021_867415662059073_1097794821594003216_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeFJK3UOKKIfkzQDm5My53FCNMqJ8Ris9cs0yonxGKz1y0fe_Exqerz3yY1REE8dkMFo_dUl13pfEs9VCnNnK_ZS&_nc_ohc=11MM81Dvn-4Q7kNvwEeTRHR&_nc_oc=AdlPsSfye544lLKQ5ISL45ngAVP4g33ceOJzpvPcqouXoH6Q0iM-hZtySZAoNEbH5ZE&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=s89GpJZLoAMN27lC0venuw&_nc_ss=8&oh=00_Afz7ik99FXeckWH-t08-6eXIaQ1bZbPcPRH0dhNel2LBtA&oe=69B68BCA", whatsapp: "593979258979", lat: null, lng: null },
-                { id: 402, nombre: "La Tasca Licores Ambato", categoria: "licores", horario: "Lun-Dom 00:00-00:00", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/278078986_387201076746662_2698007112526186504_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGbrCmlzh4Y0xrCmO-we19s9PpviKLCpgX0-m-IosKmBe9sbUNFP4zQT7f1f6WqHCPLT5KomHxu601ROTpNPBYT&_nc_ohc=q4lWvf7kqEQQ7kNvwEgB5uk&_nc_oc=Adm-iTEgwdpux-YMzeEDLyWU6E3kF0eY2vK-ZONL4nM38IF6C2R09QFHbyfjr7p7hWU&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=tN_t2O8CiBBPfAWt-fGJ_g&_nc_ss=8&oh=00_AfwqG21R_x_YnPjzYxAyjq2vP__Cn4rQFbM1quZuRsjsHQ&oe=69B67D56", whatsapp: "593999908053", lat: null, lng: null },
+                { id: 400, nombre: "Licores POKER Ambato", categoria: "licores", horario: "Lun-Dom Cerrado", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/299111944_531323745460534_3987409334723597304_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeHXxxCZ32p09JSIuSPE78rn2ukBSiyA2DHa6QFKLIDYMcKCp_kw8s70u2UOqjLSmtSg9qLyZQXgKq5m_JXzJnib&_nc_ohc=DXzyrrXs1bAQ7kNvwHi7Anz&_nc_oc=Adm41xmfZWg9q9n4dY2PuhN11B9Tr9hp7XUoSWkudQlG9KODxROxL3-VwYuAQf3oWW4&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=lnVLzOXt2mppZIqtKHGjpg&_nc_ss=8&oh=00_AfxAfDarl-O0hsDsW1GuPK9f3E_yyYbRcE19WS3-aHs4kQ&oe=69B68677", whatsapp: "593987504266", lat: null, lng: null },
+                { id: 401, nombre: "Licores del Ecuador S.A.S", categoria: "licores", horario: "Lun-Dom Cerrado", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/415050021_867415662059073_1097794821594003216_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeFJK3UOKKIfkzQDm5My53FCNMqJ8Ris9cs0yonxGKz1y0fe_Exqerz3yY1REE8dkMFo_dUl13pfEs9VCnNnK_ZS&_nc_ohc=11MM81Dvn-4Q7kNvwEeTRHR&_nc_oc=AdlPsSfye544lLKQ5ISL45ngAVP4g33ceOJzpvPcqouXoH6Q0iM-hZtySZAoNEbH5ZE&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=s89GpJZLoAMN27lC0venuw&_nc_ss=8&oh=00_Afz7ik99FXeckWH-t08-6eXIaQ1bZbPcPRH0dhNel2LBtA&oe=69B68BCA", whatsapp: "593979258979", lat: null, lng: null },
+                { id: 402, nombre: "La Tasca Licores Ambato", categoria: "licores", horario: "Lun-Dom Cerrado", imagen: "https://scontent.fuio19-1.fna.fbcdn.net/v/t39.30808-6/278078986_387201076746662_2698007112526186504_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGbrCmlzh4Y0xrCmO-we19s9PpviKLCpgX0-m-IosKmBe9sbUNFP4zQT7f1f6WqHCPLT5KomHxu601ROTpNPBYT&_nc_ohc=q4lWvf7kqEQQ7kNvwEgB5uk&_nc_oc=Adm-iTEgwdpux-YMzeEDLyWU6E3kF0eY2vK-ZONL4nM38IF6C2R09QFHbyfjr7p7hWU&_nc_zt=23&_nc_ht=scontent.fuio19-1.fna&_nc_gid=tN_t2O8CiBBPfAWt-fGJ_g&_nc_ss=8&oh=00_AfwqG21R_x_YnPjzYxAyjq2vP__Cn4rQFbM1quZuRsjsHQ&oe=69B67D56", whatsapp: "593999908053", lat: null, lng: null },
 
                 // ==================== FLORISTERÍAS ====================
-                { id: 450, nombre: "Deluxe Flower", categoria: "floristeria", horario: "Lun-Dom 8:00-17:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSzX15JQaBk5fMmYqXhqF4Fq8vLwt5853kNpPMUyKINV_T2HotcIvFNfjWyrVS30S6_WfozK3PVDgpmqEyVry7Ad13yRebLCbBVBY12eIQchOPBEe1fvEKgVamLI809_6ogH4pyF3z1I21aANT0oRlOUjQeHDhMdMXZnXkxAcvsazyvNWP7QDCL7N9Ufc/s1600/Deluxe%20Flower.jpg", whatsapp: "593963171852", lat: -1.23383, lng: -78.62130 },
-                { id: 451, nombre: "Flower", categoria: "floristeria", horario: "Lun-Dom 8:00-17:00", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPavULYUyznGGh9YX0Qr_RHQiWPiwvkYeferXuaVgOqe_BnByBPvb3OWkvRreSU9rv3OGBwO-qgvNcf3hpSGxhVjiPqM6vx7nAEySciZ-dKDGQpzkiRvjSfGNsYynMXBKVRfW4ilUh0O1hmJR_N5PTq6FZgp0ADdDvhPw03lKHet7SCx5wqIIev642cEM/s320/Flower.jpg", whatsapp: "593999804289", lat: null, lng: null },
+                { id: 450, nombre: "Deluxe Flower", categoria: "floristeria", horario: "Lun-Dom Cerrado", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSzX15JQaBk5fMmYqXhqF4Fq8vLwt5853kNpPMUyKINV_T2HotcIvFNfjWyrVS30S6_WfozK3PVDgpmqEyVry7Ad13yRebLCbBVBY12eIQchOPBEe1fvEKgVamLI809_6ogH4pyF3z1I21aANT0oRlOUjQeHDhMdMXZnXkxAcvsazyvNWP7QDCL7N9Ufc/s1600/Deluxe%20Flower.jpg", whatsapp: "593963171852", lat: -1.23383, lng: -78.62130 },
+                { id: 451, nombre: "Flower", categoria: "floristeria", horario: "Lun-Dom Cerrado", imagen: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPavULYUyznGGh9YX0Qr_RHQiWPiwvkYeferXuaVgOqe_BnByBPvb3OWkvRreSU9rv3OGBwO-qgvNcf3hpSGxhVjiPqM6vx7nAEySciZ-dKDGQpzkiRvjSfGNsYynMXBKVRfW4ilUh0O1hmJR_N5PTq6FZgp0ADdDvhPw03lKHet7SCx5wqIIev642cEM/s320/Flower.jpg", whatsapp: "593999804289", lat: null, lng: null },
 
+                // ==================== ROPA ====================
+                { id: 6000, nombre: "Casa de Wendy", categoria: "Ropa", horario: "Lun-Dom Cerrado", imagen: "https://ideogram.ai/assets/image/balanced/response/NQD9YT7jQR-N6lY5g5Tzgw@2k", whatsapp: "593999740997", lat: 1.264227, lng: -78.622724 },
+            	
                 // ==================== OTROS ====================
-                { id: 500, nombre: "Librería El Ateneo", categoria: "otros", horario: "Lun-Sáb 10:00-22:00", imagen: "https://via.placeholder.com/150/FF6F00/ffffff?text=Libreria", whatsapp: "54116666777", lat: null, lng: null },
-                { id: 6000, nombre: "Casa de Wendy", categoria: "otros", horario: "Lun-Dom 18:00-00:00", imagen: "https://via.placeholder.com/150/FF6F00/ffffff?text=Casa+Wendy", whatsapp: "593000000056", lat: null, lng: null }
             ],
 
             productos: [
                 // ALAS 8 Ambato (id 1)
-                { id: 401, nombre: "Alitas 10 unidades", descripcion: "Con salsa", tipo: "salsa", precioBase: 7.00, localId: 2, imagen: "https://via.placeholder.com/300/25D366/ffffff?text=Alitas", opciones: { "BBQ": 0, "Picante": 0, "Miel mostaza": 0, "Buffalo": 0 } },
-                { id: 201, nombre: "Clásica", descripcion: "Carne, lechuga, tomate", tipo: "simple", precio: 5.50, localId: 2, imagen: "https://via.placeholder.com/300/25D366/ffffff?text=Burger+Clasica" },
-                { id: 101, nombre: "Muzzarella", descripcion: "Muzzarella, aceitunas", tipo: "tamaño", precioBase: 8.00, localId: 1, imagen: "https://via.placeholder.com/300/FF6F00/ffffff?text=Pizza+Muzza", opciones: { "Personal": 0, "Mediana": 2.50, "Grande": 5.00 } },
-                { id: 201, nombre: "Clásica", descripcion: "Carne, lechuga, tomate", tipo: "simple", precio: 5.50, localId: 2, imagen: "https://via.placeholder.com/300/25D366/ffffff?text=Burger+Clasica" },
-                { id: 101, nombre: "Muzzarella", descripcion: "Muzzarella, aceitunas", tipo: "tamaño", precioBase: 8.00, localId: 1, imagen: "https://via.placeholder.com/300/FF6F00/ffffff?text=Pizza+Muzza", opciones: { "Personal": 0, "Mediana": 2.50, "Grande": 5.00 } },
-                { id: 102, nombre: "Napolitana", descripcion: "Muzzarella, tomate, ajo", tipo: "tamaño", precioBase: 9.50, localId: 1, imagen: "https://via.placeholder.com/300/FF6F00/ffffff?text=Pizza+Napo", opciones: { "Personal": 0, "Mediana": 2.50, "Grande": 5.00 } },
+                { id: 10000, nombre: "Alitas 8+4", descripcion: "Promo Alitas incluye papas fritas, apio, zanahoria y salsas de la casa", tipo: "personalizable", precioBase: 9.00, localId: 1, imagen: "https://conave.org/wp-content/uploads/2019/07/Alitas-de-pollo-BBQ.jpg", tamanos: { "8 + 4 = 12 Alitas": 0 }, ingredientes: ["BBQ","BBQ HOT","TERIYAKI","MOSTAZA MIEL","MARACUYA","PIÑA","FRESA MORA"], maxIngredientes: 2 },
+                { id: 10001, nombre: "Alitas 14+4", descripcion: "Promo Alitas incluye papas fritas, apio, zanahoria y salsas de la casa", tipo: "personalizable", precioBase: 13.00, localId: 1, imagen: "https://conave.org/wp-content/uploads/2019/07/Alitas-de-pollo-BBQ.jpg", tamanos: { "14 + 4 = 18 Alitas": 0 }, ingredientes: ["BBQ","BBQ HOT","TERIYAKI","MOSTAZA MIEL","MARACUYA","PIÑA","FRESA MORA"], maxIngredientes: 3 },
+                { id: 10002, nombre: "Alitas 20+4", descripcion: "Promo Alitas incluye papas fritas, apio, zanahoria y salsas de la casa", tipo: "personalizable", precioBase: 17.00, localId: 1, imagen: "https://conave.org/wp-content/uploads/2019/07/Alitas-de-pollo-BBQ.jpg", tamanos: { "20 + 4 = 24 Alitas": 0 }, ingredientes: ["BBQ","BBQ HOT","TERIYAKI","MOSTAZA MIEL","MARACUYA","PIÑA","FRESA MORA"], maxIngredientes: 4 },
+                { id: 10003, nombre: "Alitas 28+4", descripcion: "Promo Alitas incluye papas fritas, apio, zanahoria y salsas de la casa", tipo: "personalizable", precioBase: 22.00, localId: 1, imagen: "https://conave.org/wp-content/uploads/2019/07/Alitas-de-pollo-BBQ.jpg", tamanos: { "28 + 4 = 32 Alitas": 0 }, ingredientes: ["BBQ","BBQ HOT","TERIYAKI","MOSTAZA MIEL","MARACUYA","PIÑA","FRESA MORA"], maxIngredientes: 5 },
+                { id: 10004, nombre: "Promo Martes y Jueves 2x1", descripcion: "Promo 2x1 de alitas incluye papas fritas", tipo: "personalizable", precioBase: 9.49, localId: 1, imagen: "https://i0.wp.com/lanoticia.com/wp-content/uploads/2025/02/5-salsas-imperdibles-para-acompanar-alitas-de-pollo.webp?fit=800%2C600&ssl=1", tamanos: { "8 + 8 = 16 Alitas": 0, "12 + 12 = 24 Alitas": 4.00, "18 + 18 = 36 Alitas": 10.00, "25 + 25 = 50 Alitas": 17.00 }, ingredientes: ["BBQ","BBQ HOT","TERIYAKI","MOSTAZA MIEL","MARACUYA","PIÑA","FRESA MORA"], maxIngredientes: 2 },
                 // Apapear&Sweet (id 2)
                 { id: 20000, nombre: "Hamburguesa Apapear", descripcion: "Pan tostadito, carne jugosa, salsa BBQ y vegetales. Incluye papas + gaseosa", tipo: "simple", precio: 2.00, localId: 2, imagen: "https://ec.viajandox.com/uploads/min_diverse_country_publication_224.jpg" },
-				{ id: 20001, nombre: "Hamburguesa Ranchera", descripcion: "Pan tostadito, carne jugosa, chorizo, huevo, queso cheddar y vegetales. Incluye papas + gaseosa", tipo: "simple", precio: 3.50, localId: 2, imagen: "https://media-cdn.tripadvisor.com/media/photo-s/1c/8a/6b/54/hamburguesa-ranchera.jpg" },
-				{ id: 20002, nombre: "Hamburguesa Monster", descripcion: "Pan tostadito, doble carne, chorizo, huevo, tocino, queso cheddar, salsa BBQ y vegetales frescos. Incluye papas + gaseosa", tipo: "simple", precio: 5.00, localId: 2, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV02yPX_0ihp6H7H9OGNAFWIFyTwcdSpjiHQ&s" },
-				{ id: 20004, nombre: "Extras Hamburguesa", descripcion: "Agrega ingredientes extra", tipo: "tamaño", precioBase: 0.00, localId: 2, imagen: "https://media.istockphoto.com/id/637216704/es/foto/preparaci%C3%B3n-de-hamburguesas-con-queso.jpg?s=612x612&w=0&k=20&c=X_v-LWajZqgnJ8GgvMjqz4xK3uDlfJb_y56b4X1_oHY=", opciones: { "Carne": 1.00,"Chorizo": 0.75,"Huevo": 0.50,"Cheddar": 0.50 } },
+                { id: 20001, nombre: "Hamburguesa Ranchera", descripcion: "Pan tostadito, carne jugosa, chorizo, huevo, queso cheddar y vegetales. Incluye papas + gaseosa", tipo: "simple", precio: 3.50, localId: 2, imagen: "https://media-cdn.tripadvisor.com/media/photo-s/1c/8a/6b/54/hamburguesa-ranchera.jpg" },
+                { id: 20002, nombre: "Hamburguesa Monster", descripcion: "Pan tostadito, doble carne, chorizo, huevo, tocino, queso cheddar, salsa BBQ y vegetales frescos. Incluye papas + gaseosa", tipo: "simple", precio: 5.00, localId: 2, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV02yPX_0ihp6H7H9OGNAFWIFyTwcdSpjiHQ&s" },
+                { id: 20004, nombre: "Extras Hamburguesa", descripcion: "Agrega ingredientes extra", tipo: "tamaño", precioBase: 0.00, localId: 2, imagen: "https://media.istockphoto.com/id/637216704/es/foto/preparaci%C3%B3n-de-hamburguesas-con-queso.jpg?s=612x612&w=0&k=20&c=X_v-LWajZqgnJ8GgvMjqz4xK3uDlfJb_y56b4X1_oHY=", opciones: { "Carne": 1.00,"Chorizo": 0.75,"Huevo": 0.50,"Cheddar": 0.50 } },
                 { id: 20003, nombre: "Pizza en Cono", descripcion: "Pizza en cono personal", tipo: "personalizable", precioBase: 2.00, localId: 2, imagen: "https://www.clarin.com/2021/11/16/x5FN5DDPZ_1200x0__1.jpg", tamanos: { "Personal": 0 }, ingredientes: ["Jamón","Pollo","Salami","Pepperoni","Hawayana"], maxIngredientes: 1 },
-				
-
                 // Berdi Grill (id 3)
-                {id:30000,nombre:"Brochetas",descripcion:"Brochetas Berdí Grill Bar",tipo:"tamaño",precioBase:0.00,localId:3,imagen:"https://static.abc.es/media/bienestar/2020/09/14/brochetas-kI1H--1248x698@abc.jpg",opciones:{"Brocheta de Carne con Menestra y Arroz o Papas Fritas y Ensalada":2.75,"Brocheta de Pollo con Menestra y Arroz o Papas Fritas y Ensalada":2.75,"Brocheta Mixta Carne y Pollo con Menestra y Arroz o Papas Fritas y Ensalada":3.00}},
-                {id:30001,nombre:"Hamburguesas",descripcion:"Hamburguesas Berdí Grill Bar",tipo:"tamaño",precioBase:0.00,localId:3,imagen:"https://www.clarin.com/img/2021/06/17/LC25eDtCT_1200x630__1.jpg",opciones:{"Hamburguesa Clasica":2.00,"Hamburguesa Hawaiana":3.00,"Hamburguesa Tocino":3.50,"Hamburguesa Especial de la Casa":4.00}},
-                {id:30002,nombre:"Promos",descripcion:"Promociones de Martes a Jueves Berdí Grill Bar",tipo:"tamaño",precioBase:0.00,localId:3,imagen:"https://ideogram.ai/assets/image/balanced/response/UY3e9ESeTDyKnVvaeMuwJA@2k",opciones:{"Promo Martes 3 Hamburguesa + Papas":5.00,"Promo Miercoles 2 Pinchos Mixtos + Papas":5.00,"Promo Jueves 2 Micheladas":3.50, "Promo Jueves 2 Mojitos + Papas":4.00,"Promo Viernes 1 Pincho de carne + Choripan + Papas + Bebida":5.00}},
-                {id:30003,nombre:"Parrilla Grill",descripcion:"Cortes a la parrilla Berdí Grill Bar",tipo:"tamaño",precioBase:0.00,localId:3,imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIKPucZbAZ_oXY8wYxInPhbjlRZiNInlmysQ&s",opciones:{"T-Bone":10.00,"Rib Eye":9.00,"Lomo":7.50,"Filete de Pollo al Grill":4.00,"Filete de Pollo a la Miel y Aji":5.50,"Matambre a la Miel y Aji":9.00}},
-                {id:30004,nombre:"Alitas",descripcion:"Alitas Berdí Grill Bar",tipo:"tamaño",precioBase:0.00,localId:3,imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2lG_prjqu9FKXd9wLNzm6BcTXras3R7gRhA&s",opciones:{"Alitas 6 Unidades con Papas y Vegetales":5.00,"Alitas 12 Unidades con Papas y Vegetales":9.00}},
-                {id:30005,nombre:"Choripan",descripcion:"Choripan Berdí Grill Bar",tipo:"tamaño",precioBase:0.00,localId:3,imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOcFn271FCpkidqrBEaz2oGMS0YdOLxzksfA&s",opciones:{"Choripan Parrillero con Papas Fritas":3.00}},
+                {id:30000,nombre:"Brochetas",descripcion:"Brochetas Berdí Grill Bar",tipo:"tamaño",precioBase:0.00,localId:3,imagen:"https://static.abc.es/media/bienestar/2020/09/14/brochetas-kI1H--1248x698@abc.jpg",opciones:{"Brocheta de Carne con Menestra y Arroz o Papas Fritas y Ensalada":3.25,"Brocheta de Pollo con Menestra y Arroz o Papas Fritas y Ensalada":3.25,"Brocheta Mixta Carne y Pollo con Menestra y Arroz o Papas Fritas y Ensalada":3.50}},
+                {id:30001,nombre:"Hamburguesas",descripcion:"Hamburguesas Berdí Grill Bar",tipo:"tamaño",precioBase:0.00,localId:3,imagen:"https://www.clarin.com/img/2021/06/17/LC25eDtCT_1200x630__1.jpg",opciones:{"Hamburguesa Clasica":2.50,"Hamburguesa Hawaiana":3.50,"Hamburguesa Tocino":4.00,"Hamburguesa Especial de la Casa":4.50}},
+                {id:30002,nombre:"Promos",descripcion:"Promociones de Martes a Jueves Berdí Grill Bar",tipo:"tamaño",precioBase:0.00,localId:3,imagen:"https://ideogram.ai/assets/image/balanced/response/UY3e9ESeTDyKnVvaeMuwJA@2k",opciones:{"Promo Martes 3 Hamburguesa + Papas":5.50,"Promo Miercoles 2 Pinchos Mixtos + Papas":5.50,"Promo Jueves 2 Micheladas":4.00,"Promo Jueves 2 Mojitos + Papas":4.50,"Promo Viernes 1 Pincho de carne + Choripan + Papas + Bebida":5.50}},
+                {id:30003,nombre:"Parrilla Grill",descripcion:"Cortes a la parrilla Berdí Grill Bar",tipo:"tamaño",precioBase:0.00,localId:3,imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIKPucZbAZ_oXY8wYxInPhbjlRZiNInlmysQ&s",opciones:{"T-Bone":10.50,"Rib Eye":9.50,"Lomo":8.00,"Filete de Pollo al Grill":4.50,"Filete de Pollo a la Miel y Aji":6.00,"Matambre a la Miel y Aji":9.50}},
+                {id:30004,nombre:"Alitas",descripcion:"Alitas Berdí Grill Bar",tipo:"tamaño",precioBase:0.00,localId:3,imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2lG_prjqu9FKXd9wLNzm6BcTXras3R7gRhA&s",opciones:{"Alitas 6 Unidades con Papas y Vegetales":5.50,"Alitas 12 Unidades con Papas y Vegetales":9.50}},
+                {id:30005,nombre:"Choripan",descripcion:"Choripan Berdí Grill Bar",tipo:"tamaño",precioBase:0.00,localId:3,imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOcFn271FCpkidqrBEaz2oGMS0YdOLxzksfA&s",opciones:{"Choripan Parrillero con Papas Fritas":3.50}},
                 // Bolonche (id 4)
                 { id: 901, nombre: "Especialidades", descripcion: "Especialidades Bolonche", tipo: "tamaño", precioBase: 0.00, localId: 4, imagen: "https://imagenes.primicias.ec/files/image_480_270/uploads/2025/08/26/68ae248a2cf46.jpeg", opciones: { "Bolón Costilla": 6.50, "Bolón Crunch": 6.50, "Colonche": 6.50, "Bolón Sumergido": 6.75, "Bolón Bacon Cheese": 6.50, "Bola de Verde (Sopa)": 6.00 } },
                 { id: 902, nombre: "Bolones", descripcion: "Bolones Bolonche", tipo: "tamaño", precioBase: 0.00, localId: 4, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3Z6cvJ0IfONSE37a22RPWf-mw2aYbd3FV_A&s", opciones: { "Bolón de Maduro": 2.65, "Bolón de Queso": 2.80, "Bolón de Chicharrón": 3.00, "Bolón Mixto": 3.25 } },
@@ -1031,29 +1177,205 @@
                 { id: 90012, nombre: "Jugos Naturales", descripcion: "Jugos naturales Brisa y Marea", tipo: "tamaño", precioBase: 0.00, localId: 9, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQt82W4nMLwEN5u_Ki3AMCvmhxuB0paPH9fg&s", opciones: { "Maracuyá": 2.50, "Limonada": 2.50, "Naranja": 2.50, "Limonada Frutos Rojos": 3.50, "Limonada de Coco": 4.50, "Coco": 3.00, "Guanábana": 2.50, "Mora": 2.50, "Piña": 2.50, "Limonada Rosa": 3.00, "Limonada Imperial": 3.00 } },
                 { id: 90013, nombre: "Cervezas", descripcion: "Cervezas disponibles en Brisa y Marea", tipo: "tamaño", precioBase: 0.00, localId: 9, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDW0gR7Gg9TJww5pgBxLOx0gFaABrYZOlTQQ&s", opciones: { "Pilsener Pequeña": 1.75, "Pilsener Grande": 2.50, "Club Pequeña": 2.00, "Club Grande": 3.00, "Corona": 4.00 } },
                 { id: 90014, nombre: "Porciones", descripcion: "Porciones y extras Brisa y Marea", tipo: "tamaño", precioBase: 0.00, localId: 9, imagen: "https://images.aws.nestle.recipes/original/15ec26ac4aa3b2533585b8d617e2f48d_patacones-papas-camotes-patacones-1.jpg", opciones: { "Arroz": 1.50, "Chifles": 0.60, "Patacones": 1.50, "Papas": 1.50, "Maduros": 1.50, "Maduros con Queso": 3.00, "Patacón con Queso": 3.00 } },
+                // Broos Burguer Las Chancro (id 10)
+                // Broster Casero (id 11)
+                { id: 11000, nombre: "Promo Alitas 2x1+3", descripcion: "Incluye papas, mayonesa y aji", tipo: "personalizable", precioBase: 8.50, localId: 11, imagen: "https://campollo.com/wp-content/uploads/2023/06/ALITAS-PICANTES.jpg", tamanos: { "7 + 7 + 3 Alitas": 0, "12 + 12 + 3 Alitas": 5.00, "15 + 15 + 3 Alitas": 7.00, "22 + 22 + 3 Alitas": 14.49 }, ingredientes: ["BBQ","BBQ HOT","TERIYAKI","MOSTAZA MIEL","MARACUYA","PIÑA","FRESA MORA"], maxIngredientes: 1 },
+				//Local (id 12)
+                //Chifa Global (id 13)
+                { id: 13001, nombre: "Sopas", descripcion: "Sopas estilo chifa", tipo: "tamaño", precioBase: 0.00, localId: 13, imagen: "https://www.hola.com/horizon/landscape/ef22eeb98e56-huevo-setas-adobe-t.jpg", opciones: { "Consomé Natural": 3.00, "Consomé de Pollo": 3.50, "Sopa Wantán": 5.00, "Sopa Wantán Especial": 6.00, "Sopa de Tallarín": 5.50 } },
+                { id: 13002, nombre: "Entradas", descripcion: "Pasa bocas del chifa", tipo: "tamaño", precioBase: 0.00, localId: 13, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMAC0tSKyBE2_P8hlGfFj8lOGXzATijpMX4Q&s", opciones: { "Wantán Frito": 4.00, "Rollo Primavera": 3.00, "Papas Fritas": 3.00 } },
+                { id: 13003, nombre: "Chaulafán", descripcion: "Arroz estilo chino", tipo: "tamaño", precioBase: 0.00, localId: 13, imagen: "https://recetas123.net/wp-content/uploads/chaulafan-1.jpg", opciones: { "Chaulafán Especial": 6.00, "Chaulafán de Pollo": 6.00, "Chaulafán de Carne": 6.50, "Chaulafán de Camarón": 7.50, "Chaulafán Mixto": 7.00, "1/2 Chaulafán": 4.50 } },
+                { id: 13004, nombre: "Tallarines", descripcion: "Tallarines chinos", tipo: "tamaño", precioBase: 0.00, localId: 13, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBG8iP522hqPAcXCSFs5KtBN9rK4ZbDkpfZQ&s", opciones: { "Tallarín Especial": 7.00, "Tallarín con Pollo": 7.00, "Tallarín con Carne": 7.00, "Tallarín con Camarón": 8.00, "1/2 Tallarín": 5.50 } },
+                { id: 13005, nombre: "Mixtos", descripcion: "Combinaciones del chifa", tipo: "tamaño", precioBase: 0.00, localId: 13, imagen: "https://images.rappi.com.ec/restaurants_background/2d07ff8a-fe02-48c3-86ad-f1a17ff9ae56-1750724118331.jpeg", opciones: { "1/2 Chaulafán + 1/2 Tallarín": 7.50, "1/2 Chaulafán + Pollo con Verduras": 8.00, "1/2 Chaulafán + Carne con Verduras": 8.00, "1/2 Chaulafán + Camarón": 8.50 } },
+                { id: 13006, nombre: "Pollo", descripcion: "Platos de pollo", tipo: "tamaño", precioBase: 0.00, localId: 13, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaAvdJBS1rxLQDBuBX7tiMIs9nx38L9NBXHA&s", opciones: { "Pollo con Verduras": 7.50, "Pollo Agridulce": 8.00, "Pollo con Champiñones": 8.00, "Pollo Apanado": 8.00 } },
+                { id: 13007, nombre: "Carne", descripcion: "Platos de carne", tipo: "tamaño", precioBase: 0.00, localId: 13, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuusxKo1x4SJF0gUjLenescrTJ1AJOhi5iEA&s", opciones: { "Carne con Verduras": 7.50, "Carne con Champiñones": 8.00, "Carne con Papas": 8.00, "Churrasco": 8.50 } },
+                { id: 13008, nombre: "Chancho", descripcion: "Platos de chancho", tipo: "tamaño", precioBase: 0.00, localId: 13, imagen: "https://comedera.com/wp-content/uploads/sites/9/2022/08/Costillitas-Chinas-shutterstock_1645275700.jpg", opciones: { "Chancho Agridulce": 7.50, "Chancho con Champiñones": 7.50, "Chancho con Verduras": 7.50 } },
+                { id: 13009, nombre: "Mariscos", descripcion: "Platos con camarón y pescado", tipo: "tamaño", precioBase: 0.00, localId: 13, imagen: "https://big5.cctv.com/gate/big5/p1.img.cctvpic.com/photoworkspace/contentimg/2015/05/14/2015051411372460240.jpg", opciones: { "Camarón con Verduras": 9.00, "Camarón Apanado": 9.00, "Corvina Frita": 9.00, "Corvina Apanada": 9.00 } },
+                { id: 13010, nombre: "Bebidas", descripcion: "Bebidas del local", tipo: "tamaño", precioBase: 0.00, localId: 13, imagen: "https://confirmado.com.ve/conf/conf-upload/uploads/2024/09/cu1-12.jpg", opciones: { "Gaseosa Personal": 1.00, "Gaseosa Litro": 2.00, "Agua": 0.60, "Jugo": 1.50 } },
+
+                // Chifa Yin Yang Yahuira (id 15)
+                { id: 15000, nombre: "Combos Chifa", descripcion: "Combos completos con bebida", tipo: "tamaño", precioBase: 0.00, localId: 15, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv3lZQUHyh02OUzsVpmP6vEGI0iH7i-qJi8g&s", opciones: { "Combo 1 - 1/2 Chaulafan especial + papas y cola": 6.50, "Combo 2 - 1/2 Chaulafan especial + papas + chuleta frita y cola": 7.50, "Combo 3 - 1/2 Tallarin especial + arroz y cola": 7.00, "Combo 4 - 1/2 Chaulafan especial + papas + huevo frito + ensalada y cola": 7.00, "Combo 5 - 1/2 Chaulafan especial + ensalada + camaron apanado y cola": 8.00, "Combo 6 - 1/2 Chaulafan especial + camaron con verduras y cola": 9.00, "Combo 7 - 1/2 Chaulafan especial + carne con verduras y cola": 8.50, "Combo 8 - 1/2 Chaulafan especial + pollo con verduras y cola": 8.00, "Combo 9 - Pollo apanado + arroz + papas + ensalada y cola": 8.50, "Combo 10 - Pescado apanado + 1/2 chaulafan + papas + ensalada y cola": 9.00, "Combo 11 - Carne apanada + arroz + papas + ensalada y cola": 7.50, "Combo 12 - 1/2 Chaulafan especial + ensalada y cola": 6.00 } },
+                { id: 15001, nombre: "Pasa Bocas", descripcion: "Entradas del chifa", tipo: "tamaño", precioBase: 0.00, localId: 15, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRlY-8UjDVjWFFNc6z1Gy2VN9lJoZQBkzTMA&s", opciones: { "Wantan Frito": 4.00, "Papas Fritas": 3.00, "Rollo de Primavera": 3.00 } },
+                { id: 15002, nombre: "Arroces", descripcion: "Arroces y chaulafan", tipo: "tamaño", precioBase: 0.00, localId: 15, imagen: "https://recetas123.net/wp-content/uploads/chaulafan-1.jpg", opciones: { "Arroz a la Valenciana": 6.50, "Chaulafan Especial": 6.00, "Chaulafan Super": 7.00, "Chaulafan Especial Ejecutivo": 6.50, "Chaulafan de Carne": 6.50, "Chaulafan de Pollo": 6.00, "Chaulafan de Camaron (P)": 7.00, "Chaulafan de Camaron Grande": 8.00, "Chaulafan de Chancho": 6.00, "Arroz con Pollo": 6.50, "Arroz con Camaron (P)": 7.00, "Arroz con Camaron Grande": 8.00, "1/2 Chaulafan Especial": 5.00 } },
+                { id: 15003, nombre: "Chancho", descripcion: "Platos de chancho", tipo: "tamaño", precioBase: 0.00, localId: 15, imagen: "https://comedera.com/wp-content/uploads/sites/9/2022/08/Costillitas-Chinas-shutterstock_1645275700.jpg", opciones: { "Salteado con Legumbres": 7.50, "Chancho con Champiñones": 7.50, "Chancho con Agridulce": 7.50 } },
+                { id: 15004, nombre: "Carnes", descripcion: "Platos de carne", tipo: "tamaño", precioBase: 0.00, localId: 15, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuusxKo1x4SJF0gUjLenescrTJ1AJOhi5iEA&s", opciones: { "Carne Salteado con Verduras": 7.00, "Carne Salteada con Champiñon": 7.50, "Carne Salteada con Papa": 8.00, "Carne Salteada con Tomate": 7.00, "Churrasco": 8.00, "Carne Apanado": 7.00, "Bistec con Arroz": 7.00, "Gran Chop Suey": 8.00 } },
+                { id: 15005, nombre: "Pollo", descripcion: "Platos de pollo", tipo: "tamaño", precioBase: 0.00, localId: 15, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaAvdJBS1rxLQDBuBX7tiMIs9nx38L9NBXHA&s", opciones: { "Pollo Salteado con Verduras": 7.50, "Pollo Salteado con Champiñon": 7.50, "Pollo Salteado con Papas": 8.00, "Pollo Salteado con Agridulce": 8.00, "Pollo Salteado con Brocoli": 8.00, "Pollo Apanado": 8.00, "Gran Chop Suey": 8.00 } },
+                { id: 15006, nombre: "Mariscos", descripcion: "Platos de mariscos", tipo: "tamaño", precioBase: 0.00, localId: 15, imagen: "https://big5.cctv.com/gate/big5/p1.img.cctvpic.com/photoworkspace/contentimg/2015/05/14/2015051411372460240.jpg", opciones: { "Corvina Salteada con Legumbres": 8.50, "Corvina Salteada con Champiñon": 7.50, "Corvina Salteada con Agridulce": 9.00, "Corvina Frita": 9.00, "Corvina Apanada": 9.00, "Camaron con Agridulce": 8.50, "Camaron con Verduras": 9.00, "Camaron Apanado": 9.00 } },
+                { id: 15007, nombre: "Tallarines", descripcion: "Tallarines chinos", tipo: "tamaño", precioBase: 0.00, localId: 15, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBG8iP522hqPAcXCSFs5KtBN9rK4ZbDkpfZQ&s", opciones: { "Tallarín Frito Chop Suey": 7.00, "Tallarín Especial": 7.00, "Tallarín Seco": 7.00, "Tallarín Salteado en Agridulce": 8.00, "Tallarín Salteado con Chancho": 7.00, "Tallarín Salteado con Camaron": 8.00, "Tallarín Salteado con Carne": 7.00, "Tallarín Salteado con Pollo": 7.00, "1/2 Tallarín Especial": 6.00 } },
+                { id: 15008, nombre: "Mixtos", descripcion: "Platos mixtos", tipo: "tamaño", precioBase: 0.00, localId: 15, imagen: "https://images.rappi.com.ec/restaurants_background/2d07ff8a-fe02-48c3-86ad-f1a17ff9ae56-1750724118331.jpeg", opciones: { "1/2 Chaulafan + 1/2 Tallarin Especial": 8.00, "1/2 Chaulafan Pollo + 1/2 Tallarin Pollo": 8.00, "1/2 Chaulafan Camaron + 1/2 Tallarin Camaron": 8.50, "1/2 Chaulafan Carne + 1/2 Gran Chop Suey": 8.00, "1/2 Chaulafan + Chancho Agridulce": 8.00, "1/2 Chaulafan + 1/2 Lomo con Verduras": 8.00, "1/2 Chaulafan + 1/2 Pollo Verduras": 8.00 } },
+                { id: 15009, nombre: "Verduras", descripcion: "Platos vegetarianos", tipo: "tamaño", precioBase: 0.00, localId: 15, imagen: "https://studycli.org/wp-content/uploads/2021/09/vegetarian-in-china-009.jpeg", opciones: { "Chaulafan con Verduras": 7.50, "Tallarín con Verduras": 7.50, "Mixto con Verduras": 7.50 } },
+                { id: 15010, nombre: "Sopas", descripcion: "Sopas chinas", tipo: "tamaño", precioBase: 0.00, localId: 15, imagen: "https://www.hola.com/horizon/landscape/ef22eeb98e56-huevo-setas-adobe-t.jpg", opciones: { "Consome Natural": 3.50, "Consome a la Reina": 2.00, "Sopa de Wantan": 5.50, "Caldo de Pollo": 5.00, "Sopa de Pac Pok": 6.00, "Sopa de Chop Suey": 5.50, "Sopa de Tallarin": 5.50 } },
+                { id: 15011, nombre: "Bebidas", descripcion: "Bebidas del local", tipo: "tamaño", precioBase: 0.00, localId: 15, imagen: "https://confirmado.com.ve/conf/conf-upload/uploads/2024/09/cu1-12.jpg", opciones: { "Gaseosa Mediana": 0.80, "Gaseosa de Litro": 2.00, "Cafe": 1.00, "Vaso de Jugo": 1.50, "Jarra de Jugo": 3.50, "Vaso de Limonada": 1.50, "Jarra de Limonada": 3.50, "Fuze Tea Pequeño": 1.00, "Fuze Tea Grande": 2.00, "Cola de Litro": 2.00, "Agua sin Gas": 0.60 } },
+                // Chifa Yin Yang Izamnba (id 16)
+                { id: 16000, nombre: "Combos Chifa", descripcion: "Combos completos con bebida", tipo: "tamaño", precioBase: 0.00, localId: 16, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv3lZQUHyh02OUzsVpmP6vEGI0iH7i-qJi8g&s", opciones: { "Combo 1 - 1/2 Chaulafan especial + papas y cola": 6.50, "Combo 2 - 1/2 Chaulafan especial + papas + chuleta frita y cola": 7.50, "Combo 3 - 1/2 Tallarin especial + arroz y cola": 7.00, "Combo 4 - 1/2 Chaulafan especial + papas + huevo frito + ensalada y cola": 7.00, "Combo 5 - 1/2 Chaulafan especial + ensalada + camaron apanado y cola": 8.00, "Combo 6 - 1/2 Chaulafan especial + camaron con verduras y cola": 9.00, "Combo 7 - 1/2 Chaulafan especial + carne con verduras y cola": 8.50, "Combo 8 - 1/2 Chaulafan especial + pollo con verduras y cola": 8.00, "Combo 9 - Pollo apanado + arroz + papas + ensalada y cola": 8.50, "Combo 10 - Pescado apanado + 1/2 chaulafan + papas + ensalada y cola": 9.00, "Combo 11 - Carne apanada + arroz + papas + ensalada y cola": 7.50, "Combo 12 - 1/2 Chaulafan especial + ensalada y cola": 6.00 } },
+                { id: 16001, nombre: "Pasa Bocas", descripcion: "Entradas del chifa", tipo: "tamaño", precioBase: 0.00, localId: 16, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRlY-8UjDVjWFFNc6z1Gy2VN9lJoZQBkzTMA&s", opciones: { "Wantan Frito": 4.00, "Papas Fritas": 3.00, "Rollo de Primavera": 3.00 } },
+                { id: 16002, nombre: "Arroces", descripcion: "Arroces y chaulafan", tipo: "tamaño", precioBase: 0.00, localId: 16, imagen: "https://recetas123.net/wp-content/uploads/chaulafan-1.jpg", opciones: { "Arroz a la Valenciana": 6.50, "Chaulafan Especial": 6.00, "Chaulafan Super": 7.00, "Chaulafan Especial Ejecutivo": 6.50, "Chaulafan de Carne": 6.50, "Chaulafan de Pollo": 6.00, "Chaulafan de Camaron (P)": 7.00, "Chaulafan de Camaron Grande": 8.00, "Chaulafan de Chancho": 6.00, "Arroz con Pollo": 6.50, "Arroz con Camaron (P)": 7.00, "Arroz con Camaron Grande": 8.00, "1/2 Chaulafan Especial": 5.00 } },
+                { id: 16003, nombre: "Chancho", descripcion: "Platos de chancho", tipo: "tamaño", precioBase: 0.00, localId: 16, imagen: "https://comedera.com/wp-content/uploads/sites/9/2022/08/Costillitas-Chinas-shutterstock_1645275700.jpg", opciones: { "Salteado con Legumbres": 7.50, "Chancho con Champiñones": 7.50, "Chancho con Agridulce": 7.50 } },
+                { id: 16004, nombre: "Carnes", descripcion: "Platos de carne", tipo: "tamaño", precioBase: 0.00, localId: 16, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuusxKo1x4SJF0gUjLenescrTJ1AJOhi5iEA&s", opciones: { "Carne Salteado con Verduras": 7.00, "Carne Salteada con Champiñon": 7.50, "Carne Salteada con Papa": 8.00, "Carne Salteada con Tomate": 7.00, "Churrasco": 8.00, "Carne Apanado": 7.00, "Bistec con Arroz": 7.00, "Gran Chop Suey": 8.00 } },
+                { id: 16005, nombre: "Pollo", descripcion: "Platos de pollo", tipo: "tamaño", precioBase: 0.00, localId: 16, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaAvdJBS1rxLQDBuBX7tiMIs9nx38L9NBXHA&s", opciones: { "Pollo Salteado con Verduras": 7.50, "Pollo Salteado con Champiñon": 7.50, "Pollo Salteado con Papas": 8.00, "Pollo Salteado con Agridulce": 8.00, "Pollo Salteado con Brocoli": 8.00, "Pollo Apanado": 8.00, "Gran Chop Suey": 8.00 } },
+                { id: 16006, nombre: "Mariscos", descripcion: "Platos de mariscos", tipo: "tamaño", precioBase: 0.00, localId: 16, imagen: "https://big5.cctv.com/gate/big5/p1.img.cctvpic.com/photoworkspace/contentimg/2015/05/14/2015051411372460240.jpg", opciones: { "Corvina Salteada con Legumbres": 8.50, "Corvina Salteada con Champiñon": 7.50, "Corvina Salteada con Agridulce": 9.00, "Corvina Frita": 9.00, "Corvina Apanada": 9.00, "Camaron con Agridulce": 8.50, "Camaron con Verduras": 9.00, "Camaron Apanado": 9.00 } },
+                { id: 16007, nombre: "Tallarines", descripcion: "Tallarines chinos", tipo: "tamaño", precioBase: 0.00, localId: 16, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBG8iP522hqPAcXCSFs5KtBN9rK4ZbDkpfZQ&s", opciones: { "Tallarín Frito Chop Suey": 7.00, "Tallarín Especial": 7.00, "Tallarín Seco": 7.00, "Tallarín Salteado en Agridulce": 8.00, "Tallarín Salteado con Chancho": 7.00, "Tallarín Salteado con Camaron": 8.00, "Tallarín Salteado con Carne": 7.00, "Tallarín Salteado con Pollo": 7.00, "1/2 Tallarín Especial": 6.00 } },
+                { id: 16008, nombre: "Mixtos", descripcion: "Platos mixtos", tipo: "tamaño", precioBase: 0.00, localId: 16, imagen: "https://images.rappi.com.ec/restaurants_background/2d07ff8a-fe02-48c3-86ad-f1a17ff9ae56-1750724118331.jpeg", opciones: { "1/2 Chaulafan + 1/2 Tallarin Especial": 8.00, "1/2 Chaulafan Pollo + 1/2 Tallarin Pollo": 8.00, "1/2 Chaulafan Camaron + 1/2 Tallarin Camaron": 8.50, "1/2 Chaulafan Carne + 1/2 Gran Chop Suey": 8.00, "1/2 Chaulafan + Chancho Agridulce": 8.00, "1/2 Chaulafan + 1/2 Lomo con Verduras": 8.00, "1/2 Chaulafan + 1/2 Pollo Verduras": 8.00 } },
+                { id: 16009, nombre: "Verduras", descripcion: "Platos vegetarianos", tipo: "tamaño", precioBase: 0.00, localId: 16, imagen: "https://studycli.org/wp-content/uploads/2021/09/vegetarian-in-china-009.jpeg", opciones: { "Chaulafan con Verduras": 7.50, "Tallarín con Verduras": 7.50, "Mixto con Verduras": 7.50 } },
+                { id: 16010, nombre: "Sopas", descripcion: "Sopas chinas", tipo: "tamaño", precioBase: 0.00, localId: 16, imagen: "https://www.hola.com/horizon/landscape/ef22eeb98e56-huevo-setas-adobe-t.jpg", opciones: { "Consome Natural": 3.50, "Consome a la Reina": 2.00, "Sopa de Wantan": 5.50, "Caldo de Pollo": 5.00, "Sopa de Pac Pok": 6.00, "Sopa de Chop Suey": 5.50, "Sopa de Tallarin": 5.50 } },
+                { id: 16011, nombre: "Bebidas", descripcion: "Bebidas del local", tipo: "tamaño", precioBase: 0.00, localId: 16, imagen: "https://confirmado.com.ve/conf/conf-upload/uploads/2024/09/cu1-12.jpg", opciones: { "Gaseosa Mediana": 0.80, "Gaseosa de Litro": 2.00, "Cafe": 1.00, "Vaso de Jugo": 1.50, "Jarra de Jugo": 3.50, "Vaso de Limonada": 1.50, "Jarra de Limonada": 3.50, "Fuze Tea Pequeño": 1.00, "Fuze Tea Grande": 2.00, "Cola de Litro": 2.00, "Agua sin Gas": 0.60 } },
+				// Local (id 17)
                 
-                // King Pizza (id 36)  
-                { id: 3601, nombre: "King Pizza", descripcion: "1 Pizza - 2 ingredientes", tipo: "personalizable", precioBase: 5.99, localId: 36, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI2hdQeNVlyu20ReOpJcNwdgW0ER5hwxnauQ&s", tamanos: { "Familiar 8 Pedazos": 0, "Grande 12 Pedazos": 2.00, "Gigante 16 Pedazos": 4.00 }, ingredientes: ["Jamon", "Salami", "Pepperoni", "Piña", "Champiñones", "Pimientos"], maxIngredientes: 2 },
-                { id: 3602, nombre: "Promo de Lunes a Jueves", descripcion: "2 Pizzas - 2 ingredientes", tipo: "personalizable", precioBase: 9.99, localId: 36, imagen: "https://pbs.twimg.com/media/DCNNVKgUwAEr9yH.jpg", tamanos: { "Familiar 8*2 Pedazos": 0 }, ingredientes: ["Jamon", "Salami", "Pepperoni", "Piña", "Champiñones", "Pimientos"], maxIngredientes: 2 },
-                { id: 3603, nombre: "Promo Diaria", descripcion: "2 Pizzas + 1 Cola de Litro - 2 ingredientes", tipo: "personalizable", precioBase: 14.99, localId: 36, imagen: "https://tofuu.getjusto.com/orioneat-local/resized2/GW2mAhB9eg24gE3tJ-2400-x.webp", tamanos: { "Grande 12*2 Pedazos": 0.00, "Gigante 16*2 Pedazos": 5.00 }, ingredientes: ["Jamon", "Salami", "Pepperoni", "Piña", "Champiñones", "Pimientos"], maxIngredientes: 2 },
-                // Potato Tornado (id 54)
-                { id: 5401, nombre: "Promo Potato", descripcion: "Nachos + Hamburguesa + Cola personal", tipo: "simple", precio: 4.99, localId: 54, imagen: "https://ideogram.ai/assets/image/balanced/response/FQzQ1iz3QwelQ7h18wKYUQ@2k" },
-                { id: 5402, nombre: "Promo Burger", descripcion: "Hamburguesa + Papas + Cola personal", tipo: "simple", precio: 3.50, localId: 54, imagen: "https://ideogram.ai/assets/image/balanced/response/AQJePfHKTiOzfMOWHpN8EQ@2k" },
-                { id: 5403, nombre: "Promo Salchi", descripcion: "3 Salchipapas + Cola de 1 Litro", tipo: "simple", precio: 6.50, localId: 54, imagen: "https://ideogram.ai/assets/image/balanced/response/4Ct57iu-SJK_AU3Css-0-w@2k" },
-                { id: 5404, nombre: "Promo Hog Dog", descripcion: "5 Hog Dogs + Cola de 1 Litro", tipo: "simple", precio: 9.99, localId: 54, imagen: "https://ideogram.ai/assets/image/balanced/response/k167sbtDRnmCp0AHiRwGBg@2k" },
-                { id: 5405, nombre: "Promo Tornado", descripcion: "2 Papas torneadas", tipo: "simple", precio: 2.99, localId: 54, imagen: "https://ideogram.ai/assets/image/balanced/response/-dNFJJ2EQZaOwq7jjatKTg@2k" },
+                // Chifa Nuevo HongKong (id 18)
+                { id:18000,nombre:"Platos Especiales",descripcion:"Especialidades del chifa",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://www.zetterpak.com/wp-content/uploads/2021/04/10-platillos-de-comida-china.jpg",opciones:{"Bandeja especial #1":9.10,"Bandeja especial #2":9.10,"Mixto":7.90,"Mixto solo camaron":9.10,"Mixto solo pollo":7.90,"Gran chop suey especial":6.80,"Chop suey solo pollo y camaron":7.60}},
+                { id:18001,nombre:"Platos a la Plancha",descripcion:"Especialidades a la plancha",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsa_Lnm2k7uI0c7Clj1CevPt-pgfAavJ9Pvg&s",opciones:{"Camaron a la plancha":8.70,"Lomito a la plancha":7.30,"Chancho a la plancha":7.30,"Pollo a la plancha":7.30,"Lengua a la plancha":7.50,"Chop suey a la plancha":7.50,"Corvina a la plancha":8.70,"Corvina con camaron a la plancha":9.40,"Lomito a la plancha con papas fritas":7.30,"Lomito a la plancha con chaulafan":9.00}},
+                { id:18002,nombre:"Sopas",descripcion:"Variedad de sopas",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig3elonK1Op5aJLE0NgwDtBXTV8N-caeLTpJ5h49o3ObhwdPAc4HpBKPkklpJzixf9TlxgccVwws6JGx62UHb62AerfaAzLOh46lLMEsWxAdC7EnrlIbdPBHg7bPVqEYEtB5b5/w1200-h630-p-k-no-nu/6661218803_e7159aa844_o.jpg",opciones:{"Consome natural con nabo":1.90,"Consome a la reina":2.00,"Sopa de menudencias":4.20,"Sopa de gallina":4.20,"Sopa especial":4.80,"Sopa de wantan especial":5.00,"Sopa de tallarin especial":5.00,"Sopa de substancias":5.00,"Kai kau min":5.40,"Sopa wantan min":5.40,"Sopa de camaron":5.40}},
+                { id:18003,nombre:"Cremas",descripcion:"Cremas chinas",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://i.blogs.es/adaef0/sopa-de-huevo-china/450_1000.jpg",opciones:{"Crema de champiñones":4.80,"Crema de esparragos":3.30,"Crema de pollo":4.10,"Crema de Wu Chi Wu":4.10,"Crema de tomate":2.70,"Crema de Pac Pon":4.80,"Crema de choclo y pollo":4.80}},
+                { id:18004,nombre:"Arroz",descripcion:"Arroces y chaulafanes",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://www.recetasnestle.com.ec/sites/default/files/srh_recipes/09bd6d25e97d71c9b982717f71eb5e78.jpg",opciones:{"Chaulafan especial":6.60,"Chaulafan de Nuevo Hong Kong":7.80,"Chaulafan de camaron grande":7.80,"Chaulafan de camaron":6.50,"Chaulafan de pollo y camaron":6.10,"Chaulafan de pollo":5.90,"Chaulafan de chancho":5.90,"Chaulafan de lomito":5.90,"Chaulafan de menudencias":5.90,"Arroz con camaron grande":7.80,"Arroz con camaron":6.50,"Arroz con pollo":5.90,"Arroz con chancho":5.90,"Arroz con lomito":5.90,"Arroz con menudencias":5.90,"Arroz a la valenciana":6.00,"Porcion de arroz blanco":1.70,"Medio chaulafan especial":3.80,"Medio chaulafan de camaron":4.60,"Medio chaulafan de pollo":4.00}},
+                { id:18005,nombre:"Tallarines",descripcion:"Tallarines salteados",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://cdn0.recetasgratis.net/es/posts/9/3/5/tallarines_chinos_con_pollo_22539_orig.jpg",opciones:{"Tallarin salteado con chop suey":6.60,"Tallarin salteado con pollo y camaron":7.60,"Tallarin salteado con camaron":7.60,"Tallarin salteado con pollo":6.60,"Tallarin salteado con chancho":6.60,"Tallarin salteado con lomito":6.60,"Tallarin salteado con menudencias":6.60,"Tallarin salteado con curry":6.80,"Tallarin especial con champiñones":7.90,"Tallarin especial con agridulce":6.80,"Tallarin frito con chop suey":6.80,"Medio tallarin con chop suey":5.00,"Medio tallarin con pollo":5.00,"Medio tallarin con camaron":6.00,"Medio tallarin con pollo y camaron":6.00}},
+                { id:18006,nombre:"Carnes de Res",descripcion:"Platos con carne",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://i.ytimg.com/vi/FGE18VzAu04/maxresdefault.jpg",opciones:{"Bistec jugoso":6.60,"Bistec jugoso con chaulafan":8.30,"Churrasco jugoso":7.40,"Churrasco seco":7.40,"Churrasco con chaulafan":9.10,"Carne apanada":6.90,"Carne apanada con chaulafan":8.60,"Lomito salteado con verduras":6.70,"Lomito salteado con brocoli":6.70,"Lomito salteado con pimiento":6.70,"Lomito salteado con tomate":6.70,"Lomito salteado con cebolla":6.70,"Lomito salteado con apio":6.70,"Lomito salteado con champiñones":8.10,"Lomito salteado con curry":6.90,"Lomito salteado con papas y curry":6.90,"Lomito salteado con taosi":6.90,"Bistec a la milanesa":7.40,"Bistec a la milanesa con chaulafan":9.10}},
+                { id:18007,nombre:"Pollo",descripcion:"Platos con pollo",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5QxWf6VWjLHdyngJ6xk03dhobiq6AomeAIg&s",opciones:{"Pollo apanado":6.90,"Pollo apanado con chaulafan":8.60,"Pollo frito":6.60,"Pollo jugoso":7.20,"Pollo salteado con verduras":6.70,"Pollo salteado con brocoli":6.70,"Pollo salteado con champiñones":8.10,"Pollo salteado con curry":6.90,"Pollo salteado con taosi":6.90,"Pollo salteado con tamarindo":6.90,"Pollo salteado con agridulce":6.90,"Pollo salteado con piña":6.90}},
+                { id:18008,nombre:"Chancho",descripcion:"Platos con cerdo",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://www.finvian.com/vista/imagen/producto/fa_1657329024985_wfbzj2561wq60ny.jpg",opciones:{"Chancho salteado con verduras":6.70,"Chancho salteado con brocoli":6.70,"Chancho salteado con piña":6.70,"Chancho salteado con tamarindo":6.90,"Chancho salteado con taosi":6.90,"Chancho salteado con champiñones":8.10}},
+                { id:18009,nombre:"Lengua",descripcion:"Platos con lengua",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://rumbameats.com/wp-content/uploads/2017/10/43898_Rumba_Website_Recipe_Image_600x450_0003_Tongue_RedWine_90423.jpg",opciones:{"Lengua salteado con verduras":6.80,"Lengua salteado con brocoli":6.80,"Lengua salteado con champiñones":8.10,"Lengua apanada":6.90}},
+                { id:18010,nombre:"Vegetales",descripcion:"Platos vegetarianos",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://chifadukang.com/wp-content/uploads/2025/04/chifa-vegetariano-tallarin-saltado-768x338.jpg.webp",opciones:{"Sopa de legumbres":2.30,"Arroz con legumbres":4.30,"Arroz con legumbres y champiñones":5.70,"Tallarin salteado con legumbres":4.30,"Tallarin salteado con legumbres y champiñones":5.70,"Porcion de legumbres":3.10,"Porcion de brocoli":3.10,"Porcion de ensalada":1.70}},
+                { id:18011,nombre:"Corvina",descripcion:"Platos de pescado",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://i.ytimg.com/vi/mQvidFRc1Co/maxresdefault.jpg",opciones:{"Corvina frita":7.60,"Corvina frita con chaulafan":9.30,"Corvina apanada":7.60,"Corvina apanada con chaulafan":9.30,"Corvina salteado con legumbres":7.60,"Corvina salteado con brocoli":7.60,"Corvina salteado con piña":7.60,"Corvina salteado con tamarindo":7.60,"Corvina salteado con champiñones":9.00,"Corvina salteado con taosi":7.80}},
+                { id:18012,nombre:"Camaron",descripcion:"Platos con camaron",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://www.paulinacocina.net/wp-content/uploads/2024/05/receta-de-camarones-empanizados-paulina-cocina-recetas-1722444280.jpg",opciones:{"Camaron apanado":7.60,"Camaron apanado con chaulafan":9.30,"Camaron reventado":7.60,"Camaron reventado con chaulafan":9.30,"Camaron salteado con verduras":7.60,"Camaron salteado con brocoli":7.60,"Camaron salteado con taosi":7.80,"Camaron salteado con champiñones":9.00,"Tortilla de camaron":5.40}},
+                { id:18013,nombre:"Bocaditos",descripcion:"Entradas",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://i.ytimg.com/vi/cThGWlvYWpE/maxresdefault.jpg",opciones:{"Wantan frito 10 unidades":3.60,"Medio wantan frito 5 unidades":2.30,"Rollo primavera 6 unidades":4.90,"Medio rollo primavera 3 unidades":2.60,"Papas fritas":2.50,"Medio porcion papas fritas":1.50}},
+                { id:18014,nombre:"Bebidas",descripcion:"Bebidas frias y calientes",tipo:"tamaño",precioBase:0.00,localId:18,imagen:"https://thumbs.dreamstime.com/b/carta-de-refrescos-y-caf%C3%A9-sobre-una-mesa-madera-en-se-sirven-bebidas-fr%C3%ADas-las-visibles-incluyen-helado-coloridas-impregnadas-395062193.jpg",opciones:{"Cola personal":0.80,"Cola de 1 litro":2.00,"Fuzetea personal":1.00,"Fuzetea de 1 litro":2.00,"Agua Dasani":0.80,"Cerveza Club pequeña":2.00,"Jugo de frutas":1.40,"Jugo de naranja puro":1.80,"Jarra de jugo grande":3.60,"Jarra de jugo pequeña":2.60,"Taza de te chino":1.40,"Cafe":1.40}},
+                // Local (id 19)
                 // Mini Donas Gema (id 20)
                 { id: 5401, nombre: "Mini Donas Normales", descripcion: "8 mini donas + 2 Salsas + 2 Topings", tipo: "simple", precio: 2.50, localId: 20, imagen: "https://ideogram.ai/assets/image/balanced/response/nTNxoPShRxym1JqhpehIoQ@2k" },
                 { id: 5402, nombre: "Mini Donas Cremosas", descripcion: "8 mini donas + Crema + Fresa + 1 Toping + 1 Salsa", tipo: "simple", precio: 3.00, localId: 20, imagen: "https://ideogram.ai/assets/image/balanced/response/lM95wnliQcqWuCZaS7JkeA@2k" },
                 { id: 5403, nombre: "Caja Grande Normal", descripcion: "18 mini donas + 2 Salsas + 4 Topings", tipo: "simple", precio: 5.00, localId: 20, imagen: "https://ideogram.ai/assets/image/balanced/response/2vaJIBulQJudDqd1U4H5Cw@2k" },
                 { id: 5404, nombre: "Caja Grande Mixta", descripcion: "18 mini donas + 2 Salsas + Crema + 4 Topings", tipo: "simple", precio: 5.50, localId: 20, imagen: "https://ideogram.ai/assets/image/balanced/response/28DMoPF8Qtivrr63v2sJMA@2k" },
                 { id: 5405, nombre: "Caja Especial", descripcion: "18 mini donas + 2 Salsas + Fresa + Crema + 2 Topings", tipo: "simple", precio: 6.00, localId: 20, imagen: "https://ideogram.ai/assets/image/balanced/response/mXD5EfaiQ1yFyApg_L7lVQ@2k" },
+                // Local (id 21)
+                // El Paisa (id 22)
+                { id:22000,nombre:"Platos Principales",descripcion:"Especialidades de la casa",tipo:"tamaño",precioBase:0.00,localId:22,imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq4z-esEG-iewR_JSiupg8oR3wHfrjSshxGw&s",opciones:{"Lomo de Cerdo":10.10,"Tiras de Lomo a la Brasa":10.10,"Caldo de Costilla":6.10,"Bandeja de Pollo":8.75,"Chuleta Valluna":7.50}},
+                { id:22001,nombre:"Fin de Semana",descripcion:"Disponibles sabados domingos y feriados",tipo:"tamaño",precioBase:0.00,localId:22,imagen:"https://www.infobae.com/resizer/v2/R4VENSPXO5DZBJ7M5CNWTKEAJQ.jpg?auth=e17bf2694a3eaf395d58a160b09cac133ff395e55f3e48295ed3c66173c5af23&smart=true&width=350&height=196&quality=85",opciones:{"Ajiaco Santafereño":8.75,"Mondongo":9.80,"Sancocho Trifasico":8.75,"Sancocho de Gallina":9.80}},
+                { id:22002,nombre:"Comidas Rapidas",descripcion:"Antojos rapidos",tipo:"tamaño",precioBase:0.00,localId:22,imagen:"https://www.larepublica.ec/wp-content/uploads/2016/01/comida-rapida-678x381.jpg",opciones:{"Super Combo":7.75,"Arepa de Queso con Chorizo":3.90,"Arepa de Queso con Carne":4.30,"Arepa de Queso con Chicharron":4.90}},
+                { id:22003,nombre:"Desayunos y Menu Ejecutivo",descripcion:"Opciones de desayuno",tipo:"tamaño",precioBase:0.00,localId:22,imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiUG8IQcu_dCGN6zayni1pgALf6Z9M5_q_-w&s",opciones:{"Desayuno Paisa":5.15,"Desayuno de la Casa":4.65,"Desayuno Ranchero":4.65,"Seco de Pollo":4.65,"Seco de Carne":4.65,"Menu Ejecutivo":5.50}},
+                { id:22004,nombre:"Platos a la Carta",descripcion:"Platos tradicionales",tipo:"tamaño",precioBase:0.00,localId:22,imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkEBHCOFYLekJILZQappFErScVQNNvLpQs6w&s",opciones:{"Bandeja Paisa":11.10,"Sobrebarriga a la Criolla":9.50,"Pechuga a la Brasa":8.75,"Arroz con Pollo":8.75,"Calentado con Chicharron":7.75,"Super Bandeja":10.10}},
+				// Local (id 23)
+                // El Rincon de las Alitas (id 24)
+                { id:24000, nombre:"Promo Costilla+Pizza+Alitas", descripcion:"1/2 Lb costilla + 1 pizza 32cm + 5 alitas + papas + salsas", tipo:"personalizable", precioBase:14.99, localId:24, imagen:"https://via.placeholder.com/300/FF6F00/ffffff?text=Promo+Costilla", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA","Salami","Pepperoni","Tocino","Jamón","Salchicha","Champiñones","Piña","Pimiento","Cebolla"], maxIngredientes:6 },
+                { id:24001, nombre:"Promo Familiar Costilla+Camarones+Alitas+Pizza+Cola", descripcion:"1/2 Lb costilla + 10 camarones + 5 alitas + 1 pizza + papas + salsas + cola", tipo:"personalizable", precioBase:20.99, localId:24, imagen:"https://via.placeholder.com/300/25D366/ffffff?text=Promo+Familiar", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA","Salami","Pepperoni","Tocino","Jamón","Salchicha","Champiñones","Piña","Pimiento","Cebolla"], maxIngredientes:6 },
+                { id:24002, nombre:"Best Promo Costilla+Alitas+Pizza", descripcion:"1 Lb costilla + 10 alitas + 1 pizza + papas + salsas", tipo:"personalizable", precioBase:20.99, localId:24, imagen:"https://via.placeholder.com/300/FF6F00/ffffff?text=Best+Promo", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA","Salami","Pepperoni","Tocino","Jamón","Salchicha","Champiñones","Piña","Pimiento","Cebolla"], maxIngredientes:6 },
+                { id:24003, nombre:"Super Promo Camarones+Alitas", descripcion:"20 camarones + 20 alitas + papas + salsas", tipo:"personalizable", precioBase:20.99, localId:24, imagen:"https://via.placeholder.com/300/25D366/ffffff?text=Super+Camarones", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA"], maxIngredientes:2 },
+                { id:24004, nombre:"Promo 10 Alitas+Pizza+Cola", descripcion:"10 alitas + 1 pizza + papas + salsas + cola", tipo:"personalizable", precioBase:15.99, localId:24, imagen:"https://via.placeholder.com/300/FF6F00/ffffff?text=10+Alitas+Pizza", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA","Salami","Pepperoni","Tocino","Jamón","Salchicha","Champiñones","Piña","Pimiento","Cebolla"], maxIngredientes:6 },
+                { id:24005, nombre:"Super Promo Costilla+Alitas", descripcion:"1 Lb costilla + 10 alitas + papas + salsas", tipo:"personalizable", precioBase:15.99, localId:24, imagen:"https://via.placeholder.com/300/25D366/ffffff?text=Super+Costilla", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA"], maxIngredientes:2 },
+                { id:24006, nombre:"Super Promo Camarones+Alitas+Costilla", descripcion:"20 camarones + 10 alitas + 1/2 Lb costilla + papas + salsas + cola", tipo:"personalizable", precioBase:21.99, localId:24, imagen:"https://via.placeholder.com/300/FF6F00/ffffff?text=Mega+Combo", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA"], maxIngredientes:2 },
+                { id:24007, nombre:"Best Promo Costilla+Pizza+Cola", descripcion:"1 Lb costilla + 1 pizza + papas + salsas + cola", tipo:"personalizable", precioBase:15.99, localId:24, imagen:"https://via.placeholder.com/300/25D366/ffffff?text=Costilla+Pizza", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA","Salami","Pepperoni","Tocino","Jamón","Salchicha","Champiñones","Piña","Pimiento","Cebolla"], maxIngredientes:6 },
+                { id:24008, nombre:"Super Promo 10 Alitas+Pizza", descripcion:"10 alitas + 1 pizza + papas + salsas", tipo:"personalizable", precioBase:14.99, localId:24, imagen:"https://via.placeholder.com/300/FF6F00/ffffff?text=10+Alitas+Pizza", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA","Salami","Pepperoni","Tocino","Jamón","Salchicha","Champiñones","Piña","Pimiento","Cebolla"], maxIngredientes:6 },
+                { id:24009, nombre:"Nueva Promo Camarones+Alitas+Pizza", descripcion:"20 camarones + 5 alitas + 1 pizza + papas + salsas + cola", tipo:"personalizable", precioBase:20.99, localId:24, imagen:"https://via.placeholder.com/300/25D366/ffffff?text=Nueva+Promo", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA","Salami","Pepperoni","Tocino","Jamón","Salchicha","Champiñones","Piña","Pimiento","Cebolla"], maxIngredientes:6 },
+                { id:24010, nombre:"Promo 3 Pizzas", descripcion:"3 pizzas medianas 32cm (elige ingredientes)", tipo:"personalizable", precioBase:17.99, localId:24, imagen:"https://via.placeholder.com/300/FF6F00/ffffff?text=3+Pizzas", tamanos:{"Único":0}, ingredientes:["Salami","Pepperoni","Tocino","Jamón","Salchicha","Champiñones","Piña","Pimiento","Cebolla"], maxIngredientes:4 },
+                { id:24011, nombre:"Promo Costilla+Camarones+Alitas", descripcion:"1/2 Lb costilla + 10 camarones + 5 alitas + papas + salsas", tipo:"personalizable", precioBase:12.99, localId:24, imagen:"https://via.placeholder.com/300/25D366/ffffff?text=Costilla+Camarones", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA"], maxIngredientes:2 },
+                { id:24012, nombre:"Promo Fiesta 40 Alitas", descripcion:"40 alitas + papas + cola + salsas", tipo:"personalizable", precioBase:29.99, localId:24, imagen:"https://via.placeholder.com/300/FF6F00/ffffff?text=40+Alitas", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA"], maxIngredientes:2 },
+                { id:24013, nombre:"Promo Todito", descripcion:"15 alitas + 15 camarones + 1 pizza + papas + salsas + cola", tipo:"personalizable", precioBase:27.99, localId:24, imagen:"https://via.placeholder.com/300/25D366/ffffff?text=Todito", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA","Salami","Pepperoni","Tocino","Jamón","Salchicha","Champiñones","Piña","Pimiento","Cebolla"], maxIngredientes:6 },
+                { id:24014, nombre:"Promo Pizza Mediana 1", descripcion:"1 pizza mediana + cola", tipo:"personalizable", precioBase:8.99, localId:24, imagen:"https://via.placeholder.com/300/FF6F00/ffffff?text=Pizza+Mediana", tamanos:{"Único":0}, ingredientes:["Salami","Pepperoni","Tocino","Jamón","Salchicha","Champiñones","Piña","Pimiento","Cebolla"], maxIngredientes:4 },
+                { id:24015, nombre:"Promo Pizza Mediana 2", descripcion:"2 pizzas medianas + cola", tipo:"personalizable", precioBase:15.99, localId:24, imagen:"https://via.placeholder.com/300/25D366/ffffff?text=2+Pizzas", tamanos:{"Único":0}, ingredientes:["Salami","Pepperoni","Tocino","Jamón","Salchicha","Champiñones","Piña","Pimiento","Cebolla"], maxIngredientes:4 },
+                { id:24016, nombre:"Promo 20 Alitas+Pizza+Cola", descripcion:"20 alitas + 1 pizza + papas + salsas + cola", tipo:"personalizable", precioBase:20.99, localId:24, imagen:"https://via.placeholder.com/300/FF6F00/ffffff?text=20+Alitas+Pizza", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA","Salami","Pepperoni","Tocino","Jamón","Salchicha","Champiñones","Piña","Pimiento","Cebolla"], maxIngredientes:6 },
+                { id:24017, nombre:"Super Promo Camarones+Costilla", descripcion:"20 alitas + 1 Lb costilla + papas + salsas + cola", tipo:"personalizable", precioBase:21.99, localId:24, imagen:"https://via.placeholder.com/300/25D366/ffffff?text=Camarones+Costilla", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA"], maxIngredientes:2 },
+                { id:24018, nombre:"Promo Alitas", descripcion:"Alitas con papas y salsas (elige cantidad)", tipo:"personalizable", precioBase:0, localId:24, imagen:"https://via.placeholder.com/300/FF6F00/ffffff?text=Alitas", tamanos:{"10 Alitas + papas + salsas":8.99,"20 Alitas + papas + salsas + cola":15.99,"30 Alitas + papas + salsas + cola":20.99,"40 Alitas + papas + salsas + cola":26.99}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA"], maxIngredientes:2 },
+                { id:24019, nombre:"Promo Camarones+Costilla+Cola", descripcion:"20 camarones + 1 Lb costilla + papas + salsas + cola", tipo:"personalizable", precioBase:15.99, localId:24, imagen:"https://via.placeholder.com/300/25D366/ffffff?text=Camarones+Costilla", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA"], maxIngredientes:2 },
+                { id:24020, nombre:"Promo D'Panas", descripcion:"10 alitas + 1/2 Lb costillas + papas + salsas + cola", tipo:"personalizable", precioBase:13.99, localId:24, imagen:"https://via.placeholder.com/300/FF6F00/ffffff?text=Promo+DPanas", tamanos:{"Único":0}, ingredientes:["BBQ","BBQ JALAPEÑO","MOSTAZA MIEL","MARACUYA"], maxIngredientes:2 },
+                // Local (id 25)
+                // El Sambito (id 26)
+                { id: 26000, nombre: "Corvinas", descripcion: "Platos de corvina", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://rutasdelguayas.com/wp-content/uploads/2017/11/Corvina-Frita.jpg", opciones: { "Frita": 8.50, "Apanada": 8.50, "A la plancha": 8.50, "Con legumbres": 9.00, "En salsa de mariscos": 11.00, "En salsa de cangrejo": 11.00 } },
+                { id: 26001, nombre: "Picudo", descripcion: "Platos de picudo", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz6RqmBlXDKBJ9XFY0lC08MRQzsF0NaZeSvQ&s", opciones: { "Apanada": 8.00, "Frito": 8.00, "A la plancha": 8.00, "En salsa de mariscos": 11.00, "En salsa de cangrejo": 11.00, "Al vapor": 8.00, "Con legumbres": 8.50 } },
+                { id: 26002, nombre: "Pescado", descripcion: "Platos de pescado", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://www.recetasnestlecam.com/sites/default/files/srh_recipes/826eab00700661015edeebcb06232bad.jpeg", opciones: { "Pargo frito": 8.00, "Super pargo frito": 10.00, "Platera frita": 8.00, "Super platera frita": 10.00, "Pargo en salsa de mariscos": 11.00, "Pargo en salsa de cangrejo": 11.00, "Pargo al vapor": 8.00 } },
+                { id: 26003, nombre: "Porciones", descripcion: "Porciones adicionales", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://comedera.com/wp-content/uploads/sites/9/2022/01/patacones-tostones.jpg", opciones: { "Arroz": 1.00, "Patacones": 1.00, "Papas": 1.00, "Chifles": 0.50, "Canguil": 0.50, "Tostado": 0.50, "Maduro": 1.00 } },
+                { id: 26004, nombre: "Spaguetti", descripcion: "Platos de spaguetti", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://www.cocinavital.mx/wp-content/uploads/2021/07/espagueti-con-surimi-y-pina-634x420.jpg", opciones: { "Con camaron en salsa blanca": 9.00, "Marinero en salsa blanca": 10.00, "De camaron en verduras": 9.00, "Marinero en verduras": 9.00 } },
+                { id: 26005, nombre: "Jarras", descripcion: "Jarras de jugo", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://thumbs.dreamstime.com/b/jarras-de-jugo-naranja-en-la-mesa-cocina-bebidas-para-las-vacaciones-y-todos-los-d%C3%ADas-252312339.jpg", opciones: { "Guanabana": 4.00, "Limonada": 3.00, "Naranjada": 4.00, "Naranja pura": 5.00, "Tomate": 4.00, "Fresa": 4.00, "Mora": 4.00, "Tamarindo": 4.00 } },
+                { id: 26006, nombre: "Bebidas", descripcion: "Bebidas varias", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://lirp.cdn-website.com/b4fb73a9/dms3rep/multi/opt/29256887321_51b21baab4_z-640x464-1920w.jpg", opciones: { "Jugos naturales": 1.25, "Batidos": 1.75, "Agua": 0.90, "Guitig pequena": 0.90, "Guitig litro": 1.50 } },
+                { id: 26007, nombre: "Fuzetea", descripcion: "Te frio", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://cdn.euroinnova.com/public_html/img/subidasEditor/fuze-tea-cocacola_1729249158.webp", opciones: { "Litro y medio": 2.25, "Pequeno": 1.00 } },
+                { id: 26008, nombre: "Cerveza", descripcion: "Cervezas", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://cervezaenecuador.wordpress.com/wp-content/uploads/2015/08/nacionales.jpg", opciones: { "Club grande": 3.50, "Corona": 3.00 } },
+                { id: 26009, nombre: "Gaseosas", descripcion: "Gaseosas", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfxjs1S5frnuuEIKdQf6qW4pgihA-AxE4ieQ&s", opciones: { "Mediana": 0.80, "1 Litro": 2.00 } },
+                { id: 26010, nombre: "Postres", descripcion: "Postres dulces", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://www.recetasnestle.com.mx/sites/default/files/styles/cropped_recipe_card_new/public/srh_recipes/54c6cbcbc6d611e056122d64560cd9c1.jpg.webp?itok=hemI3A_x", opciones: { "Durazno con almibar": 2.50, "Durazno con crema": 2.50, "Fresa con crema": 2.50 } },
+                { id: 26011, nombre: "Ceviches", descripcion: "Ceviches del menu", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTev_Mpr76_C4LzUGFHTOKaTaD11u6CL5QoBw&s", opciones: { "Sambito": 11.00, "Camaron": 8.00, "Concha": 9.00, "Mixto": 9.50, "Pescado": 7.00, "Calamar": 7.00, "Ceviche Peruano": 9.00, "Cangrejo": 12.00 } },
+                { id: 26012, nombre: "Arroces", descripcion: "Arroces del menu", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS56yp8mPZu9yB5RGjmyOU_5em3ELGmSMa11Q&s", opciones: { "Con camaron": 8.00, "Con concha": 9.00, "Mixto": 9.50, "Con calamar": 7.00, "Marinero": 12.00, "Chaulafan de mariscos": 8.00 } },
+                { id: 26013, nombre: "Camarones", descripcion: "Platos de camarones", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://i0.wp.com/recetaskwa.com/wp-content/uploads/2023/09/ceviche_camaron.jpg?ssl=1", opciones: { "Fritos": 8.50, "Al ajillo": 8.50, "Apanados": 9.00, "A la plancha": 8.50, "Con legumbres": 8.50, "Reventado": 8.50, "En salsa de mariscos": 11.00, "En salsa de cangrejo": 11.00, "Calamar apanado": 7.50, "Chicharron de mariscos": 8.00 } },
+                { id: 26014, nombre: "Picaditas", descripcion: "Picaditas del menu", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://vinomanos.com/wp-content/uploads/2022/11/RABAS.jpg", opciones: { "Conchas asadas": 9.00, "Chicharron de calamar": 5.00, "Chicharron de pescado": 5.00, "Camarones fritos": 5.00, "Chicharron 3 en 1": 6.50, "Chicharron mixto": 6.00 } },
+                { id: 26015, nombre: "Encebollados", descripcion: "Encebollados del menu", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://www.recetasnestle.com.ec/sites/default/files/srh_recipes/7ea4f3b2af8bb20231ff3c4f13e685ab.jpg", opciones: { "Mediano": 2.00, "Normal": 2.50, "Tres en uno": 5.00, "Mixto con camaron": 4.50, "Mixto con concha": 4.50, "Sambito": 6.00, "Solo camaron": 6.00, "Solo concha": 6.00 } },
+                { id: 26016, nombre: "Sopas", descripcion: "Sopas del menu", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://static.bainet.es/clip/5b8aa307-d852-4334-b2d7-d1475c2674e2_source-aspect-ratio_1600w_0.jpg", opciones: { "Cangrejo": 5.00, "Bagre": 3.50, "Pescado": 7.00, "Camaron": 7.00, "Mixta": 9.00, "Cangrejo solo": 3.50, "Concha": 9.00, "Corvina": 7.00, "Marinera": 12.00 } },
+                { id: 26017, nombre: "Cazuelas", descripcion: "Cazuelas del menu", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://www.recetasnestle.com.ec/sites/default/files/srh_recipes/cda13d770e8135d603f5d37d1080c00f.jpg", opciones: { "Concha": 6.00, "Camaron": 6.00, "Pescado": 4.50, "Mixta": 6.50, "Marinera": 9.50 } },
+                { id: 26018, nombre: "Encocados", descripcion: "Encocados del menu", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://aki-225de.kxcdn.com/wp-content/uploads/2021/01/encocado-de-camaron.jpg", opciones: { "Camaron": 6.50, "Pescado": 6.50, "Mixto": 8.00 } },
+                { id: 26019, nombre: "Guatita", descripcion: "Guatita del menu", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://i.ytimg.com/vi/6-BLsc91qQQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB3_oZOG9rtmGVtDJigM5BMD-K6Dg", opciones: { "Normal": 2.50, "Bandera": 5.00, "Con camaron": 4.00, "Con concha": 4.00 } },
+                { id: 26020, nombre: "Langostinos", descripcion: "Langostinos del menu", tipo: "tamaño", precioBase: 0.00, localId: 26, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlHEi5Yf8i69BR7zhhulcJ6LcCECdu6cEPhg&s", opciones: { "Apanados": 12.00, "A la plancha": 12.00, "Reventados": 12.00 } },
+
+                
+                // King Pizza (id 36)  
+                { id: 3601, nombre: "King Pizza", descripcion: "1 Pizza - 2 ingredientes", tipo: "personalizable", precioBase: 5.99, localId: 36, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI2hdQeNVlyu20ReOpJcNwdgW0ER5hwxnauQ&s", tamanos: { "Familiar 8 Pedazos": 0, "Grande 12 Pedazos": 2.00, "Gigante 16 Pedazos": 4.00 }, ingredientes: ["Jamon", "Salami", "Pepperoni", "Piña", "Champiñones", "Pimientos"], maxIngredientes: 2 },
+                { id: 3602, nombre: "Promo de Lunes a Jueves", descripcion: "2 Pizzas - 2 ingredientes", tipo: "personalizable", precioBase: 9.99, localId: 36, imagen: "https://pbs.twimg.com/media/DCNNVKgUwAEr9yH.jpg", tamanos: { "Familiar 8*2 Pedazos": 0 }, ingredientes: ["Jamon", "Salami", "Pepperoni", "Piña", "Champiñones", "Pimientos"], maxIngredientes: 2 },
+                { id: 3603, nombre: "Promo Diaria", descripcion: "2 Pizzas + 1 Cola de Litro - 2 ingredientes", tipo: "personalizable", precioBase: 14.99, localId: 36, imagen: "https://tofuu.getjusto.com/orioneat-local/resized2/GW2mAhB9eg24gE3tJ-2400-x.webp", tamanos: { "Grande 12*2 Pedazos": 0.00, "Gigante 16*2 Pedazos": 5.00 }, ingredientes: ["Jamon", "Salami", "Pepperoni", "Piña", "Champiñones", "Pimientos"], maxIngredientes: 2 },
+                // Pizza House (id 47)
+                { id: 47000, nombre: "Promo Lunes", descripcion: "Pizza mediana 34 cms gratis gaseosa", tipo: "personalizable", precioBase: 7.00, localId: 47, imagen: "https://cdn.tictuk.com/8d2f7265-71c2-bfdd-48f2-a2a7ae575b90/b8db2e46-0c50-d0e8-6202-b36117fe7816.jpeg?a=0692cd26-17dd-51f7-ea30-728527749611", tamanos: { "Pizza Mediana 34 cms + Gaseosa": 0 }, ingredientes: ["Hawaiana","Americana","BBQ","Napolitana","Vegetariana","Primavera","Margarita","Mexicana"], maxIngredientes: 1 },
+                { id: 47001, nombre: "Promo Martes", descripcion: "3 lasañas especiales con gaseosa", tipo: "personalizable", precioBase: 12.00, localId: 47, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYVNzlCs4bbpneJekln3cOZOS6rLZg69Ipzw&s", tamanos: { "3 Lasañas Especiales + Gaseosa": 0 }, ingredientes: ["Carne","Pollo","Hawaiana","Napolitana","Americana","BBQ","Primavera"], maxIngredientes: 3 },
+                { id: 47002, nombre: "Promo Miercoles", descripcion: "2 pizzas medianas de 1 ingrediente", tipo: "personalizable", precioBase: 12.00, localId: 47, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdYMNKntamykNuSXIlLZdLxL3Pac2m0I_JIw&s", tamanos: { "2 Pizzas Medianas": 0 }, ingredientes: ["Jamón","Salami","Pepperoni","Champiñones","Chorizo","Tocino","Maíz Dulce","Piña Acaramelada"], maxIngredientes: 2 },
+                { id: 47003, nombre: "Promo Jueves Alitas", descripcion: "Alitas con papas y salsa de la casa", tipo: "personalizable", precioBase: 7.99, localId: 47, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAKpfsqD-7AwN3o9C2uYeMIRUtfmyRBP3Z1g&s", tamanos: { "8 + 4 Alitas": 0, "12 + 6 Alitas": 0, "16 + 8 Alitas": 0, "20 + 10 Alitas": 0 }, ingredientes: ["BBQ","Miel Mostaza"], maxIngredientes: 1 },
+                { id: 47004, nombre: "Promo Viernes", descripcion: "3 pizzas pequeñas de 25 cms con gaseosa", tipo: "personalizable", precioBase: 14.00, localId: 47, imagen: "https://ideogram.ai/assets/image/balanced/response/MWF9ywy7RzWc03cJY3Untg@2k", tamanos: { "3 Pizzas Pequeñas 25 cms + Gaseosa": 0 }, ingredientes: ["Hawaiana","Americana","BBQ","Napolitana","Vegetariana","Primavera","Margarita","Mexicana"], maxIngredientes: 3 },
+                { id: 47005, nombre: "Promo 1", descripcion: "Pizza familiar especial + 4 alitas BBQ + papas", tipo: "simple", precio: 12.00, localId: 47, imagen: "https://ideogram.ai/assets/image/balanced/response/JKFZG-uIRh2CYhofZUchfg@2k" },
+                { id: 47006, nombre: "Promo 2", descripcion: "Pizza familiar especial + lasaña de pollo o carne + 4 alitas BBQ + gaseosa 1 litro + papas", tipo: "personalizable", precioBase: 16.50, localId: 47, imagen: "https://ideogram.ai/assets/image/balanced/response/jKGSlNS-RjqQZ-36PTzPLA@2k", tamanos: { "Pizza Familiar Especial + 4 Alitas BBQ + Gaseosa 1 Litro + Papas": 0 }, ingredientes: ["Lasaña de Pollo","Lasaña de Carne"], maxIngredientes: 1 },
+                { id: 47007, nombre: "Promo 3", descripcion: "Pizza familiar especial + 12 alitas BBQ + gaseosa 1 litro + papas", tipo: "simple", precio: 18.50, localId: 47, imagen: "https://ideogram.ai/assets/image/balanced/response/Tr8H8YbWSZWw69rbN6ZqQw@2k" },
+                { id: 47008, nombre: "Promo 4", descripcion: "Pizza familiar especial + 16 alitas BBQ + gaseosa 1 litro + papas", tipo: "simple", precio: 22.00, localId: 47, imagen: "https://ideogram.ai/assets/image/balanced/response/Tr8H8YbWSZWw69rbN6ZqQw@2k" },
+                { id: 47009, nombre: "Promo 5", descripcion: "Pizza familiar especial + 20 alitas BBQ + gaseosa 1 litro + papas", tipo: "simple", precio: 24.00, localId: 47, imagen: "https://ideogram.ai/assets/image/balanced/response/Tr8H8YbWSZWw69rbN6ZqQw@2k" },
+                { id: 47010, nombre: "Combi 1", descripcion: "Pizza personal + 4 alitas + cola personal", tipo: "personalizable", precioBase: 9.00, localId: 47, imagen: "https://ideogram.ai/assets/image/balanced/response/wtx6fUOrRzqBYPqMsVdl5g@2k", tamanos: { "Pizza Personal + 4 Alitas + Cola Personal": 0 }, ingredientes: ["Jamón","Pepperoni"], maxIngredientes: 1 },
+				// Pizzeria Giorginos (id 48)
+                { id: 4800, nombre: "Combos", descripcion: "Combos Giorginios", tipo: "tamaño", precioBase: 0.00, localId: 48, imagen: "https://piattopizza.com/wp-content/uploads/2025/04/Combo-Bonna-Xl-400x400.png", opciones: { "Medianas 2 Pizzas + Gaseosa": 16.00, "Medianas 2 Pizzas + Ensalada": 17.50, "Medianas 2 Pizzas + Alitas": 17.50, "Familiar 2 Pizzas + Gaseosa": 19.50, "Familiar 2 Pizzas + Ensalada": 20.50, "Familiar 2 Pizzas + Alitas": 20.50, "Gigante 2 Pizzas + Gaseosa": 24.00, "Gigante 2 Pizzas + Ensalada": 25.50, "Gigante 2 Pizzas + Alitas": 25.50, "Mediana Pizza + Lasaña + Gaseosa": 14.50, "Familiar Pizza + Lasaña + Gaseosa": 16.50, "Gigante Pizza + Lasaña + Gaseosa": 19.00, "Mediana Pizza + Espagueti + Gaseosa": 14.50, "Familiar Pizza + Espagueti + Gaseosa": 16.50, "Gigante Pizza + Espagueti + Gaseosa": 19.00 } },
+                { id: 4801, nombre: "Pizza Luch", descripcion: "Pizza de 1 ingrediente", tipo: "personalizable", precioBase: 0.00, localId: 48, imagen: "https://panpaya.com.co/storage/categories/66/62213ba7a7073.png", tamanos: { "Junior": 4.00, "Pequeña": 5.75, "Mediana": 7.50, "Familiar": 9.50, "Gigante": 11.50 }, ingredientes: ["Jamón","Salami","Tocino","Pepperoni","Jalapeño","Champiñones","Pollo","Carne Molida","Durazno","Plátano","Aceitunas","Pimiento","Maíz","Cebolla","Atún","Piña"], maxIngredientes: 1 },
+                { id: 4802, nombre: "Pizza 2x1", descripcion: "Pizza de 2 ingredientes", tipo: "personalizable", precioBase: 0.00, localId: 48, imagen: "https://www.agenciabrunch.com/wp-content/uploads/2024/02/image-1-9.jpg", tamanos: { "Pequeña": 12.50, "Mediana": 15.00, "Familiar": 18.50, "Gigante": 23.00 }, ingredientes: ["Jamón","Salami","Tocino","Pepperoni","Jalapeño","Champiñones","Pollo","Carne Molida","Durazno","Plátano","Aceitunas","Pimiento","Maíz","Cebolla","Atún","Piña"], maxIngredientes: 2 },
+                { id: 4803, nombre: "Especialidades", descripcion: "Especialidades de la casa", tipo: "tamaño", precioBase: 0.00, localId: 48, imagen: "https://www.recetasnestle.com.ec/sites/default/files/srh_recipes/bd1a6572aa62a66e1bb66d35d8bb0fdf.jpg", opciones: { "Lomo en Salsa de Champiñones": 9.50, "Lomo a la Pimienta": 9.50, "Lomo a la Parrilla": 9.00, "Pollo en Salsa de Champiñones": 7.50, "Gordon Bleu": 7.50, "Pechuga a la Parrilla": 7.50, "Costillas BBQ": 9.50, "Chuleta a la Parrilla": 8.00 } },
+                { id: 4804, nombre: "Ensaladas", descripcion: "Ensaladas Giorginios", tipo: "tamaño", precioBase: 0.00, localId: 48, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgJlkvZkk880y1jRuMweZYHwsySIgk4F727A&s", opciones: { "Ensalada Simple": 3.00, "Ensalada Giorginios": 3.00, "Ensalada Premicia": 3.50, "Ensalada Especial Mediana": 5.75, "Ensalada Especial Entera": 6.50, "Ensalada Super Giorginios Mediana": 5.75, "Ensalada Super Giorginios Entera": 6.50 } },
+                { id: 4805, nombre: "Bebidas", descripcion: "Bebidas frias y calientes", tipo: "tamaño", precioBase: 0.00, localId: 48, imagen: "https://cdn-3.expansion.mx/dims4/default/5f4e109/2147483647/strip/true/crop/732x477+0+0/resize/1200x782!/format/webp/quality/60/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F76%2Fbc%2F5ea06e1c41dab8c510b3c8370d39%2Fistock-654357990.jpg", opciones: { "Soda": 1.00, "Agua con Gas": 1.00, "Agua sin Gas": 1.00, "Cafe": 1.00, "Tinto": 1.00, "Te": 1.00, "Capuchino": 2.50, "Agua Aromatica": 1.00, "Jugo": 2.00, "Batido": 2.50, "Nestea": 1.50, "Limonada": 1.50, "Jugo de Naranja": 2.00, "Jarra Limonada": 3.50, "Jarra Naranja": 5.00, "Jarra Jamaica": 3.50 } },
+                { id: 4806, nombre: "Postres", descripcion: "Postres y helados", tipo: "tamaño", precioBase: 0.00, localId: 48, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKmmbvxWhMf1VmY-8_ysJvAqc9Kl33bjROdA&s", opciones: { "Frutillas con Crema": 2.50, "Duraznos con Crema": 3.00, "Ensalada de Frutas": 3.00, "Banana Split": 3.00, "Copa de Helado": 2.00, "Copa de Helado Giorginios": 3.00 } },
+                { id: 4807, nombre: "Alitas", descripcion: "Alitas con un sabor", tipo: "tamaño", precioBase: 0.00, localId: 48, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI5zjy8r3EqlugLs-q_hF24ayqhOkmS0HcuA&s", opciones: { "6 Alitas + 6 Gratis": 8.50, "9 Alitas + 9 Gratis": 11.50, "12 Alitas + 12 Gratis": 14.50, "15 Alitas + 15 Gratis": 16.50, "18 Alitas + 18 Gratis": 18.50, "20 Alitas + 20 Gratis": 21.50 } },
+                { id: 4808, nombre: "Pizza Alitas", descripcion: "Pizza + Alitas + Gaseosa", tipo: "tamaño", precioBase: 0.00, localId: 48, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_qBN9X5-CVKjanlDo4zM8NLcRbw0HnbPieg&s", opciones: { "Pizza Mediana + 12 Alitas + Gaseosa": 15.75, "Pizza Familiar + 12 Alitas + Gaseosa": 18.00, "Pizza Gigante + 12 Alitas + Gaseosa": 20.00 } },
+                { id: 4809, nombre: "Lasaña", descripcion: "Especialidades de lasaña", tipo: "tamaño", precioBase: 0.00, localId: 48, imagen: "https://pastaslamuneca.com/wp-content/uploads/2021/04/lasana-en-salsa-bechamel.webp", opciones: { "Lasaña de Carne": 6.50, "Lasaña de Pollo": 6.50, "Lasaña Mixta": 7.00 } },
+                { id: 4810, nombre: "Espagueti", descripcion: "Especialidades de espagueti", tipo: "tamaño", precioBase: 0.00, localId: 48, imagen: "https://mandolina.co/wp-content/uploads/2020/11/espaguetis-rojos-con-tomate-1200x720.jpg", opciones: { "Espagueti Tocino Carbonado": 6.50, "Espagueti Bolognesa": 6.50, "Espagueti Giorginios": 6.50, "Espagueti a la Mama": 6.50 } },
+                // Play Wings (id 49)
+                // Potato Tornado (id 54)
+                { id: 5401, nombre: "Promo Potato", descripcion: "Nachos + Hamburguesa + Cola personal", tipo: "simple", precio: 4.99, localId: 54, imagen: "https://ideogram.ai/assets/image/balanced/response/FQzQ1iz3QwelQ7h18wKYUQ@2k" },
+                { id: 5402, nombre: "Promo Burger", descripcion: "Hamburguesa + Papas + Cola personal", tipo: "simple", precio: 3.50, localId: 54, imagen: "https://ideogram.ai/assets/image/balanced/response/AQJePfHKTiOzfMOWHpN8EQ@2k" },
+                { id: 5403, nombre: "Promo Salchi", descripcion: "3 Salchipapas + Cola de 1 Litro", tipo: "simple", precio: 6.50, localId: 54, imagen: "https://ideogram.ai/assets/image/balanced/response/4Ct57iu-SJK_AU3Css-0-w@2k" },
+                { id: 5404, nombre: "Promo Hog Dog", descripcion: "5 Hog Dogs + Cola de 1 Litro", tipo: "simple", precio: 9.99, localId: 54, imagen: "https://ideogram.ai/assets/image/balanced/response/k167sbtDRnmCp0AHiRwGBg@2k" },
+                { id: 5405, nombre: "Promo Tornado", descripcion: "2 Papas torneadas", tipo: "simple", precio: 2.99, localId: 54, imagen: "https://ideogram.ai/assets/image/balanced/response/-dNFJJ2EQZaOwq7jjatKTg@2k" },
+                
+                
+                // Pollo Alcalá (id 50)
+               	{ id: 50000, nombre: "Opcion 1", descripcion: "1 Pollo entero + 1 porcion papas + 1 porcion ensalada", tipo: "simple", precio: 14.49, localId: 50, imagen: "https://cdn.leonardo.ai/users/a6ac48d3-69c6-494a-80b8-2d29cf8ba5cc/generations/1f11ffef-e3e0-6e30-a59d-f95e10e0bbd0/ideogram-v3.0_1_Pollo_entero_asado_plus_1_porcion_papas_fritas_plus_1_porcion_ensalada-0.jpg" },
+                { id: 50001, nombre: "Opcion 2", descripcion: "2 Pollos enteros + 2 porciones papas + 2 porciones ensalada + 1 bebida familiar", tipo: "simple", precio: 26.49, localId: 50, imagen: "https://ideogram.ai/assets/image/balanced/response/u3dyFKT0Q1y4Mn-a5geKzQ@2k" },
+                { id: 50002, nombre: "Opcion 3", descripcion: "1 Pollo entero + 1 porcion papas + 1 porcion ensalada + 1 bebida familiar", tipo: "simple", precio: 16.49, localId: 50, imagen: "https://ideogram.ai/assets/image/balanced/response/wIHfTmwYSGmQYe4zJVgPRg@2k" },
+                { id: 50003, nombre: "Opcion 4", descripcion: "1 Pollo entero + 1 porcion papas", tipo: "simple", precio: 13.00, localId: 50, imagen: "https://ideogram.ai/assets/image/balanced/response/1AlE4ZFFR_evxgBsJnPLgg@2k" },
+                { id: 50004, nombre: "Opcion 5", descripcion: "2 Pollos enteros + 2 porciones ensalada", tipo: "simple", precio: 22.49, localId: 50, imagen: "https://ideogram.ai/assets/image/balanced/response/Ya_bhNuZRAi3XqKvKLF96g@2k" },
+                { id: 50005, nombre: "Opcion 6", descripcion: "1/2 Pollo + 1 porcion papas + 1 porcion ensalada", tipo: "simple", precio: 8.49, localId: 50, imagen: "https://ideogram.ai/assets/image/balanced/response/p4EcEJQrQm27bwBRAs17Aw@2k" },
+                { id: 50006, nombre: "Opcion 7", descripcion: "1/4 Pollo + 1 porcion papas + 1 porcion ensalada + 1 bebida personal", tipo: "simple", precio: 5.49, localId: 50, imagen: "https://ideogram.ai/assets/image/balanced/response/hPA55LRJQ7KKx1slc13QvQ@2k" },
+                { id: 50007, nombre: "Opcion 8", descripcion: "1 Pollo entero + 1/2 Pollo + 1 porcion papas + 1 porcion ensalada", tipo: "simple", precio: 18.99, localId: 50, imagen: "https://ideogram.ai/assets/image/balanced/response/qpEef8qjSn6C188DDa0XQA@2k" },
+                { id: 50008, nombre: "Opcion 9", descripcion: "1 Pollo entero + 1/4 Pollo + 1 porcion papas + 1 porcion ensalada", tipo: "simple", precio: 16.49, localId: 50, imagen: "https://ideogram.ai/assets/image/balanced/response/ZuXJ6kKdQFerYE6IenXH4w@2k" },
+                { id: 50009, nombre: "Opcion 10", descripcion: "1/2 Pollo + 1/4 Pollo + 1 porcion papas + 1 porcion ensalada", tipo: "simple", precio: 10.49, localId: 50, imagen: "https://cdn.leonardo.ai/users/a6ac48d3-69c6-494a-80b8-2d29cf8ba5cc/generations/1f11fff2-ec83-63f0-8d7a-7cc9a3b8a824/lucid-origin_2_Pollos_enteros_asados_plus_2_porciones_papas_fritas_plus_2_porciones_ensalada_-0.jpg" },
+                { id: 50010, nombre: "Opcion 11", descripcion: "1 Pollo entero", tipo: "simple", precio: 11.49, localId: 50, imagen: "https://cdn.leonardo.ai/users/a6ac48d3-69c6-494a-80b8-2d29cf8ba5cc/generations/1f11fff4-88bf-6790-8c4f-11c18a40b04b/lucid-origin_A_tender_and_juicy_pollo_asado_a_traditional_Latin_American-style_roasted_chicke-0.jpg" },
+
                 // Roll And Bowl (id 56)
                 { id: 5601, nombre: "Entradas", descripcion: "Entradas Roll and Bowl", tipo: "tamaño", precioBase: 0.00, localId: 56, imagen: "https://iquique.sushiworldcl.com/wp-content/uploads/2023/06/ArrolladosPresentacion-300x300.jpg", opciones: { "6 Camarones Tempura": 4.00, "8 Dragón Ball": 4.50, "6 Gyozas de Cerdo o Camarón": 3.50, "2 Bao Tao de Res o Cerdo": 3.50, "Bao Taco de Camarón o Res": 5.00, "Mixta 2 Camarones tempura + 2 Gyozas + 4 Dragón Ball ": 5.00 } },
                 { id: 5602, nombre: "Ramen", descripcion: "Ramen Roll and Bowl", tipo: "tamaño", precioBase: 0.00, localId: 56, imagen: "https://ideogram.ai/assets/image/balanced/response/EJbVhvTFSm2qc0rStlgl0g@2k", opciones: { "NAMI": 5.00, "SAMURAI": 6.50, "FIRE PORK": 6.50, "SOUL": 5.00, "SHOGUN": 8.50 } },
                 { id: 5603, nombre: "Combos", descripcion: "Combos Roll and Bowl", tipo: "tamaño", precioBase: 0.00, localId: 56, imagen: "https://sushikazoku.com.co/wp-content/uploads/2025/07/image.jpg", opciones: { "Combo Personal": 12.00, "Combo Mix": 20.00, "Tablita Roll & Bowl": 20.00, "Tablita Premium": 25.00, "Ramen para Dos": 10.00 } },
                 { id: 5604, nombre: "Sushi Clasico", descripcion: "Sushi Clasico Roll and Bowl", tipo: "tamaño", precioBase: 6.50, localId: 56, imagen: "https://ideogram.ai/assets/image/balanced/response/6vGqj5nATAOyXYsulMlZlg@2k", opciones: { "California Roll": 0, "California Roll Spicy": 0, "Philadelphia Roll": 0, "Salmón Ponzu Roll": 0, "Crab Roll": 0, "Maki de Salmón": 0, "Maki de Kanikama": 0, "Salmón Tempura": 0, "Kani Tempura": 0, "Crispy Crab Spicy Roll": 0, "Crunchy Roll": 0, "Salmón Tempura Spicy": 0, "Volcano Roll": 0, "Crab Maduro Roll": 0, "Camarón Maduro Roll": 0 } },
                 { id: 5605, nombre: "Sushi Premium", descripcion: "Sushi Premium Roll and Bowl", tipo: "tamaño", precioBase: 8.00, localId: 56, imagen: "https://ideogram.ai/assets/image/balanced/response/PfgRdQydSL-cocAn3-aaZA@2k", opciones: { "Jipijapa Roll": 0, "Acevichado Roll": 0, "Amazon Roll": 0, "Samba Roll": 0, "Copacabana Roll": 0, "Samurai Roll": 0, "Camarones al Ajillo Roll": 0, "Mango Tango Roll": 0, "Especial Tempura Volcano": 0, "Tropical Tempura Roll": 0, "Dragon Fire Roll": 0, "Pacific Tempura Roll": 0 } },
+                // Tus Alitas Ambato(id 62)
+               	{ id: 62000, nombre: "Promo Alitas Deliciosas", descripcion: "Promoción disponible martes, jueves y sábados", tipo: "tamaño", precioBase: 0.00, localId: 62, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI5zjy8r3EqlugLs-q_hF24ayqhOkmS0HcuA&s", diasDisponibles: ["martes","jueves","sabado"], opciones: { "17 Alitas + papas": 10.00, "25 Alitas + papas": 14.00, "40 Alitas + papas": 22.00 } },
+				{ id: 62001, nombre: "Costillitas 2x1", descripcion: "Costillitas BBQ con papas, ensalada y salsa (martes, jueves y sábados)", tipo: "simple", precio: 12.49, localId: 62, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCSHbaVBnYnhblDBs-z4juibVEwSFyIZtWyQ&s", diasDisponibles: ["martes","jueves","sabado"] },
+                
+                // Chifa Hong Kong (id 66)
+                { id: 66000, nombre: "Menus Familiares", descripcion: "Menus para compartir", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDU48MOQdhWxR6muoV5U3vJA2OK8rUlF1nNg&s", opciones: { "Menu 4 Personas": 22.00, "Menu Especial 4 Personas": 28.00, "Menu Especial 6 Personas": 38.00 } },
+                { id: 66001, nombre: "Arroces", descripcion: "Arroces chinos", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://d1uz88p17r663j.cloudfront.net/original/4e9437d87ef9535b6f112dce6960e4a5_ARROZ_CANTONES.jpg", opciones: { "Arroz Chino": 6.00, "Arroz Chino con Camaron": 7.50, "Arroz Chino Especial": 8.50, "Arroz Cantonés": 9.00 } },
+                { id: 66002, nombre: "Tallarines", descripcion: "Tallarines chinos", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://i.ytimg.com/vi/zRYcmFR0LoU/maxresdefault.jpg", opciones: { "Tallarín Chino": 6.00, "Tallarín con Pollo": 7.50, "Tallarín con Camaron": 8.50, "Tallarín Especial": 9.00 } },
+                { id: 66003, nombre: "Pollo", descripcion: "Platos de pollo", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://i.ytimg.com/vi/WP_MrsSY3tg/maxresdefault.jpg", opciones: { "Pollo Agridulce": 7.50, "Pollo con Champiñones": 7.50, "Pollo con Vegetales": 7.50, "Pollo con Piña": 8.00 } },
+                { id: 66004, nombre: "Carne", descripcion: "Platos de carne", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://i.ytimg.com/vi/FGE18VzAu04/maxresdefault.jpg", opciones: { "Carne con Brocoli": 8.00, "Carne con Vegetales": 8.00, "Carne con Champiñones": 8.00 } },
+                { id: 66005, nombre: "Chancho", descripcion: "Platos de chancho", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://i.ytimg.com/vi/HIr3baml9Yk/maxresdefault.jpg", opciones: { "Chancho Agridulce": 8.00, "Chancho con Vegetales": 8.00 } },
+                { id: 66006, nombre: "Camarones", descripcion: "Platos de camarones", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://comedera.com/wp-content/uploads/sites/9/2023/07/Chop-suey-de-camarones-shutterstock_2233284567.jpg?fit=720,479&crop=0px,38px,720px,404px", opciones: { "Camarones al Ajillo": 9.50, "Camarones con Vegetales": 9.50, "Camarones Apanados": 9.50 } },
+                { id: 66007, nombre: "Pescados", descripcion: "Platos de pescado", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2nQGOrDN3BR4P-fpggeNNUcr5JRu_okyMpg&s", opciones: { "Corvina Frita": 9.00, "Corvina en Salsa": 10.50 } },
+                { id: 66008, nombre: "Sopas", descripcion: "Sopas chinas", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNEKiamusy-omfkuTbtkXkuq2-mkia_WhvOA&s", opciones: { "Sopa Wantan": 3.50, "Sopa de Pollo": 3.50, "Sopa Especial": 4.50 } },
+                { id: 66009, nombre: "Cremas", descripcion: "Cremas chinas", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://www.vvsupremo.com/wp-content/uploads/2015/10/900X570_Asian-Style-Cream-Sauce-900x570.jpg", opciones: { "Crema de Pollo": 3.50, "Crema de Camaron": 4.50 } },
+                { id: 66010, nombre: "Pasabocas", descripcion: "Entradas", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb3OjCTvuT3XHq-UUM4LI7Y6j_EElSn-9Mfw&s", opciones: { "Wantan Frito": 4.00, "Rollitos Primavera": 4.00, "Alitas": 5.50 } },
+                { id: 66011, nombre: "Bebidas", descripcion: "Bebidas y refrescos", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://thefoodtech.com/wp-content/uploads/2020/05/jugos-del-valle.jpg", opciones: { "Gaseosa Personal": 1.00, "Gaseosa 1 Litro": 2.00, "Jugo Natural": 1.50 } },
+                { id: 66012, nombre: "Postres", descripcion: "Postres del chifa", tipo: "tamaño", precioBase: 0.00, localId: 66, imagen: "https://www.cocinadelirante.com/sites/default/files/images/2023/08/postres-faciles-y-rapidos.jpg", opciones: { "Helado": 2.00, "Durazno con Almibar": 2.50 } },
+				// Poseidón C&M (id 67)
+                { id: 67001, nombre: "Sin Menú", descripcion: "Sin Menú", tipo: "tamaño", precioBase: 0.00, localId: 67, imagen: "", opciones: { "1": 0.00, "2": 0.50 } },
+
                 
                 // SUPERMERCADOS
                 { id: 501, nombre: "Arroz", descripcion: "Arroz de primera", tipo: "peso", precioPorKg: 1.20, localId: 301, imagen: "https://via.placeholder.com/300/FF6F00/ffffff?text=Arroz" },
@@ -1072,16 +1394,13 @@
                 { id: 801, nombre: "Ramo de rosas", descripcion: "12 rosas rojas", tipo: "simple", precio: 15.00, localId: 450, imagen: "https://via.placeholder.com/300/FF6F00/ffffff?text=Rosas" },
                 { id: 802, nombre: "Girasoles", descripcion: "Ramo de 5 girasoles", tipo: "simple", precio: 12.00, localId: 450, imagen: "https://via.placeholder.com/300/25D366/ffffff?text=Girasoles" },
                 { id: 803, nombre: "Girasoles", descripcion: "Ramo de 6 girasoles", tipo: "simple", precio: 12.00, localId: 451, imagen: "https://via.placeholder.com/300/25D366/ffffff?text=Girasoles" },
-                // Otros
-                { id: 901, nombre: "Casa de Wendy", descripcion: "Edición especial", tipo: "simple", precio: 18.00, localId: 500, imagen: "https://via.placeholder.com/300/FF6F00/ffffff?text=Libro" }
+                
+                // Casa de Wendy (id 6000)
+                { id: 60000, nombre: "Casa de Wendy", descripcion: "Edición especial", tipo: "simple", precio: 18.00, localId: 6000, imagen: "https://via.placeholder.com/300/FF6F00/ffffff?text=Libro" }
             ]
         };
 
-        // ============================================================
-        // ========== FIN CONFIGURACIÓN ===============================
-        // ============================================================
-
-        // Set de IDs de locales que tienen productos (menú)
+        // Set de IDs de locales que tienen productos
         const localesConMenu = new Set(datosGOXPRESS.productos.map(p => p.localId));
 
         // Variables globales
@@ -1104,30 +1423,78 @@
         const selectCategoriaMovil = document.getElementById('select-categoria-movil');
         const buscadorInput = document.getElementById('buscador-local');
         const distanciaInfo = document.getElementById('distancia-info');
-        // Modal elementos
         const modalConfirmar = document.getElementById('modal-confirmar-envio');
+        const modalLocalCerrado = document.getElementById('modal-local-cerrado');
+        const cerrarModalCerrado = document.getElementById('cerrar-modal-cerrado');
+        const cerrarModalCerradoBtn = document.getElementById('cerrar-modal-cerrado-btn');
         const modalResumen = document.getElementById('modal-resumen');
         const costoEnvioInput = document.getElementById('costo-envio-modal');
         const cerrarModal = document.getElementById('cerrar-modal');
         const cancelarEnvio = document.getElementById('cancelar-envio');
         const confirmarEnvioLocal = document.getElementById('confirmar-envio-local');
+        const musicaFondo = document.getElementById('musica-fondo');
+        const sonidoConfirmar = document.getElementById('sonido-confirmar');
 
         const placeholderBase64 = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Crect width='150' height='150' fill='%23cccccc'/%3E%3Ctext x='50%25' y='50%25' font-size='16' text-anchor='middle' dy='.3em' fill='%23333'%3EImagen%3C/text%3E%3C/svg%3E";
 
-        // Función para determinar si un local está abierto según su horario
-        function estaAbierto(horario) {
-            if (horario.includes('24 horas')) return true;
-            const match = horario.match(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})/);
-            if (!match) return false; // no se pudo parsear, asumimos cerrado
-            const start = parseInt(match[1]) * 60 + parseInt(match[2]);
-            const end = parseInt(match[3]) * 60 + parseInt(match[4]);
+        // ===== FUNCIÓN MEJORADA DE HORARIOS =====
+        function estaAbierto(local) {
             const now = new Date();
-            const current = now.getHours() * 60 + now.getMinutes();
-            if (end < start) {
-                // cruza medianoche
-                return current >= start || current < end;
+            const diaSemana = now.getDay(); // 0 = Domingo, 1 = Lunes, ..., 6 = Sábado
+            const minutosActuales = now.getHours() * 60 + now.getMinutes();
+
+            // --- Reglas especiales por local ---
+            if (local.id === 3) { // BerdiGrill
+                if (diaSemana === 1) return false; // Lunes cerrado
+                if (diaSemana >= 2 && diaSemana <= 5) { // Martes a Viernes
+                    return minutosActuales >= 18 * 60 && minutosActuales < 22 * 60;
+                }
+                if (diaSemana === 0 || diaSemana === 6) { // Sábado y Domingo
+                    return minutosActuales >= 17 * 60 && minutosActuales < 23 * 60;
+                }
+                return false;
+            }
+
+            // --- Detectar 24 horas ---
+            if (local.horario.includes('24 horas') || local.horario.includes('0:00-00:01')) {
+                return true;
+            }
+
+            // --- Parseo general de horarios con días ---
+            const diasMap = { 'lun': 1, 'mar': 2, 'mié': 3, 'mie': 3, 'jue': 4, 'vie': 5, 'sáb': 6, 'sab': 6, 'dom': 0 };
+            const partes = local.horario.toLowerCase().split(' ');
+            if (partes.length < 2) return false;
+
+            const rangoDias = partes[0].split('-');
+            if (rangoDias.length !== 2) return false;
+
+            const diaInicio = diasMap[rangoDias[0].substring(0,3)];
+            const diaFin = diasMap[rangoDias[1].substring(0,3)];
+            if (diaInicio === undefined || diaFin === undefined) return false;
+
+            let diaValido = false;
+            if (diaInicio <= diaFin) {
+                diaValido = diaSemana >= diaInicio && diaSemana <= diaFin;
+            } else { // cruza el fin de semana (ej. Vie-Dom)
+                diaValido = diaSemana >= diaInicio || diaSemana <= diaFin;
+            }
+            if (!diaValido) return false;
+
+            // Parsear horas
+            const horaPartes = partes[1].split('-');
+            if (horaPartes.length !== 2) return false;
+            const inicio = horaPartes[0].split(':').map(Number);
+            const fin = horaPartes[1].split(':').map(Number);
+            if (inicio.length < 2 || fin.length < 2) return false;
+
+            const minutosInicio = inicio[0] * 60 + inicio[1];
+            let minutosFin = fin[0] * 60 + fin[1];
+
+            // Si el horario cruza la medianoche (ej. 22:00-02:00)
+            if (minutosFin < minutosInicio) {
+                return minutosActuales >= minutosInicio || minutosActuales < minutosFin;
             } else {
-                return current >= start && current < end;
+                return minutosActuales >= minutosInicio && minutosActuales < minutosFin;
             }
         }
 
@@ -1148,7 +1515,6 @@
             return calcularDistanciaHaversine(lat1, lon1, lat2, lon2) * FACTOR_CORRECCION;
         }
 
-        // Tarifa: hasta 4 km = $2.00, luego cada 0.5 km adicional = $0.25
         function calcularTarifa(distancia) {
             if (distancia <= 4) return 2.00;
             const exceso = Math.ceil((distancia - 4) / 0.5);
@@ -1161,6 +1527,9 @@
                 mostrarLocales();
                 actualizarContadores();
                 initFiltro();
+                // Configurar volumen de audio
+                musicaFondo.volume = 0.2;
+                sonidoConfirmar.volume = 0.5;
             } catch (e) {
                 console.error('Error en inicialización:', e);
             }
@@ -1197,20 +1566,15 @@
                 (searchTerm.trim() === '' || l.nombre.toLowerCase().includes(searchTerm.toLowerCase().trim()))
             );
             
-            // Separar en dos grupos: con menú y sin menú
             const conMenu = localesFiltrados.filter(l => localesConMenu.has(l.id));
             const sinMenu = localesFiltrados.filter(l => !localesConMenu.has(l.id));
-            
-            // Ordenar alfabéticamente cada grupo
             conMenu.sort((a, b) => a.nombre.localeCompare(b.nombre));
             sinMenu.sort((a, b) => a.nombre.localeCompare(b.nombre));
-            
-            // Unir los grupos (primero con menú, luego sin menú)
             const localesOrdenados = conMenu.concat(sinMenu);
             
             container.innerHTML = localesOrdenados.map(local => {
                 const tieneMenu = localesConMenu.has(local.id);
-                const abierto = estaAbierto(local.horario);
+                const abierto = estaAbierto(local);
                 return `
                     <div class="card-local ${tieneMenu ? '' : 'sin-menu'}" 
                          onclick="${tieneMenu ? `seleccionarLocal(${local.id})` : 'return false;'}" 
@@ -1229,6 +1593,14 @@
             const local = datosGOXPRESS.locales.find(l => l.id === localId);
             if (!local) return;
 
+            if (!estaAbierto(local)) {
+                mostrarModalLocalCerrado();
+                return;
+            }
+
+            // Intentar reproducir música de fondo con volumen bajo
+            musicaFondo.play().catch(e => console.log('Autoplay bloqueado:', e));
+
             if (carrito.length > 0 && carrito[0].localId !== localId) {
                 if (confirm("Ya tienes productos de otro local en tu carrito. ¿Deseas reiniciar el carrito y seleccionar este nuevo local?")) {
                     carrito = [];
@@ -1246,12 +1618,10 @@
             document.querySelector('.filtro-categorias').style.display = 'none';
             document.getElementById('select-categoria-movil').style.display = 'none';
 
-            // Limpiar distancia anterior y mostrar mensaje de carga
             distanciaInfo.innerHTML = '📍 Obteniendo tu ubicación para calcular el envío...';
             sessionStorage.removeItem('distancia_km');
             sessionStorage.removeItem('tarifa_envio');
 
-            // Mostrar productos
             const productos = datosGOXPRESS.productos.filter(p => p.localId === localId);
             let html = `<h2>${local.nombre}</h2><div class="productos-grid">`;
             if (productos.length === 0) {
@@ -1335,7 +1705,7 @@
             html += `</div>`;
             document.getElementById('productos-local').innerHTML = html;
 
-            // ----- Solicitar ubicación y calcular distancia -----
+            // Calcular distancia si el local tiene coordenadas
             if (!local.lat || !local.lng) {
                 distanciaInfo.innerHTML = '⚠️ Este local no tiene coordenadas registradas. El envío se definirá manualmente.';
                 return;
@@ -1346,47 +1716,40 @@
                 return;
             }
 
-            const options = {
-                enableHighAccuracy: true,
-                timeout: 10000,
-                maximumAge: 0
-            };
-
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const userLat = position.coords.latitude;
                     const userLng = position.coords.longitude;
-                    
-                    // Calcular distancia corregida
                     const distancia = calcularDistanciaCorregida(userLat, userLng, local.lat, local.lng);
                     const tarifa = calcularTarifa(distancia);
-
                     sessionStorage.setItem('distancia_km', distancia.toFixed(2));
                     sessionStorage.setItem('tarifa_envio', tarifa.toFixed(2));
-
                     distanciaInfo.innerHTML = `✅ Distancia estimada: ${distancia.toFixed(2)} km - Costo de envío: $${tarifa.toFixed(2)}`;
                 },
                 (error) => {
                     console.warn('Error obteniendo ubicación:', error);
-                    let mensaje = '⚠️ No se pudo obtener tu ubicación. ';
-                    switch(error.code) {
-                        case error.PERMISSION_DENIED:
-                            mensaje += 'Permiso denegado. Puedes habilitarlo en el navegador.';
-                            break;
-                        case error.POSITION_UNAVAILABLE:
-                            mensaje += 'Información de ubicación no disponible.';
-                            break;
-                        case error.TIMEOUT:
-                            mensaje += 'Tiempo de espera agotado.';
-                            break;
-                    }
-                    distanciaInfo.innerHTML = mensaje + ' El envío se definirá manualmente.';
+                    distanciaInfo.innerHTML = '⚠️ No se pudo obtener tu ubicación. El envío se definirá manualmente.';
                     sessionStorage.removeItem('distancia_km');
                     sessionStorage.removeItem('tarifa_envio');
                 },
-                options
+                { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
             );
         };
+
+        function mostrarModalLocalCerrado() {
+            modalLocalCerrado.classList.add('visible');
+        }
+
+        if (cerrarModalCerrado) {
+            cerrarModalCerrado.addEventListener('click', () => {
+                modalLocalCerrado.classList.remove('visible');
+            });
+        }
+        if (cerrarModalCerradoBtn) {
+            cerrarModalCerradoBtn.addEventListener('click', () => {
+                modalLocalCerrado.classList.remove('visible');
+            });
+        }
 
         // ----- Funciones de agregado al carrito -----
         window.agregarSimple = function(id, nombre, precio, localId, descripcion = '') {
@@ -1517,6 +1880,8 @@
             mostrarLocales();
             sessionStorage.removeItem('distancia_km');
             sessionStorage.removeItem('tarifa_envio');
+            // Pausar música al volver
+            musicaFondo.pause();
         });
 
         siguienteBtn.addEventListener('click', (e) => {
@@ -1560,8 +1925,25 @@
             document.getElementById('resumen-checkout').innerHTML = html;
         }
 
-        formCheckout.addEventListener('submit', (e) => {
+        // Función para obtener ubicación actual
+        function obtenerUbicacionActual() {
+            return new Promise((resolve, reject) => {
+                if (!navigator.geolocation) {
+                    reject(new Error('Geolocalización no soportada'));
+                } else {
+                    navigator.geolocation.getCurrentPosition(
+                        pos => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+                        err => reject(err),
+                        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+                    );
+                }
+            });
+        }
+
+        // Manejo del envío del formulario
+        formCheckout.addEventListener('submit', async (e) => {
             e.preventDefault();
+
             const nombre = document.getElementById('nombre').value;
             const cedula = document.getElementById('cedula').value;
             const codigoPais = document.getElementById('codigo-pais').value;
@@ -1576,7 +1958,7 @@
                 itemsPorLocal[item.localId].push(item);
             });
 
-            // Verificar que se haya calculado la distancia
+            // Obtener distancia y tarifa
             const distancia = parseFloat(sessionStorage.getItem('distancia_km') || 0);
             const tarifaEnvio = distancia ? calcularTarifa(distancia) : null;
             if (tarifaEnvio === null) {
@@ -1584,12 +1966,21 @@
                 return;
             }
 
-            // Calcular totales
             const subtotal = carrito.reduce((acc, i) => acc + i.precio * i.cantidad, 0);
             const totalGeneral = subtotal + tarifaEnvio;
 
+            // Obtener ubicación en tiempo real para incluir enlace
+            let ubicacionLink = '';
+            try {
+                const ubicacion = await obtenerUbicacionActual();
+                ubicacionLink = `https://www.google.com/maps?q=${ubicacion.lat},${ubicacion.lng}`;
+            } catch (error) {
+                console.warn('No se pudo obtener ubicación para el enlace:', error);
+                ubicacionLink = 'No disponible';
+            }
+
             // Mensaje para administrador
-            let mensajeAdmin = `🔔 *NUEVO PEDIDO PENDIENTE - GOXPRESS* 🔔\n\n👤 *Cliente:* ${nombre}\n🆔 *Cédula:* ${cedula}\n📞 *Teléfono:* ${telefonoCompleto}\n📍 *Dirección:* ${direccion}\n\n🛍️ *Productos solicitados:*\n`;
+            let mensajeAdmin = `🔔 *NUEVO PEDIDO PENDIENTE - GOXPRESS* 🔔\n\n👤 *Cliente:* ${nombre}\n🆔 *Cédula:* ${cedula}\n📞 *Teléfono:* ${telefonoCompleto}\n📍 *Dirección:* ${direccion}\n📍 *Ubicación:* ${ubicacionLink}\n\n🛍️ *Productos solicitados:*\n`;
             for (const localId in itemsPorLocal) {
                 const local = datosGOXPRESS.locales.find(l => l.id == localId);
                 const items = itemsPorLocal[localId];
@@ -1606,19 +1997,21 @@
             // Guardar datos para el modal
             const pedidoData = {
                 nombre, cedula, telefonoCompleto, direccion, metodoPago,
-                itemsPorLocal, subtotal, distancia, tarifaEnvio, totalGeneral
+                itemsPorLocal, subtotal, distancia, tarifaEnvio, totalGeneral,
+                ubicacionLink
             };
             sessionStorage.setItem('pedidoPendiente', JSON.stringify(pedidoData));
 
-            // Mostrar modal para confirmar envío al local
             mostrarModalConfirmacion(pedidoData);
         });
 
         function mostrarModalConfirmacion(pedido) {
-            // Mostrar resumen en el modal
             let resumenHtml = `<p><strong>Cliente:</strong> ${pedido.nombre}</p>`;
             resumenHtml += `<p><strong>Teléfono:</strong> ${pedido.telefonoCompleto}</p>`;
             resumenHtml += `<p><strong>Dirección:</strong> ${pedido.direccion}</p>`;
+            if (pedido.ubicacionLink && pedido.ubicacionLink !== 'No disponible') {
+                resumenHtml += `<p><strong>📍 Ubicación:</strong> <a href="${pedido.ubicacionLink}" target="_blank">Ver en mapa</a></p>`;
+            }
             resumenHtml += `<p><strong>Productos:</strong></p><ul style="margin-left:1rem;">`;
             for (const localId in pedido.itemsPorLocal) {
                 const local = datosGOXPRESS.locales.find(l => l.id == localId);
@@ -1636,11 +2029,16 @@
             modalResumen.innerHTML = resumenHtml;
 
             costoEnvioInput.value = pedido.tarifaEnvio.toFixed(2);
+
+            const confirmBtn = document.getElementById('confirmar-envio-local');
+            confirmBtn.classList.add('btn-pulse');
+
             modalConfirmar.classList.add('visible');
         }
 
         function cerrarModalConfirmacion() {
             modalConfirmar.classList.remove('visible');
+            document.getElementById('confirmar-envio-local').classList.remove('btn-pulse');
             sessionStorage.removeItem('pedidoPendiente');
         }
 
@@ -1654,6 +2052,11 @@
         });
 
         confirmarEnvioLocal.addEventListener('click', () => {
+            document.getElementById('confirmar-envio-local').classList.remove('btn-pulse');
+
+            // Reproducir sonido de confirmación
+            sonidoConfirmar.play().catch(e => console.log('Error reproduciendo sonido:', e));
+
             const costoEnvio = parseFloat(costoEnvioInput.value);
             if (isNaN(costoEnvio) || costoEnvio < 0) {
                 alert('Ingresa un costo de envío válido');
@@ -1667,15 +2070,17 @@
                 return;
             }
 
-            // Obtener el local (solo hay uno)
             const localId = parseInt(Object.keys(pedido.itemsPorLocal)[0]);
             const local = datosGOXPRESS.locales.find(l => l.id === localId);
             const items = pedido.itemsPorLocal[localId];
             const totalConEnvio = pedido.subtotal + costoEnvio;
             const pagoNota = totalConEnvio > 30 ? `\n💳 *IMPORTANTE:* El total supera los $30, el pago debe realizarse por transferencia bancaria.` : '';
 
-            // Mensaje para el local
-            let mensajeLocal = `🔔 *NUEVO PEDIDO GOXPRESS - ${local.nombre}* 🔔\n\n👤 *Cliente:* ${pedido.nombre}\n🆔 *Cédula:* ${pedido.cedula}\n📞 *Teléfono:* ${pedido.telefonoCompleto}\n📍 *Dirección de entrega:* ${pedido.direccion}\n\n🛍️ *Detalle del pedido:*\n`;
+            let mensajeLocal = `🔔 *NUEVO PEDIDO GOXPRESS - ${local.nombre}* 🔔\n\n👤 *Cliente:* ${pedido.nombre}\n🆔 *Cédula:* ${pedido.cedula}\n📞 *Teléfono:* ${pedido.telefonoCompleto}\n📍 *Dirección de entrega:* ${pedido.direccion}\n`;
+            if (pedido.ubicacionLink && pedido.ubicacionLink !== 'No disponible') {
+                mensajeLocal += `📍 *Ubicación exacta:* ${pedido.ubicacionLink}\n`;
+            }
+            mensajeLocal += `\n🛍️ *Detalle del pedido:*\n`;
             items.forEach(i => {
                 const desc = i.descripcion ? ` (${i.descripcion})` : '';
                 mensajeLocal += `   • ${i.nombre}${desc} x${i.cantidad} = $${(i.precio * i.cantidad).toFixed(2)}\n`;
@@ -1684,7 +2089,6 @@
 
             window.open(`https://wa.me/${local.whatsapp}?text=${encodeURIComponent(mensajeLocal)}`, '_blank');
 
-            // Limpiar carrito y datos de sesión
             carrito = [];
             localStorage.removeItem('carrito');
             actualizarContadores();
@@ -1692,11 +2096,9 @@
             sessionStorage.removeItem('distancia_km');
             sessionStorage.removeItem('tarifa_envio');
 
-            // Cerrar modal y mostrar gracias
             modalConfirmar.classList.remove('visible');
             mostrarVista('gracias');
 
-            // Recuperar el foco
             setTimeout(() => window.focus(), 500);
         });
 
@@ -1742,6 +2144,8 @@
                 sessionStorage.removeItem('distancia_km');
                 sessionStorage.removeItem('tarifa_envio');
                 sessionStorage.removeItem('pedidoPendiente');
+                // Pausar música al salir
+                musicaFondo.pause();
             }
             actualizarBotonSiguiente();
         }
