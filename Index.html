@@ -1302,7 +1302,7 @@
 
                 // ==================== ROPA ====================
                 { id: 6000, nombre: "Casa de Wendy", categoria: "Ropa", horario: "Lun-Dom Cerrado", imagen: "https://ideogram.ai/assets/image/balanced/response/NQD9YT7jQR-N6lY5g5Tzgw@2k", whatsapp: "593999740997", lat: 1.264227, lng: -78.622724 },
-            	
+                
                 // ==================== OTROS ====================
             ],
 
@@ -2323,11 +2323,19 @@
                 ubicacionLink = 'No disponible';
             }
 
+            // Mensaje para el administrador (incluye ubicación del local)
             let mensajeAdmin = `🔔 *NUEVO PEDIDO PENDIENTE - GOXPRESS* 🔔\n\n👤 *Cliente:* ${nombre}\n🆔 *Cédula:* ${cedula}\n📞 *Teléfono:* ${telefonoCompleto}\n📍 *Dirección:* ${direccion}\n📍 *Ubicación:* ${ubicacionLink}\n\n🛍️ *Productos solicitados:*\n`;
             for (const localId in itemsPorLocal) {
                 const local = datosGOXPRESS.locales.find(l => l.id == localId);
                 const items = itemsPorLocal[localId];
                 mensajeAdmin += `\n🏪 *${local.nombre}:*\n`;
+                // === NUEVA LÍNEA: Ubicación del local para el administrador ===
+                if (local.lat && local.lng) {
+                    mensajeAdmin += `   📍 *Ubicación del local:* https://www.google.com/maps?q=${local.lat},${local.lng}\n`;
+                } else {
+                    mensajeAdmin += `   📍 *Ubicación del local:* No disponible\n`;
+                }
+                // =============================================================
                 items.forEach(i => {
                     const desc = i.descripcion ? ` (${i.descripcion})` : '';
                     mensajeAdmin += `   • ${i.nombre}${desc} x${i.cantidad} = $${(i.precio * i.cantidad).toFixed(2)}\n`;
@@ -2417,6 +2425,7 @@
             const totalConEnvio = pedido.subtotal + costoEnvio;
             const pagoNota = totalConEnvio > 30 ? `\n💳 *IMPORTANTE:* El total supera los $30, el pago debe realizarse por transferencia bancaria.` : '';
 
+            // Mensaje para el local (sin ubicación del local)
             let mensajeLocal = `🔔 *NUEVO PEDIDO GOXPRESS - ${local.nombre}* 🔔\n\n👤 *Cliente:* ${pedido.nombre}\n🆔 *Cédula:* ${pedido.cedula}\n📞 *Teléfono:* ${pedido.telefonoCompleto}\n📍 *Dirección de entrega:* ${pedido.direccion}\n`;
             if (pedido.ubicacionLink && pedido.ubicacionLink !== 'No disponible') {
                 mensajeLocal += `📍 *Ubicación exacta:* ${pedido.ubicacionLink}\n`;
